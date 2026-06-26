@@ -1,1 +1,159 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart | MM Trackers</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+.cart-box{
+max-width:900px;
+margin:40px auto;
+background:#fff;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+padding:15px;
+border-bottom:1px solid #ddd;
+}
+
+.checkout{
+background:#25D366;
+color:white;
+padding:15px 30px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:18px;
+margin-top:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+MM <span>Trackers</span>
+</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="products.html">Products</a>
+
+<a href="cart.html">Cart</a>
+
+</nav>
+
+</header>
+
+<div class="cart-box">
+
+<h2>Your Cart</h2>
+
+<div id="cartItems"></div>
+
+<button class="checkout" onclick="checkout()">
+
+Checkout on WhatsApp
+
+</button>
+
+</div>
+
+<script>
+
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+let cartDiv=document.getElementById("cartItems");
+
+function loadCart(){
+
+cartDiv.innerHTML="";
+
+if(cart.length==0){
+
+cartDiv.innerHTML="<p>Your cart is empty.</p>";
+
+return;
+
+}
+
+cart.forEach((item,index)=>{
+
+cartDiv.innerHTML+=`
+
+<div class="cart-item">
+
+<span>${item}</span>
+
+<button onclick="removeItem(${index})">
+
+Remove
+
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+function removeItem(i){
+
+cart.splice(i,1);
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+loadCart();
+
+}
+
+function checkout(){
+
+if(cart.length==0){
+
+alert("Cart is empty");
+
+return;
+
+}
+
+let message="Hello MM Trackers,%0A%0AI would like to order:%0A%0A";
+
+cart.forEach(item=>{
+
+message+="• "+item+"%0A";
+
+});
+
+window.open(
+
+"https://wa.me/923159615557?text="+message,
+
+"_blank"
+
+);
+
+}
+
+loadCart();
+
+</script>
+
+</body>
+</html>
