@@ -1,1 +1,76 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MM Trackers - Products</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+
+<h1>MM Trackers</h1>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="products.html">Products</a>
+
+<a href="cart.html">Cart</a>
+
+</nav>
+
+</header>
+
+<section class="products">
+
+<h2>Our GPS Trackers</h2>
+
+<div id="products-container" class="product-grid"></div>
+
+</section>
+
+<script src="js/products.js"></script>
+
+<script>
+
+const container=document.getElementById("products-container");
+
+products.forEach(product=>{
+
+container.innerHTML+=`
+
+<div class="product-card">
+
+<img src="${product.image}" alt="${product.name}">
+
+<h3>${product.name}</h3>
+
+<p>${product.description}</p>
+
+<h2>PKR ${product.price}</h2>
+
+<button onclick="alert('Added to Cart')">
+
+Add To Cart
+
+</button>
+
+</div>
+
+`;
+
+});
+
+</script>
+
+</body>
+
+</html>
