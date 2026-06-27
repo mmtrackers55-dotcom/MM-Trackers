@@ -53,7 +53,7 @@ color:#00d084;
 .hero{
 background:
 linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-url("../images/banner.jpg");
+url("../images/banner.jpg")
 background-size:cover;
 background-position:center;
 }
