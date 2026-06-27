@@ -45,17 +45,12 @@ color:#00d084;
 }
 
 .hero{
-height:85vh;
-background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-url("images/banner.jpg") center/cover;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-color:white;
-padding:20px;
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+url("../images/banner.jpg");
+background-size:cover;
+background-position:center;
 }
-
 .hero h1{
 font-size:52px;
 margin-bottom:20px;
