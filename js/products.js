@@ -1,13 +1,12 @@
 {
 id:1,
 name:"SinoTrack ST-901A Real-Time GPS Tracker for Cars & Bikes",
-price:6999,
 
 images:[
-"images/st901A-1.jpg",
-"images/st901A-2.jpg",
-"images/st901A-3.jpg",
-"images/st901A-4.jpg"
+"images/901A-1.jpg",
+"images/901A-2.jpg",
+"images/901A-3.jpg",
+"images/901A-4.jpg"
 ],
 
 description:`SinoTrack ST-901A GPS Vehicle Tracker
