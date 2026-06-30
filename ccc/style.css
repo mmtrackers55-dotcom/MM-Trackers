@@ -179,12 +179,11 @@ nav a:hover{
     gap:30px;
 }
 
-.product-card{
-    background:#fff;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
-    transition:.3s;
+.product-card p{
+    padding:0 15px;
+    margin-bottom:15px;
+    line-height:1.6;
+    white-space:pre-line;
 }
 
 .product-card:hover{
