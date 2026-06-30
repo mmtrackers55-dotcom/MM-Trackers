@@ -40,7 +40,7 @@ Main Features:[
 "🚘 Suitable For",
 "• Cars",
 "• Bikes",
-"• Commercial & Personal Vehicles",
+"• Commercial & Personal Vehicles"
 ]
 },
 
