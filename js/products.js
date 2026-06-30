@@ -8,7 +8,6 @@ images:[
 "images/901A-3.jpg",
 "images/901A-4.jpg"
 ],
-
 description:`SinoTrack ST-901A GPS Vehicle Tracker
 
 Keep your vehicle secure with the SinoTrack ST-901A GPS Tracker, a reliable real-time vehicle monitoring device designed for cars, bikes, trucks, and fleets.
