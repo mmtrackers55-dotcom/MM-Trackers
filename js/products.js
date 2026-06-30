@@ -4,8 +4,8 @@ id:1,
 name:"SinoTrack ST-901A",
 price:6999,
 images:[
-"images/ST901A-1.jpg",
-"images/ST901A-2.jpg"
+"images/901A-1.jpg",
+"images/901A-2.jpg"
 ],
 description:"GPS Tracker",
 features:[
