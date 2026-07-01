@@ -43,7 +43,9 @@ header{
 }
 
 .logo img{
-    height:55px;
+    height:40px;
+    width:auto;
+    display:block;
 }
 
 nav{
