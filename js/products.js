@@ -1,8 +1,6 @@
 {
 id:1,
 name:"SinoTrack ST-901A Real-Time GPS Tracker for Cars & Bikes",
-price:6999,
-
 images:[
 "images/901A-1.jpg",
 "images/901A-2.jpg",
