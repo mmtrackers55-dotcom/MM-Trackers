@@ -872,7 +872,187 @@ nav{
 }
 
 }
+/*==================================
+            HERO SECTION
+==================================*/
 
+.hero{
+
+    background:linear-gradient(135deg,#0b1f3a,#143d72);
+
+    color:#fff;
+
+    padding:70px 8%;
+
+}
+
+.hero-container{
+
+    max-width:1300px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1.1fr 1fr;
+
+    gap:50px;
+
+    align-items:center;
+
+}
+
+.hero-text .official{
+
+    display:inline-block;
+
+    background:#00a651;
+
+    color:#fff;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+.hero-text h1{
+
+    font-size:54px;
+
+    line-height:1.2;
+
+    margin-bottom:20px;
+
+}
+
+.hero-text p{
+
+    font-size:18px;
+
+    color:#d8d8d8;
+
+    margin-bottom:30px;
+
+    line-height:1.8;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:35px;
+
+}
+
+.hero-image{
+
+    text-align:center;
+
+}
+
+.hero-image img{
+
+    max-width:520px;
+
+    width:100%;
+
+    animation:float 4s ease-in-out infinite;
+
+}
+
+/*==================================
+        TRUST STRIP
+==================================*/
+
+.trust-strip{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:15px;
+
+    margin-top:40px;
+
+}
+
+.trust-box-home{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(8px);
+
+    padding:18px;
+
+    border-radius:12px;
+
+    text-align:center;
+
+}
+
+.trust-box-home i{
+
+    color:#00d084;
+
+    font-size:30px;
+
+    margin-bottom:10px;
+
+}
+
+.trust-box-home h3{
+
+    font-size:17px;
+
+    margin-bottom:8px;
+
+}
+
+.trust-box-home p{
+
+    font-size:14px;
+
+    color:#ddd;
+
+}
+
+/*==================================
+        FLOAT ANIMATION
+==================================*/
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
 /*=================================================
                 END OF STYLE.CSS
 ==================================================*/
