@@ -19,25 +19,26 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 
 <header>
 
 <div class="navbar">
-<a href="index.html" class="logo">
-    <img src="images/logo.png" alt="MM Trackers">
-</a>
+
 <div class="logo">
-    <a href="index.html">
-        <img src="images/logo.png" alt="MM Trackers">
-    </a>
+<a href="index.html">
+<img src="images/logo.png" alt="MM Trackers">
+</a>
 </div>
 
 <nav>
 
 <a href="index.html">Home</a>
+
 <a href="products.html">Products</a>
+
 <a href="#">About</a>
+
 <a href="#">Contact</a>
 
 </nav>
@@ -46,19 +47,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 </header>
 
-<!-- ================= CONTAINER ================= -->
+<!-- MAIN CONTAINER -->
 
 <div class="container">
 
 <div class="product-section">
 
-    <div class="product-images">
-        ...
-    </div>
+<!-- LEFT SIDE -->
 
-    <div class="product-info">
-        ...
-    </div>
+<div class="product-images">
 
 <img
 id="mainImage"
@@ -67,11 +64,16 @@ src="images/901A.jpg"
 alt="SinoTrack ST-901A">
 
 <div class="gallery">
+
+<img src="images/901A.jpg"
+onclick="changeImage(this.src)">
+
 <img src="images/901A-1.jpg"
 onclick="changeImage(this.src)">
 
 <img src="images/901A-2.jpg"
-onclick="changeImage
+onclick="changeImage(this.src)">
+
 <img src="images/901A-3.jpg"
 onclick="changeImage(this.src)">
 
@@ -87,22 +89,80 @@ onclick="changeImage(this.src)">
 <img src="images/901A-7.jpg"
 onclick="changeImage(this.src)">
 
-<img src="images/901A-8.jpg"
-onclick="changeImage(this.src)">
+</div>
 
-<img src="images/901A-9.jpg"
-onclick="changeImage(this.src)">
+</div>
 
+<!-- RIGHT SIDE -->
 
+<div class="product-info">
 
+<div class="badge">
+Best Seller
+</div>
 
+<h1>
+SinoTrack ST-901A GPS Vehicle Tracker
+</h1>
 
+<div class="rating">
 
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
 
+<span>5.0</span>
 
+</div>
 
+<div class="price">
 
+Rs. 8,500
 
+</div>
+
+<p class="short-description">
+
+Professional GPS Vehicle Tracker with real-time live location,
+travel history, ignition status, mileage, speed monitoring,
+engine cut-off, Android App, iOS App, Website and SMS support.
+
+</p>
+
+<div class="buttons">
+
+<button class="btn cart-btn">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+&nbsp;
+
+Add To Cart
+
+</button>
+
+<a
+href="https://wa.me/923159615557"
+target="_blank"
+class="btn whatsapp-btn">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+&nbsp;
+
+Buy on WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="product-content">
 
 <!-- ================= DESCRIPTION ================= -->
 
@@ -112,18 +172,14 @@ onclick="changeImage(this.src)">
 
 <p>
 
-The SinoTrack ST-901A GPS Vehicle Tracker is a reliable real-time vehicle
-tracking device suitable for cars, motorcycles, vans, trucks and fleet
-management.
+The SinoTrack ST-901A is a professional GPS vehicle tracker designed for
+cars, motorcycles, trucks, buses and fleet vehicles.
 
-Monitor your vehicle anytime using the Android App, iOS App, Web Platform
-or SMS commands.
+Using the Android App, iOS App, Website or SMS commands, you can monitor
+your vehicle anywhere in real time.
 
-Track accurate live location, ignition status, travel history, speed,
-mileage and many other vehicle parameters from anywhere.
-
-It also supports remote engine cut-off (optional), geo-fence alerts,
-overspeed notifications and intelligent alarms for better vehicle security.
+Track live location, travel history, mileage, speed, ignition status and
+receive instant security alerts for complete peace of mind.
 
 </p>
 
@@ -137,17 +193,17 @@ overspeed notifications and intelligent alarms for better vehicle security.
 
 <ul class="features">
 
-<li><i class="fa-solid fa-location-dot"></i> Real-Time Live Location Tracking</li>
+<li><i class="fa-solid fa-location-dot"></i> Real-Time Live GPS Tracking</li>
 
-<li><i class="fa-solid fa-mobile-screen-button"></i> Android & iOS Application Support</li>
+<li><i class="fa-solid fa-mobile-screen-button"></i> Android & iOS App Support</li>
 
-<li><i class="fa-solid fa-globe"></i> Web Tracking Platform</li>
+<li><i class="fa-solid fa-globe"></i> Live Tracking via Website</li>
 
 <li><i class="fa-solid fa-satellite-dish"></i> GPS + GSM Positioning</li>
 
 <li><i class="fa-solid fa-power-off"></i> Remote Engine Cut-Off (Optional)</li>
 
-<li><i class="fa-solid fa-key"></i> ACC Ignition Status Monitoring</li>
+<li><i class="fa-solid fa-key"></i> ACC Ignition ON/OFF Monitoring</li>
 
 <li><i class="fa-solid fa-clock-rotate-left"></i> Travel History Playback</li>
 
@@ -157,7 +213,125 @@ overspeed notifications and intelligent alarms for better vehicle security.
 
 <li><i class="fa-solid fa-bell"></i> Overspeed Alarm</li>
 
-<li><i class="fa-solid fa-draw-polygon"></i> Geo-Fence
+<li><i class="fa-solid fa-draw-polygon"></i> Geo-Fence Alerts</li>
+
+<li><i class="fa-solid fa-car-burst"></i> Shock & Vibration Alarm</li>
+
+<li><i class="fa-solid fa-car-battery"></i> Backup Battery</li>
+
+<li><i class="fa-solid fa-shield-halved"></i> Vehicle Anti-Theft Protection</li>
+
+<li><i class="fa-solid fa-sim-card"></i> GSM SIM Card Supported</li>
+
+</ul>
+
+</div>
+
+<!-- ================= SPECIFICATIONS ================= -->
+
+<div class="section-card">
+
+<h2>Technical Specifications</h2>
+
+<table class="spec-table">
+
+<tr>
+<td>Model</td>
+<td>SinoTrack ST-901A</td>
+</tr>
+
+<tr>
+<td>Network</td>
+<td>GSM / GPRS</td>
+</tr>
+
+<tr>
+<td>Working Voltage</td>
+<td>9V - 90V DC</td>
+</tr>
+
+<tr>
+<td>GPS Accuracy</td>
+<td>5 - 10 Meters</td>
+</tr>
+
+<tr>
+<td>Tracking Methods</td>
+<td>Android App, iOS App, Website & SMS</td>
+</tr>
+
+<tr>
+<td>Positioning</td>
+<td>GPS + GSM</td>
+</tr>
+
+<tr>
+<td>Backup Battery</td>
+<td>Built-in Rechargeable Battery</td>
+</tr>
+
+<tr>
+<td>Operating Temperature</td>
+<td>-20°C to +70°C</td>
+</tr>
+
+<tr>
+<td>Waterproof</td>
+<td>No</td>
+</tr>
+
+<tr>
+<td>Warranty</td>
+<td>Seller Warranty</td>
+</tr>
+
+</table>
+
+</div>
+
+<!-- ================= COMPATIBLE VEHICLES ================= -->
+
+<div class="section-card">
+
+<h2>Compatible Vehicles</h2>
+
+<div class="vehicle-grid">
+
+<div class="vehicle-card">
+<i class="fa-solid fa-car"></i>
+<h3>Cars</h3>
+</div>
+
+<div class="vehicle-card">
+<i class="fa-solid fa-motorcycle"></i>
+<h3>Motorcycles</h3>
+</div>
+
+<div class="vehicle-card">
+<i class="fa-solid fa-truck"></i>
+<h3>Trucks</h3>
+</div>
+
+<div class="vehicle-card">
+<i class="fa-solid fa-bus"></i>
+<h3>Buses</h3>
+</div>
+
+<div class="vehicle-card">
+<i class="fa-solid fa-van-shuttle"></i>
+<h3>Vans</h3>
+</div>
+
+<div class="vehicle-card">
+<i class="fa-solid fa-truck-fast"></i>
+<h3>Fleet Vehicles</h3>
+</div>
+
+</div>
+
+</div>
+
+
 <!-- ================= RELATED PRODUCTS ================= -->
 
 <section class="related-products">
@@ -165,6 +339,8 @@ overspeed notifications and intelligent alarms for better vehicle security.
 <h2>Related Products</h2>
 
 <div class="product-grid">
+
+<!-- Product 1 -->
 
 <div class="product-card">
 
@@ -175,8 +351,8 @@ overspeed notifications and intelligent alarms for better vehicle security.
 <h3>SinoTrack ST-905</h3>
 
 <p>
-Waterproof GPS Tracker with long battery life,
-ideal for motorcycles and vehicles.
+Waterproof GPS tracker with long battery life.
+Ideal for motorcycles and vehicles.
 </p>
 
 <div class="product-price">
@@ -191,17 +367,19 @@ View Details
 
 </div>
 
+<!-- Product 2 -->
+
 <div class="product-card">
 
-<img src="images/906L.jpg" alt="SinoTrack ST-906">
+<img src="images/906.jpg" alt="SinoTrack ST-906">
 
 <div class="product-card-content">
 
 <h3>SinoTrack ST-906</h3>
 
 <p>
-4G GPS Vehicle Tracker with accurate live tracking,
-ACC monitoring and engine immobilizer support.
+4G GPS Vehicle Tracker with ACC monitoring,
+live tracking and engine immobilizer.
 </p>
 
 <div class="product-price">
@@ -216,6 +394,8 @@ View Details
 
 </div>
 
+<!-- Product 3 -->
+
 <div class="product-card">
 
 <img src="images/903.jpg" alt="Mini GPS Tracker">
@@ -225,75 +405,12 @@ View Details
 <h3>Mini GPS Tracker</h3>
 
 <p>
-Compact rechargeable GPS tracker suitable for
-personal
-<!-- ================= RELATED PRODUCTS ================= -->
-
-<section class="related-products">
-
-<h2>Related Products</h2>
-
-<div class="product-grid">
-
-<div class="product-card">
-
-<img src="images/905l.jpg" alt="SinoTrack ST-905">
-
-<div class="product-card-content">
-
-<h3>SinoTrack ST-905</h3>
-
-<p>
-Waterproof GPS Tracker with long battery life,
-ideal for motorcycles and vehicles.
+Compact rechargeable GPS tracker suitable
+for personal and vehicle tracking.
 </p>
 
 <div class="product-price">
-Rs. 9,500
-</div>
-
-<a href="st-905.html" class="btn cart-btn">
-View Details
-</a>
-
-</div>
-
-</div>
-
-<div class="product-card">
-
-<img src="images/906.jpg" alt="SinoTrack ST-906">
-
-<div class="product-card-content">
-
-<h3>SinoTrack ST-906</h3>
-
-<p>
-4G GPS Vehicle Tracker with accurate live tracking,
-ACC monitoring and engine immobilizer support.
-</p>
-
-<a href="st-906.html" class="btn cart-btn">
-View Details
-</a>
-
-</div>
-
-
-
-<div class="product-card">
-
-<img src="images/903.jpg" alt="Mini GPS Tracker">
-
-<div class="product-card-content">
-
-<h3>Mini GPS Tracker</h3>
-
-<p>
-Compact rechargeable GPS tracker suitable for
-personal and vehicle tracking.
-</p>
-
+Rs. 6,500
 </div>
 
 <a href="mini-gps.html" class="btn cart-btn">
@@ -309,10 +426,10 @@ View Details
 </section>
 
 </div>
-<!-- END PRODUCT CONTENT -->
+<!-- End product-content -->
 
 </div>
-<!-- END CONTAINER -->
+<!-- End container -->
 
 <!-- ================= FOOTER ================= -->
 
@@ -346,9 +463,7 @@ WhatsApp Support Available
 <script>
 
 function changeImage(src){
-
-document.getElementById("mainImage").src = src;
-
+    document.getElementById("mainImage").src = src;
 }
 
 </script>
