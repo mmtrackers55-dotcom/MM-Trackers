@@ -271,5 +271,7 @@ nav a{
 .products h2{
     font-size:30px;
 }
-
+body{
+    font-family:'Poppins',sans-serif;
+}
 }
