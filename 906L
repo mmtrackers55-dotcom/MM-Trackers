@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SinoTrack ST-901A GPS Vehicle Tracker | MM Trackers</title>
+<title>SinoTrack ST-906L GPS Vehicle Tracker | MM Trackers</title>
 
 <link rel="stylesheet" href="ccc/style.css">
 
@@ -61,7 +61,7 @@
 
 <div class="gallery">
 
-<img src="images/901A.jpg" onclick="changeImage(this.src)">
+<img src="images/906L.jpg" onclick="changeImage(this.src)">
 
 <img src="images/901A-1.jpg" onclick="changeImage(this.src)">
 
@@ -91,8 +91,8 @@
 <img
 id="mainImage"
 class="main-image"
-src="images/901A.jpg"
-alt="SinoTrack ST-901A">
+src="images/906L.jpg"
+alt="SinoTrack ST-906L">
 
 </div>
 
@@ -114,7 +114,7 @@ alt="SinoTrack ST-901A">
 
 <h1>
 
-SinoTrack ST-901A GPS Vehicle Tracker for Bikes And Cars
+SinoTrack ST-906L 4G GPS Vehicle Tracker for Cars
 
 </h1>
 
