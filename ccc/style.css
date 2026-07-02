@@ -131,25 +131,23 @@ nav a:hover{
 }
 
 /*=============== PRODUCT SECTION ===============*/
-
 .product-section{
-
     display:grid;
-
-    grid-template-columns:110px 1fr 1fr;
-
+    grid-template-columns:110px 1fr 380px;
     gap:30px;
-
-    background:#fff;
-
-    border-radius:18px;
-
-    padding:30px;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
+    align-items:start;
 }
 
+.product-info{
+    width:380px;
+    position:sticky;
+    top:90px;
+    border:1px solid #d5d9d9;
+    border-radius:8px;
+    padding:20px;
+    background:#fff;
+    box-shadow:none;
+}
 /*=============== THUMBNAILS ===============*/
 
 .gallery{
@@ -195,34 +193,18 @@ nav a:hover{
 /*=============== MAIN IMAGE ===============*/
 
 .image-viewer{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
+    max-width:650px;
+    margin:auto;
 }
 
 .main-image{
-
     width:100%;
-
-    max-width:520px;
-
-    height:520px;
-
+    height:600px;
     object-fit:contain;
-
-    background:#fff;
-
-    border:1px solid #ddd;
-
-    border-radius:15px;
-
-    padding:15px;
-
+    border:none;
+    padding:0;
 }
+
 
 /*=============== PRODUCT INFO ===============*/
 
@@ -316,47 +298,30 @@ nav a:hover{
 /*=================================================
             BUTTONS
 ==================================================*/
-
 .buttons{
     display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-    margin-bottom:30px;
-}
-
-.btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    padding:15px 28px;
-    border-radius:10px;
-    font-size:16px;
-    font-weight:600;
-    transition:.3s;
+    flex-direction:column;
+    gap:12px;
 }
 
 .cart-btn{
-    background:#00a651;
-    color:#fff;
+    background:#FFD814;
+    color:#111;
+    border:1px solid #FCD200;
 }
 
 .cart-btn:hover{
-    background:#008a45;
-    transform:translateY(-2px);
+    background:#F7CA00;
 }
 
 .whatsapp-btn{
-    background:#25D366;
-    color:#fff;
+    background:#FFA41C;
+    color:#111;
 }
 
 .whatsapp-btn:hover{
-    background:#1faa52;
-    transform:translateY(-2px);
-}
-
-/*=================================================
+    background:#FA8900;
+}/*=================================================
             TRUST FEATURES
 ==================================================*/
 
