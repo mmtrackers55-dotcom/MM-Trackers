@@ -1,20 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SinoTrack ST-901A GPS Vehicle Tracker | MM Trackers</title>
+
+<meta name="description" content="Original SinoTrack ST-901A GPS Vehicle Tracker">
+
+<link rel="stylesheet" href="ccc/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
 <!-- ================= HEADER ================= -->
 
 <header>
-    <div class="navbar">
 
-        <a href="index.html" class="logo">
-            <img src="images/logo.jpg" alt="MM Trackers">
-        </a>
+<div class="navbar">
 
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="products.html">Products</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+<div class="logo">
+<a href="index.html">
+<img src="images/logo.jpg" alt="MM Trackers">
+</a>
+</div>
 
-    </div>
+<nav>
+<a href="index.html">Home</a>
+<a href="products.html">Products</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+</div>
+
 </header>
 
 <!-- ================= PRODUCT ================= -->
@@ -23,260 +49,317 @@
 
 <div class="product-section">
 
-    <!-- LEFT THUMBNAILS -->
+<!-- LEFT THUMBNAILS -->
 
-    <div class="gallery">
+<div class="gallery">
 
-        <img src="images/901A.jpg" onclick="changeImage(this.src)">
+<img src="images/901A.jpg" class="active" onclick="changeImage(this.src)">
 
-        <img src="images/901A-1.jpg" onclick="changeImage(this.src)">
+<img src="images/901A-1.jpg" onclick="changeImage(this.src)">
 
-        <img src="images/901A-2.jpg" onclick="changeImage(this.src)">
+<img src="images/901A-2.jpg" onclick="changeImage(this.src)">
 
-        <img src="images/901A-3.jpg" onclick="changeImage(this.src)">
+<img src="images/901A-3.jpg" onclick="changeImage(this.src)">
 
-        <img src="images/901A-4.jpg" onclick="changeImage(this.src)">
+<img src="images/901A-4.jpg" onclick="changeImage(this.src)">
 
-        <img src="images/901A-5.jpg" onclick="changeImage(this.src)">
+<img src="images/901A-5.jpg" onclick="changeImage(this.src)">
 
-        <img src="images/901A-6.jpg" onclick="changeImage(this.src)">
+<img src="images/901A-6.jpg" onclick="changeImage(this.src)">
 
-        <img src="images/901A-7.jpg" onclick="changeImage(this.src)">
+<img src="images/901A-7.jpg" onclick="changeImage(this.src)">
+
+</div>
+
+<!-- MAIN IMAGE -->
+
+<div class="image-viewer">
+
+<img id="mainImage"
+class="main-image"
+src="images/901A.jpg"
+alt="SinoTrack ST-901A GPS Vehicle Tracker">
+
+</div>
+
+<!-- RIGHT BUY BOX -->
+
+<div class="buy-box">
+
+<h1>SinoTrack ST-901A GPS Vehicle Tracker</h1>
+
+<div class="rating">
+
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+
+<span>5.0 Customer Rating</span>
+
+</div>
+
+<hr>
+
+<p class="short-description">
+
+Professional GPS tracking device for cars,
+motorcycles, trucks, buses and fleet management.
+
+Monitor your vehicle using Android App,
+iPhone App, Website or SMS from anywhere.
+
+</p>
+
+<ul class="amazon-features">
+
+<li>✔ Original SinoTrack Product</li>
+
+<li>✔ Live GPS Tracking</li>
+
+<li>✔ Android App</li>
+
+<li>✔ iPhone App</li>
+
+<li>✔ Website Tracking</li>
+
+<li>✔ SMS Tracking</li>
+
+<li>✔ Travel History Playback</li>
+
+<li>✔ Speed Monitoring</li>
+
+<li>✔ ACC Ignition Detection</li>
+
+<li>✔ Geo-Fence Alerts</li>
+
+<li>✔ Remote Engine Cut-Off</li>
+
+<li>✔ 1 Year Warranty</li>
+
+</ul>
+
+<div class="buttons">
+
+<button class="btn cart-btn">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+Add To Cart
+
+</button>
+
+<a href="https://wa.me/923159615557"
+target="_blank"
+class="btn whatsapp-btn">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+Buy on WhatsApp
+
+</a>
+
+</div>
+
+<div class="delivery-box">
+
+<h3>Delivery & Support</h3>
+
+<table>
+
+<tr>
+<td>Availability</td>
+<td>In Stock</td>
+</tr>
+
+<tr>
+<td>Delivery</td>
+<td>All Pakistan</td>
+</tr>
+
+<tr>
+<td>Warranty</td>
+<td>1 Year</td>
+</tr>
+
+<tr>
+<td>Support</td>
+<td>Free Installation Help</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= PRODUCT DETAILS ================= -->
+
+<div class="product-content">
+
+    <!-- TABS SECTION -->
+    <div class="tabs">
+
+        <button class="tab-btn active" onclick="openTab('desc')">
+            Description
+        </button>
+
+        <button class="tab-btn" onclick="openTab('features')">
+            Main Features
+        </button>
+
+        <button class="tab-btn" onclick="openTab('specs')">
+            Technical Specifications
+        </button>
+
+        <button class="tab-btn" onclick="openTab('compat')">
+            Compatible Vehicles
+        </button>
 
     </div>
 
-    <!-- MAIN IMAGE -->
+    <!-- TAB CONTENT -->
 
-    <div class="image-viewer">
+    <div id="desc" class="tab-content active">
 
-        <img id="mainImage"
-             src="images/901A.jpg"
-             class="main-image"
-             alt="SinoTrack ST-901A">
+        <h2>Product Description</h2>
 
-    </div>
-
-    <!-- BUY BOX -->
-
-    <div class="buy-box">
-
-        <h1>SinoTrack ST-901A GPS Vehicle Tracker</h1>
-
-        <div class="rating">
-
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-
-            <span>5.0 Customer Rating</span>
-
-        </div>
-
-        <hr>
-
-        <p class="short-description">
-
-            Professional GPS tracking device for cars,
-            motorcycles, trucks and fleet management.
-
-            Track your vehicle using Android App,
-            iPhone App, Website and SMS.
-
+        <p>
+            SinoTrack ST-901A is a professional-grade GPS tracking device designed for real-time vehicle monitoring.
+            It allows you to track your vehicle anytime using mobile app, web platform or SMS commands.
         </p>
 
-        <ul class="amazon-features">
+        <p>
+            Ideal for personal cars, motorcycles, fleet management, taxis, delivery vans and transport businesses.
+        </p>
 
-            <li>✔ Original SinoTrack Product</li>
+    </div>
 
-            <li>✔ Live GPS Tracking</li>
+    <div id="features" class="tab-content">
 
-            <li>✔ Android & iPhone App</li>
+        <h2>Main Features</h2>
 
-            <li>✔ Website + SMS Tracking</li>
-
-            <li>✔ Ignition Monitoring</li>
-
-            <li>✔ Travel History</li>
-
-            <li>✔ Speed Monitoring</li>
-
-            <li>✔ Geo Fence Alerts</li>
-
-            <li>✔ One Year Warranty</li>
-
+        <ul>
+            <li>Real-time live tracking</li>
+            <li>Mobile app support (Android & iOS)</li>
+            <li>Web-based tracking platform</li>
+            <li>SMS-based location tracking</li>
+            <li>Geo-fencing alerts</li>
+            <li>ACC ignition detection</li>
+            <li>Driving history playback</li>
+            <li>Overspeed alerts</li>
+            <li>Remote engine cut-off support</li>
         </ul>
 
-        <div class="buttons">
+    </div>
 
-            <button class="btn cart-btn">
+    <div id="specs" class="tab-content">
 
-                <i class="fa-solid fa-cart-shopping"></i>
+        <h2>Technical Specifications</h2>
 
-                Add To Cart
+        <table class="spec-table">
 
-            </button>
+            <tr>
+                <td>Model</td>
+                <td>ST-901A</td>
+            </tr>
 
-            <a href="https://wa.me/923159615557"
-               class="btn whatsapp-btn"
-               target="_blank">
+            <tr>
+                <td>Network</td>
+                <td>GSM / GPRS</td>
+            </tr>
 
-                <i class="fa-brands fa-whatsapp"></i>
+            <tr>
+                <td>GPS Accuracy</td>
+                <td>5–10 meters</td>
+            </tr>
 
-                Buy on WhatsApp
+            <tr>
+                <td>Power Input</td>
+                <td>9–36V DC</td>
+            </tr>
 
-            </a>
+            <tr>
+                <td>Battery Backup</td>
+                <td>Built-in backup battery</td>
+            </tr>
 
-        </div>
+        </table>
 
-        <div class="delivery-box">
+    </div>
 
-            <h3>Delivery & Support</h3>
+    <div id="compat" class="tab-content">
 
-            <table>
+        <h2>Compatible Vehicles</h2>
 
-                <tr>
-                    <td>Availability</td>
-                    <td>In Stock</td>
-                </tr>
-
-                <tr>
-                    <td>Delivery</td>
-                    <td>All Pakistan</td>
-                </tr>
-
-                <tr>
-                    <td>Warranty</td>
-                    <td>1 Year</td>
-                </tr>
-
-                <tr>
-                    <td>Support</td>
-                    <td>Free Installation Help</td>
-                </tr>
-
-            </table>
-
-        </div>
+        <ul>
+            <li>Cars (All types)</li>
+            <li>Motorcycles</li>
+            <li>Trucks & Trailers</li>
+            <li>Buses</li>
+            <li>Fleet vehicles</li>
+        </ul>
 
     </div>
 
 </div>
 
-<!-- PRODUCT DETAILS START -->
-<div class="product-content">
+<!-- ================= RELATED PRODUCTS ================= -->
 
-<!-- ================= DESCRIPTION ================= -->
+<section class="related-products">
 
-<section class="section-card">
+    <h2>Related Products</h2>
 
-<h2>Description</h2>
+    <div class="related-grid">
 
-<p>
+        <div class="related-card">
+            <img src="images/903.jpg" alt="">
+            <h3>SinoTrack ST-903</h3>
+            <a href="903.html">View Product</a>
+        </div>
 
-The <strong>SinoTrack ST-901A GPS Vehicle Tracker</strong> is a professional
-real-time GPS tracking device designed for cars, motorcycles,
-trucks, buses and fleet vehicles.
+        <div class="related-card">
+            <img src="images/911.jpg" alt="">
+            <h3>SinoTrack ST-911</h3>
+            <a href="911.html">View Product</a>
+        </div>
 
-Monitor live location, ignition status, travel history,
-speed, mileage and parking location using the Android App,
-iPhone App, Website or SMS commands.
+        <div class="related-card">
+            <img src="images/vehicle-camera.jpg" alt="">
+            <h3>Car DVR Camera</h3>
+            <a href="camera.html">View Product</a>
+        </div>
 
-Perfect for personal vehicles, transport companies,
-fleet management and rental businesses.
-
-</p>
-
-</section>
-
-<!-- ================= FEATURES ================= -->
-
-<section class="section-card">
-
-<h2>Main Features</h2>
-
-<ul class="features">
-
-<li><i class="fa-solid fa-location-dot"></i> Real-Time Live GPS Tracking</li>
-
-<li><i class="fa-solid fa-mobile-screen-button"></i> Android App</li>
-
-<li><i class="fa-solid fa-mobile-screen-button"></i> iPhone App</li>
-
-<li><i class="fa-solid fa-globe"></i> Website Tracking Platform</li>
-
-<li><i class="fa-solid fa-satellite-dish"></i> GPS + GSM Positioning</li>
-
-<li><i class="fa-solid fa-road"></i> Mileage
-
-<!-- ================= PACKAGE CONTENTS ================= -->
-
-<section class="section-card">
-
-<h2>Package Includes</h2>
-
-<ul class="package-list">
-
-<li><i class="fa-solid fa-box-open"></i> SinoTrack ST-901A GPS Tracker</li>
-
-<li><i class="fa-solid fa-plug"></i> Complete Wiring Harness</li>
-
-<li><i class="fa-solid fa-microchip"></i> Engine Cut-Off Relay</li>
-
-<li><i class="fa-solid fa-book"></i> User Manual</li>
-
-</ul>
+    </div>
 
 </section>
 
-<!-- ================= INSTALLATION ================= -->
+<!-- ================= FOOTER ================= -->
 
-<section class="section-card">
+<footer>
 
-<h2>Installation</h2>
+    <div class="footer-container">
 
-<p>
+        <p>© 2026 MM Trackers.
 
-Professional installation is recommended.
 
-Connect the tracker to your vehicle battery and ACC wire,
-insert an active GSM SIM card with SMS and internet,
-then add the device to the SinoTrack App or Web Platform.
+<!-- ================= STICKY MOBILE BUY BAR ================= -->
 
-MM Trackers also provides installation guidance and technical support.
+<div class="mobile-buy-bar">
 
-</p>
+    <button onclick="addToCart()">
+        <i class="fa-solid fa-cart-shopping"></i>
+        Add to Cart
+    </button>
 
-</section>
+    <a id="whatsappBuy"
+       href="https://wa.me/923159615557"
+       target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+        Buy Now
+    </a>
 
-<!-- ================= FAQ ================= -->
-
-<section class="section-card">
-
-<h2>Frequently Asked Questions</h2>
-
-<div class="faq">
-
-<h3>Does it work all over Pakistan?</h3>
-
-<p>Yes. It works anywhere there is GSM network coverage.</p>
-
-<br>
-
-<h3>Which SIM cards are supported?</h3>
-
-<p>Jazz, Zong, Ufone and Telenor SIM cards are supported.</p>
-
-<br>
-
-<h3>Can I monitor my vehicle from my phone?</h3>
-
-<p>Yes. Android App, iPhone App, Website and SMS are all supported.</p>
-
-<br>
-
-<h3>Can I remotely stop the engine?</h3>
-
-<p>Yes. When the optional relay is installed, remote engine
-
+</div>
