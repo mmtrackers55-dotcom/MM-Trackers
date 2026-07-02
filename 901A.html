@@ -17,6 +17,141 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 </head>
+<!-- ================= STICKY MOBILE BUY BAR ================= -->
+
+<div class="mobile-buy-bar">
+
+    <button onclick="addToCart()">
+        <i class="fa-solid fa-cart-shopping"></i>
+        Add to Cart
+    </button>
+
+    <a id="whatsappBuy"
+       href="https://wa.me/923159615557"
+       target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+        Buy Now
+    </a>
+
+</div>
+
+<script>
+
+// ===== PRODUCT DATA =====
+const product = {
+    name: "SinoTrack ST-901A GPS Vehicle Tracker",
+    price: 0,
+    url: window.location.href
+};
+
+// ===== ADD TO CART =====
+function addToCart() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push(product);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert("Added to cart!");
+}
+
+// ===== WHATSAPP AUTO MESSAGE =====
+function updateWhatsAppLink() {
+
+    let message = 
+`Hello, I want to buy:
+
+📦 Product: ${product.name}
+🔗 Link: ${product.url}`;
+
+    let url = "https://wa.me/923159615557?text=" + encodeURIComponent(message);
+
+    document.getElementById("whatsappBuy").href = url;
+}
+
+updateWhatsAppLink();
+
+</script>
+
+<style>
+
+.image-viewer {
+    overflow: hidden;
+}
+
+.main-image {
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+}
+
+.main-image:hover {
+    transform: scale(1.6);
+}
+
+
+<style>
+
+.mobile-buy-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: space-between;
+
+    background: #111;
+    padding: 10px;
+    z-index: 999;
+}
+
+.mobile-buy-bar button,
+.mobile-buy-bar a {
+    flex: 1;
+    margin: 5px;
+    padding: 12px;
+
+    text-align: center;
+    text-decoration: none;
+
+    font-weight: 600;
+    border-radius: 6px;
+
+    color: white;
+}
+
+.mobile-buy-bar button {
+    background: #ff9800;
+    border: none;
+}
+
+.mobile-buy-bar a {
+    background: #25D366;
+}
+
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "SinoTrack ST-901A GPS Vehicle Tracker",
+  "image": "https://yourdomain.com/images/901A.jpg",
+  "description": "Professional GPS tracker with live tracking, SMS, app and web support.",
+  "brand": {
+    "@type": "Brand",
+    "name": "SinoTrack"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "PKR",
+    "price": "0",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+
+</style>
 
 <body>
 
@@ -346,20 +481,4 @@ Buy on WhatsApp
         <p>© 2026 MM Trackers.
 
 
-<!-- ================= STICKY MOBILE BUY BAR ================= -->
 
-<div class="mobile-buy-bar">
-
-    <button onclick="addToCart()">
-        <i class="fa-solid fa-cart-shopping"></i>
-        Add to Cart
-    </button>
-
-    <a id="whatsappBuy"
-       href="https://wa.me/923159615557"
-       target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-        Buy Now
-    </a>
-
-</div>
