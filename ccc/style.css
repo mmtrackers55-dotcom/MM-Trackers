@@ -1233,7 +1233,125 @@ transform:translateY(0);
 
 }
 
+/*================ AMAZON PRODUCT LAYOUT ================*/
 
+.product-section{
+    display:grid;
+    grid-template-columns:90px 520px 380px;
+    gap:30px;
+    align-items:start;
+    background:#fff;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:none;
+}
+
+.gallery{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.gallery img{
+    width:70px;
+    height:70px;
+    border:1px solid #ddd;
+    padding:4px;
+    cursor:pointer;
+    background:#fff;
+}
+
+.gallery img:hover{
+    border-color:#ff9900;
+}
+
+.image-viewer{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+}
+
+.main-image{
+    width:100%;
+    max-width:500px;
+    height:500px;
+    object-fit:contain;
+    border:none;
+    background:#fff;
+}
+
+.buy-box{
+    border:1px solid #d5d9d9;
+    border-radius:8px;
+    padding:22px;
+    background:#fff;
+    position:sticky;
+    top:90px;
+}
+
+.buy-box h1{
+    font-size:28px;
+    line-height:1.35;
+    color:#111;
+    margin-bottom:10px;
+}
+
+.rating{
+    color:#ff9900;
+    margin-bottom:15px;
+}
+
+.short-description{
+    color:#555;
+    margin:18px 0;
+    line-height:1.8;
+}
+
+.amazon-features{
+    margin:20px 0;
+    padding-left:18px;
+}
+
+.amazon-features li{
+    list-style:disc;
+    margin-bottom:10px;
+    color:#333;
+}
+
+.delivery-box{
+    margin-top:25px;
+    border-top:1px solid #eee;
+    padding-top:20px;
+}
+
+.delivery-box h3{
+    margin-bottom:15px;
+    color:#111;
+}
+
+.delivery-box table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.delivery-box td{
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+    font-size:14px;
+}
+
+.buttons{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:25px;
+}
+
+.cart-btn{
+    width:100%;
+    background:#FFD814;
+    color:#111;
+    border:1px solid #FCD200
 
 
 /*=================================================
