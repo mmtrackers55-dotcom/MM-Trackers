@@ -313,7 +313,24 @@ nav a:hover{
 
 .whatsapp-btn:hover{
     background:#FA8900;
-}/*=================================================
+}
+
+.view-btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    background:#007185;
+    color:#fff;
+    padding:12px;
+    border-radius:8px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.view-btn:hover{
+    background:#005f6f;
+}
+/*=================================================
             TRUST FEATURES
 ==================================================*/
 
