@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,126 +10,10 @@
 <meta name="description" content="Original SinoTrack ST-901A GPS Vehicle Tracker">
 
 <link rel="stylesheet" href="ccc/style.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-</head>
-<!-- ================= STICKY MOBILE BUY BAR ================= -->
-
-<div class="mobile-buy-bar">
-
-    <button onclick="addToCart()">
-        <i class="fa-solid fa-cart-shopping"></i>
-        Add to Cart
-    </button>
-
-    <a id="whatsappBuy"
-       href="https://wa.me/923159615557"
-       target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-        Buy Now
-    </a>
-
-</div>
-
-<script>
-
-// ===== PRODUCT DATA =====
-const product = {
-    name: "SinoTrack ST-901A GPS Vehicle Tracker",
-    price: 0,
-    url: window.location.href
-};
-
-// ===== ADD TO CART =====
-function addToCart() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    cart.push(product);
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    alert("Added to cart!");
-}
-
-// ===== WHATSAPP AUTO MESSAGE =====
-function updateWhatsAppLink() {
-
-    let message = 
-`Hello, I want to buy:
-
-📦 Product: ${product.name}
-🔗 Link: ${product.url}`;
-
-    let url = "https://wa.me/923159615557?text=" + encodeURIComponent(message);
-
-    document.getElementById("whatsappBuy").href = url;
-}
-
-updateWhatsAppLink();
-
-</script>
-
-<style>
-
-.image-viewer {
-    overflow: hidden;
-}
-
-.main-image {
-    transition: transform 0.3s ease;
-    cursor: zoom-in;
-}
-
-.main-image:hover {
-    transform: scale(1.6);
-}
-
-
-<style>
-
-.mobile-buy-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    display: flex;
-    justify-content: space-between;
-
-    background: #111;
-    padding: 10px;
-    z-index: 999;
-}
-
-.mobile-buy-bar button,
-.mobile-buy-bar a {
-    flex: 1;
-    margin: 5px;
-    padding: 12px;
-
-    text-align: center;
-    text-decoration: none;
-
-    font-weight: 600;
-    border-radius: 6px;
-
-    color: white;
-}
-
-.mobile-buy-bar button {
-    background: #ff9800;
-    border: none;
-}
-
-.mobile-buy-bar a {
-    background: #25D366;
-}
-
-</style>
-
+<!-- SEO (Google Product Schema) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
@@ -151,14 +34,60 @@ updateWhatsAppLink();
 }
 </script>
 
+<style>
+.image-viewer {
+    overflow: hidden;
+}
+
+.main-image {
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+}
+
+.main-image:hover {
+    transform: scale(1.6);
+}
+
+/* MOBILE BUY BAR */
+.mobile-buy-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    background: #111;
+    padding: 10px;
+    z-index: 999;
+}
+
+.mobile-buy-bar button,
+.mobile-buy-bar a {
+    flex: 1;
+    margin: 5px;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    color: white;
+}
+
+.mobile-buy-bar button {
+    background: #ff9800;
+    border: none;
+}
+
+.mobile-buy-bar a {
+    background: #25D366;
+}
 </style>
+
+</head>
 
 <body>
 
 <!-- ================= HEADER ================= -->
-
 <header>
-
 <div class="navbar">
 
 <div class="logo">
@@ -175,310 +104,196 @@ updateWhatsAppLink();
 </nav>
 
 </div>
-
 </header>
 
-<!-- ================= PRODUCT ================= -->
-
+<!-- ================= PRODUCT SECTION ================= -->
 <div class="container">
 
 <div class="product-section">
 
-<!-- LEFT THUMBNAILS -->
-
+<!-- GALLERY -->
 <div class="gallery">
-
 <img src="images/901A.jpg" class="active" onclick="changeImage(this.src)">
-
 <img src="images/901A-1.jpg" onclick="changeImage(this.src)">
-
 <img src="images/901A-2.jpg" onclick="changeImage(this.src)">
-
 <img src="images/901A-3.jpg" onclick="changeImage(this.src)">
-
 <img src="images/901A-4.jpg" onclick="changeImage(this.src)">
-
 <img src="images/901A-5.jpg" onclick="changeImage(this.src)">
-
 <img src="images/901A-6.jpg" onclick="changeImage(this.src)">
-
 <img src="images/901A-7.jpg" onclick="changeImage(this.src)">
-
 </div>
 
 <!-- MAIN IMAGE -->
-
 <div class="image-viewer">
-
-<img id="mainImage"
-class="main-image"
-src="images/901A.jpg"
-alt="SinoTrack ST-901A GPS Vehicle Tracker">
-
+<img id="mainImage" class="main-image" src="images/901A.jpg" alt="GPS Tracker">
 </div>
 
-<!-- RIGHT BUY BOX -->
-
+<!-- BUY BOX -->
 <div class="buy-box">
 
 <h1>SinoTrack ST-901A GPS Vehicle Tracker</h1>
 
 <div class="rating">
-
 <i class="fa-solid fa-star"></i>
 <i class="fa-solid fa-star"></i>
 <i class="fa-solid fa-star"></i>
 <i class="fa-solid fa-star"></i>
 <i class="fa-solid fa-star"></i>
-
 <span>5.0 Customer Rating</span>
-
 </div>
 
 <hr>
 
-<p class="short-description">
-
-Professional GPS tracking device for cars,
-motorcycles, trucks, buses and fleet management.
-
-Monitor your vehicle using Android App,
-iPhone App, Website or SMS from anywhere.
-
+<p>
+Professional GPS tracking device for cars, bikes, trucks and fleets.
 </p>
 
-<ul class="amazon-features">
-
-<li>✔ Original SinoTrack Product</li>
-
-<li>✔ Live GPS Tracking</li>
-
-<li>✔ Android App</li>
-
-<li>✔ iPhone App</li>
-
-<li>✔ Website Tracking</li>
-
+<ul>
+<li>✔ Live Tracking</li>
+<li>✔ Android & iOS App</li>
 <li>✔ SMS Tracking</li>
-
-<li>✔ Travel History Playback</li>
-
-<li>✔ Speed Monitoring</li>
-
-<li>✔ ACC Ignition Detection</li>
-
-<li>✔ Geo-Fence Alerts</li>
-
-<li>✔ Remote Engine Cut-Off</li>
-
-<li>✔ 1 Year Warranty</li>
-
+<li>✔ Geo Fence</li>
+<li>✔ Ignition Alert</li>
+<li>✔ History Playback</li>
+<li>✔ Remote Engine Cut</li>
 </ul>
 
 <div class="buttons">
-
-<button class="btn cart-btn">
-
-<i class="fa-solid fa-cart-shopping"></i>
-
-Add To Cart
-
+<button class="btn cart-btn" onclick="addToCart()">
+<i class="fa-solid fa-cart-shopping"></i> Add To Cart
 </button>
 
-<a href="https://wa.me/923159615557"
+<a id="whatsappBuy"
+href="https://wa.me/923159615557"
 target="_blank"
 class="btn whatsapp-btn">
-
-<i class="fa-brands fa-whatsapp"></i>
-
-Buy on WhatsApp
-
+<i class="fa-brands fa-whatsapp"></i> Buy on WhatsApp
 </a>
-
-</div>
-
-<div class="delivery-box">
-
-<h3>Delivery & Support</h3>
-
-<table>
-
-<tr>
-<td>Availability</td>
-<td>In Stock</td>
-</tr>
-
-<tr>
-<td>Delivery</td>
-<td>All Pakistan</td>
-</tr>
-
-<tr>
-<td>Warranty</td>
-<td>1 Year</td>
-</tr>
-
-<tr>
-<td>Support</td>
-<td>Free Installation Help</td>
-</tr>
-
-</table>
-
 </div>
 
 </div>
-
 </div>
 
-<!-- ================= PRODUCT DETAILS ================= -->
-
+<!-- ================= DETAILS ================= -->
 <div class="product-content">
 
-    <!-- TABS SECTION -->
-    <div class="tabs">
+<div class="tabs">
+<button onclick="openTab('desc')" class="tab-btn active">Description</button>
+<button onclick="openTab('features')" class="tab-btn">Features</button>
+<button onclick="openTab('specs')" class="tab-btn">Specs</button>
+<button onclick="openTab('compat')" class="tab-btn">Vehicles</button>
+</div>
 
-        <button class="tab-btn active" onclick="openTab('desc')">
-            Description
-        </button>
+<div id="desc" class="tab-content active">
+<h2>Description</h2>
+<p>Real-time GPS tracking device for vehicle security and monitoring.</p>
+</div>
 
-        <button class="tab-btn" onclick="openTab('features')">
-            Main Features
-        </button>
+<div id="features" class="tab-content">
+<h2>Features</h2>
+<ul>
+<li>Live Tracking</li>
+<li>Mobile App Support</li>
+<li>SMS Tracking</li>
+<li>Geo-Fence</li>
+<li>History Playback</li>
+</ul>
+</div>
 
-        <button class="tab-btn" onclick="openTab('specs')">
-            Technical Specifications
-        </button>
+<div id="specs" class="tab-content">
+<h2>Specifications</h2>
+<table>
+<tr><td>Model</td><td>ST-901A</td></tr>
+<tr><td>Network</td><td>GSM/GPRS</td></tr>
+<tr><td>Power</td><td>9–36V</td></tr>
+</table>
+</div>
 
-        <button class="tab-btn" onclick="openTab('compat')">
-            Compatible Vehicles
-        </button>
-
-    </div>
-
-    <!-- TAB CONTENT -->
-
-    <div id="desc" class="tab-content active">
-
-        <h2>Product Description</h2>
-
-        <p>
-            SinoTrack ST-901A is a professional-grade GPS tracking device designed for real-time vehicle monitoring.
-            It allows you to track your vehicle anytime using mobile app, web platform or SMS commands.
-        </p>
-
-        <p>
-            Ideal for personal cars, motorcycles, fleet management, taxis, delivery vans and transport businesses.
-        </p>
-
-    </div>
-
-    <div id="features" class="tab-content">
-
-        <h2>Main Features</h2>
-
-        <ul>
-            <li>Real-time live tracking</li>
-            <li>Mobile app support (Android & iOS)</li>
-            <li>Web-based tracking platform</li>
-            <li>SMS-based location tracking</li>
-            <li>Geo-fencing alerts</li>
-            <li>ACC ignition detection</li>
-            <li>Driving history playback</li>
-            <li>Overspeed alerts</li>
-            <li>Remote engine cut-off support</li>
-        </ul>
-
-    </div>
-
-    <div id="specs" class="tab-content">
-
-        <h2>Technical Specifications</h2>
-
-        <table class="spec-table">
-
-            <tr>
-                <td>Model</td>
-                <td>ST-901A</td>
-            </tr>
-
-            <tr>
-                <td>Network</td>
-                <td>GSM / GPRS</td>
-            </tr>
-
-            <tr>
-                <td>GPS Accuracy</td>
-                <td>5–10 meters</td>
-            </tr>
-
-            <tr>
-                <td>Power Input</td>
-                <td>9–36V DC</td>
-            </tr>
-
-            <tr>
-                <td>Battery Backup</td>
-                <td>Built-in backup battery</td>
-            </tr>
-
-        </table>
-
-    </div>
-
-    <div id="compat" class="tab-content">
-
-        <h2>Compatible Vehicles</h2>
-
-        <ul>
-            <li>Cars (All types)</li>
-            <li>Motorcycles</li>
-            <li>Trucks & Trailers</li>
-            <li>Buses</li>
-            <li>Fleet vehicles</li>
-        </ul>
-
-    </div>
+<div id="compat" class="tab-content">
+<h2>Compatible Vehicles</h2>
+<ul>
+<li>Cars</li>
+<li>Bikes</li>
+<li>Trucks</li>
+<li>Buses</li>
+</ul>
+</div>
 
 </div>
 
-<!-- ================= RELATED PRODUCTS ================= -->
-
+<!-- ================= RELATED ================= -->
 <section class="related-products">
+<h2>Related Products</h2>
 
-    <h2>Related Products</h2>
+<div class="related-grid">
 
-    <div class="related-grid">
+<div class="related-card">
+<img src="images/903.jpg">
+<h3>SinoTrack ST-903</h3>
+<a href="903.html">View</a>
+</div>
 
-        <div class="related-card">
-            <img src="images/903.jpg" alt="">
-            <h3>SinoTrack ST-903</h3>
-            <a href="903.html">View Product</a>
-        </div>
+<div class="related-card">
+<img src="images/911.jpg">
+<h3>SinoTrack ST-911</h3>
+<a href="911.html">View</a>
+</div>
 
-        <div class="related-card">
-            <img src="images/911.jpg" alt="">
-            <h3>SinoTrack ST-911</h3>
-            <a href="911.html">View Product</a>
-        </div>
+<div class="related-card">
+<img src="images/camera.jpg">
+<h3>Car DVR Camera</h3>
+<a href="camera.html">View</a>
+</div>
 
-        <div class="related-card">
-            <img src="images/vehicle-camera.jpg" alt="">
-            <h3>Car DVR Camera</h3>
-            <a href="camera.html">View Product</a>
-        </div>
-
-    </div>
-
+</div>
 </section>
 
-<!-- ================= FOOTER ================= -->
+</div>
 
-<footer>
+<!-- ================= MOBILE BUY BAR ================= -->
+<div class="mobile-buy-bar">
+<button onclick="addToCart()">Add to Cart</button>
+<a id="whatsappBuyMobile" href="https://wa.me/923159615557" target="_blank">Buy Now</a>
+</div>
 
-    <div class="footer-container">
+<!-- ================= SCRIPTS ================= -->
+<script>
 
-        <p>© 2026 MM Trackers.
+const product = {
+    name: "SinoTrack ST-901A GPS Vehicle Tracker",
+    url: window.location.href
+};
 
+function changeImage(src) {
+    document.getElementById("mainImage").src = src;
+}
 
+function openTab(id) {
+    document.querySelectorAll(".tab-content").forEach(t => t.classList.remove("active"));
+    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
 
+    document.getElementById(id).classList.add("active");
+    event.target.classList.add("active");
+}
+
+function addToCart() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Added to cart!");
+}
+
+function updateWhatsApp() {
+    let msg = `Hello, I want to buy:\n\nProduct: ${product.name}\nLink: ${product.url}`;
+    let url = "https://wa.me/923159615557?text=" + encodeURIComponent(msg);
+
+    document.getElementById("whatsappBuy").href = url;
+    document.getElementById("whatsappBuyMobile").href = url;
+}
+
+updateWhatsApp();
+
+</script>
+
+</body>
+</html>
