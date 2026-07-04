@@ -108,41 +108,47 @@ target="_blank">
 
 <script>
 
-function changeImage(src){
-    document.getElementById("mainImage").src = src;
-}
+let slideIndex = 0;
+showSlides();
 
-</script>
-<script>
+function showSlides(){
 
-const slides=document.querySelectorAll(".slide");
-const dots=document.querySelectorAll(".dot");
+    let i;
+    let slides = document.getElementsByClassName("slides");
 
-let current=0;
+    for(i=0;i<slides.length;i++){
+        slides[i].style.display="none";
+    }
 
-function showSlide(i){
+    slideIndex++;
 
-slides.forEach(slide=>slide.classList.remove("active"));
-dots.forEach(dot=>dot.classList.remove("active"));
+    if(slideIndex>slides.length){
+        slideIndex=1;
+    }
 
-slides[i].classList.add("active");
-dots[i].classList.add("active");
+    slides[slideIndex-1].style.display="block";
 
-}
-
-setInterval(()=>{
-
-current++;
-
-if(current>=slides.length){
-
-current=0;
+    setTimeout(showSlides,4000);
 
 }
 
-showSlide(current);
+function plusSlides(n){
 
-},5000);
+    slideIndex += n-1;
+
+    if(slideIndex<0)
+        slideIndex=document.getElementsByClassName("slides").length-1;
+
+    if(slideIndex>=document.getElementsByClassName("slides").length)
+        slideIndex=0;
+
+    let slides=document.getElementsByClassName("slides");
+
+    for(let i=0;i<slides.length;i++)
+        slides[i].style.display="none";
+
+    slides[slideIndex].style.display="block";
+}
 
 </script>
 </body>
