@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>MM Trackers | Official SinoTrack Reseller in Pakistan</title>
 
 <link rel="stylesheet" href="ccc/style.css">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -24,7 +29,7 @@
 
 <a href="index.html">
 
-<img src="images/mylogo.png" alt="MM Trackers">
+<img src="images/mmlogo.png" alt="MM Trackers">
 
 </a>
 
@@ -48,59 +53,129 @@
 
 <!-- ================= HERO ================= -->
 
-
-<!-- ================= HERO SLIDER ================= -->
-
 <section class="hero">
 
 <div class="hero-container">
 
-<div class="hero-left">
+<div class="hero-text">
 
 <span class="official">
+
 🇵🇰 Official SinoTrack Reseller in Pakistan
+
 </span>
 
-<h1>Official SinoTrack GPS Trackers</h1>
+<h1>
+
+Professional GPS Tracking Solutions
+
+</h1>
 
 <p>
-100% Genuine SinoTrack GPS Trackers with Official Warranty,
-Android & iPhone Apps, Web Tracking Platform and
-Nationwide Delivery.
+
+MM Trackers is an Official Reseller of SinoTrack GPS Trackers in Pakistan.
+
+We provide 100% Genuine GPS Trackers with Official Warranty, Installation Support, Android & iPhone Apps, Web Tracking and Nationwide Delivery.
+
 </p>
 
-<ul class="hero-features">
-<li><i class="fa-solid fa-circle-check"></i> Genuine SinoTrack Devices</li>
-<li><i class="fa-solid fa-circle-check"></i> Android & iPhone App</li>
-<li><i class="fa-solid fa-circle-check"></i> Live Web Tracking</li>
-<li><i class="fa-solid fa-circle-check"></i> Technical Support</li>
-</ul>
-
 <div class="hero-buttons">
+
 <a href="products.html" class="btn cart-btn">
+
 <i class="fa-solid fa-cart-shopping"></i>
+
 Shop Now
+
 </a>
 
 <a href="https://wa.me/923159615557"
-class="btn whatsapp-btn"
-target="_blank">
+
+target="_blank"
+
+class="btn whatsapp-btn">
+
 <i class="fa-brands fa-whatsapp"></i>
+
 WhatsApp
+
 </a>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<img src="images/banner.jpg"
+
+alt="SinoTrack GPS Tracker">
+
 </div>
 
 </div>
 
-<div class="hero-right">
+<div class="trust-strip">
 
-<img src="images/s1.png" alt="Banner">
+<div class="trust-box-home">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<h3>100% Original</h3>
+
+<p>Official SinoTrack Products</p>
+
+</div>
+
+<div class="trust-box-home">
+
+<i class="fa-solid fa-truck-fast"></i>
+
+<h3>Fast Delivery</h3>
+
+<p>All Over Pakistan</p>
+
+</div>
+
+<div class="trust-box-home">
+
+<i class="fa-solid fa-mobile-screen-button"></i>
+
+<h3>Android & iPhone</h3>
+
+<p>App + Website Tracking</p>
+
+</div>
+
+<div class="trust-box-home">
+
+<i class="fa-solid fa-headset"></i>
+
+<h3>Support</h3>
+
+<p>Installation Assistance</p>
 
 </div>
 
 </div>
 
 </section>
+
+
+
+<footer>
+
+<p><strong>MM Trackers</strong></p>
+
+<p>Professional GPS Tracking Solutions for Cars, Bikes, Trucks & Fleet Management.</p>
+
+<p><i class="fa-solid fa-phone"></i> +92 315 9615557</p>
+
+<p><i class="fa-brands fa-whatsapp"></i> WhatsApp Support Available</p>
+
+<p><i class="fa-solid fa-envelope"></i> info@mmtrackers.com</p>
+
+<p>© 2026 MM Trackers. All Rights Reserved.</p>
 
 </footer>
 
@@ -115,64 +190,17 @@ target="_blank">
 </a>
 
 <!-- ================= JAVASCRIPT ================= -->
+
 <script>
 
-let currentSlide = 0;
-
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".dot");
-const prev = document.querySelector(".prev");
-const next = document.querySelector(".next");
-
-function showSlide(index){
-
-    slides.forEach((slide,i)=>{
-        slide.classList.remove("active");
-        dots[i].classList.remove("active");
-    });
-
-    slides[index].classList.add("active");
-    dots[index].classList.add("active");
+function changeImage(src){
+    document.getElementById("mainImage").src = src;
 }
-
-function nextSlide(){
-
-    currentSlide++;
-
-    if(currentSlide >= slides.length){
-        currentSlide = 0;
-    }
-
-    showSlide(currentSlide);
-}
-
-function prevSlide(){
-
-    currentSlide--;
-
-    if(currentSlide < 0){
-        currentSlide = slides.length - 1;
-    }
-
-    showSlide(currentSlide);
-}
-
-next.addEventListener("click",nextSlide);
-prev.addEventListener("click",prevSlide);
-
-dots.forEach((dot,index)=>{
-    dot.addEventListener("click",()=>{
-        currentSlide=index;
-        showSlide(currentSlide);
-    });
-});
-
-setInterval(nextSlide,5000);
-
-showSlide(currentSlide);
 
 </script>
+
 </body>
 </html>
+
 
 
