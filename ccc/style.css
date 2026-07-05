@@ -1201,3 +1201,20 @@ MOBILE
     }
 
 }
+
+
+.relatedSwiper{
+    width:100%;
+    overflow:hidden;
+}
+
+.relatedSwiper .swiper-wrapper{
+    align-items:stretch;
+}
+
+.relatedSwiper .swiper-slide{
+    width:auto !important;
+    height:auto;
+    display:flex;
+}
+
