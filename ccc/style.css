@@ -1085,24 +1085,15 @@ RESPONSIVE
     height:auto;
 }
 
-.relatedSwiper .product-card{
+
+.relatedSwiper .product-card img{
     width:100%;
-    display:flex;
-    flex-direction:column;
-
+    height:180px;
+    object-fit:contain;
+    padding:15px;
     background:#fff;
-
-    border-radius:16px;
-
-    overflow:hidden;
-
-    border:1px solid #e8e8e8;
-
-    box-shadow:0 6px 18px rgba(0,0,0,.06);
-
-    transition:.3s;
+    border-bottom:1px solid #eee;
 }
-
 .relatedSwiper .product-card:hover{
     transform:translateY(-6px);
     box-shadow:0 14px 30px rgba(0,0,0,.10);
