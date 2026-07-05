@@ -13,7 +13,6 @@ cart.forEach(item=>{
     <div class="checkout-item">
 
         <h3>${item.name}</h3>
-
         <p>
             Rs. ${item.price.toLocaleString()}
             ×
