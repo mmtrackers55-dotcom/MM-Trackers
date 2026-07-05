@@ -1,52 +1,57 @@
 // Load cart
 let cart = getCart();
+
 let total = 0;
 let html = "";
-cart.forEach(item=>{
 
+// Render cart items
+cart.forEach(item => {
     total += item.price * item.qty;
 
     html += `
     <div class="checkout-item">
-
         <h3>${item.name}</h3>
         <p>
             Rs. ${item.price.toLocaleString()}
-            ×
-            ${item.qty}
+            × ${item.qty}
         </p>
 
         <strong>
-            Subtotal:
-            Rs. ${(item.price * item.qty).toLocaleString()}
+            Subtotal: Rs. ${(item.price * item.qty).toLocaleString()}
         </strong>
 
         <hr>
-
     </div>
     `;
 });
 
 document.getElementById("checkout-items").innerHTML = html;
 document.getElementById("checkout-total").innerHTML =
-"Total : Rs. " + total.toLocaleString();
+    "Total : Rs. " + total.toLocaleString();
 
 updateCartCount();
 
 // Checkout Form
-document.getElementById("checkoutForm").addEventListener("submit",function(e){
+document.getElementById("checkoutForm").addEventListener("submit", function(e) {
 
     e.preventDefault();
 
-    if(cart.length===0){
+    if (cart.length === 0) {
         alert("Your cart is empty.");
         return;
     }
 
+    // Form values
     const name = document.getElementById("name").value;
     const phone = document.getElementById("phone").value;
     const city = document.getElementById("city").value;
-    const address = document.getElementById("address").value; document.getElementById("checkoutForm").addEventListener("submit", function(e){   let message =
+    const address = document.getElementById("address").value;
+
+    // ✅ PAYMENT FIX (IMPORTANT)
+    let payment = document.querySelector('input[name="payment"]:checked')?.value || "Cash on Delivery";
+
+    // Message
+    let message =
 `*New Order - MM Trackers*
 
 Name: ${name}
@@ -59,8 +64,7 @@ Payment: ${payment}
 Products:
 `;
 
-
-    cart.forEach(item=>{
+    cart.forEach(item => {
         message += `• ${item.name}
 Qty: ${item.qty}
 Price: Rs. ${item.price}
@@ -78,15 +82,12 @@ Total: Rs. ${total}`;
         "_blank"
     );
 
-    // Empty Cart
+    // Clear cart
     localStorage.removeItem("cart");
-
-    // Update Badge
     updateCartCount();
 
     // Redirect
-    setTimeout(function(){
-        window.location.href="index.html";
-    },5000);
-
+    setTimeout(function () {
+        window.location.href = "index.html";
+    }, 3000);
 });
