@@ -4,7 +4,6 @@ let cart = getCart();
 let total = 0;
 
 let html = "";
-
 cart.forEach(item=>{
 
     total += item.price * item.qty;
