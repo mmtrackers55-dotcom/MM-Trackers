@@ -1384,6 +1384,50 @@ transform:translateY(0);
 .home-product-info .btn:hover{
     background:#008a45;
 }
+
+/*==========================
+RELATED PRODUCTS SLIDER
+==========================*/
+
+.related-products{
+    padding:70px 0;
+}
+
+.related-products h2{
+    text-align:center;
+    font-size:36px;
+    margin-bottom:35px;
+    color:#0b1f3a;
+}
+
+.relatedSwiper{
+    padding:10px 10px 55px;
+}
+
+.relatedSwiper .swiper-slide{
+    height:auto;
+}
+
+.relatedSwiper .product-card{
+    margin:0;
+}
+
+.swiper-button-next,
+.swiper-button-prev{
+    color:#00a651;
+}
+
+.swiper-pagination-bullet{
+    background:#999;
+}
+
+.swiper-pagination-bullet-active{
+    background:#00a651;
+}
+
+
+
+
 /*=================================================
                 END OF STYLE.CSS
 ==================================================*/
