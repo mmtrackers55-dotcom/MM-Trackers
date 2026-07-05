@@ -51,7 +51,8 @@ document.getElementById("checkoutForm").addEventListener("submit",function(e){
     const phone = document.getElementById("phone").value;
     const city = document.getElementById("city").value;
     const address = document.getElementById("address").value;
-
+const payment =
+document.querySelector('input[name="payment"]:checked').value;
     let message =
 `*New Order - MM Trackers*
 
