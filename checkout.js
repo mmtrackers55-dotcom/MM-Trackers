@@ -1,4 +1,6 @@
-// Load cart
+// ------------------------------
+// LOAD CART
+// ------------------------------
 let cart = getCart();
 
 let total = 0;
@@ -11,7 +13,10 @@ cart.forEach(item => {
     html += `
     <div class="checkout-item">
         <h3>${item.name}</h3>
-        <p>Rs. ${item.price.toLocaleString()} × ${item.qty}</p>
+
+        <p>
+            Rs. ${item.price.toLocaleString()} × ${item.qty}
+        </p>
 
         <strong>
             Subtotal: Rs. ${(item.price * item.qty).toLocaleString()}
@@ -29,7 +34,9 @@ document.getElementById("checkout-total").innerHTML =
 updateCartCount();
 
 
-// Checkout Form
+// ------------------------------
+// CHECKOUT FORM
+// ------------------------------
 document.getElementById("checkoutForm").addEventListener("submit", function(e) {
 
     e.preventDefault();
@@ -39,13 +46,17 @@ document.getElementById("checkoutForm").addEventListener("submit", function(e) {
         return;
     }
 
-    // Form values
+    // --------------------------
+    // FORM DATA
+    // --------------------------
     const name = document.getElementById("name").value;
     const phone = document.getElementById("phone").value;
     const city = document.getElementById("city").value;
     const address = document.getElementById("address").value;
 
-    // ✅ PAYMENT (SAFE METHOD)
+    // --------------------------
+    // PAYMENT METHOD (SAFE)
+    // --------------------------
     let payment = "Cash on Delivery";
 
     document.querySelectorAll('input[name="payment"]').forEach(radio => {
@@ -54,7 +65,9 @@ document.getElementById("checkoutForm").addEventListener("submit", function(e) {
         }
     });
 
-    // Message
+    // --------------------------
+    // WHATSAPP MESSAGE
+    // --------------------------
     let message =
 `*New Order - MM Trackers*
 
@@ -65,6 +78,7 @@ document.getElementById("checkoutForm").addEventListener("submit", function(e) {
 
 *Payment Method:* ${payment}
 
+-----------------------
 *Products:*
 `;
 
@@ -72,19 +86,28 @@ document.getElementById("checkoutForm").addEventListener("submit", function(e) {
         message += `• ${item.name} x${item.qty} = Rs. ${item.price * item.qty}\n`;
     });
 
-    message += `\n*Total:* Rs. ${total}`;
+    message += `
+-----------------------
+*Total:* Rs. ${total}
+`;
 
-    // Open WhatsApp
+    // --------------------------
+    // OPEN WHATSAPP
+    // --------------------------
     window.open(
         "https://wa.me/923159615557?text=" + encodeURIComponent(message),
         "_blank"
     );
 
-    // Clear cart
+    // --------------------------
+    // CLEAR CART
+    // --------------------------
     localStorage.removeItem("cart");
     updateCartCount();
 
-    // Redirect
+    // --------------------------
+    // REDIRECT
+    // --------------------------
     setTimeout(() => {
         window.location.href = "index.html";
     }, 2000);
