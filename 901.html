@@ -795,84 +795,43 @@ target="_blank">
 </a>
 
 <!-- ================= JAVASCRIPT ================= -->
-
-<script>
-
-function changeImage(src){
-    document.getElementById("mainImage").src = src;
-}
-
-</script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
-new Swiper(".relatedSwiper",{
+new Swiper(".relatedSwiper", {
+    loop: true,
+    speed: 800,
+    spaceBetween: 25,
 
-loop:true,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
 
-speed:800,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
 
-spaceBetween:25,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
 
-autoplay:{
-delay:3000,
-disableOnInteraction:false,
-},
-
-navigation:{
-nextEl:".swiper-button-next",
-prevEl:".swiper-button-prev",
-},
-
-pagination:{
-el:".swiper-pagination",
-clickable:true,
-},
-
-<script>
-new Swiper(".relatedSwiper",{
-
-loop:true,
-
-speed:800,
-
-spaceBetween:25,
-
-autoplay:{
-delay:3000,
-disableOnInteraction:false,
-},
-
-navigation:{
-nextEl:".swiper-button-next",
-prevEl:".swiper-button-prev",
-},
-
-pagination:{
-el:".swiper-pagination",
-clickable:true,
-},
-
-breakpoints:{
-
-0:{
-slidesPerView:1,
-},
-
-576:{
-slidesPerView:2,
-},
-
-992:{
-slidesPerView:3,
-},
-
-1200:{
-slidesPerView:4,
-}
-
-}
-
+    breakpoints: {
+        0: {
+            slidesPerView: 1,
+        },
+        576: {
+            slidesPerView: 2,
+        },
+        992: {
+            slidesPerView: 3,
+        },
+        1200: {
+            slidesPerView: 4,
+        }
+    }
 });
 </script>
 </body>
