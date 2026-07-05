@@ -1,4 +1,4 @@
-// Get cart from LocalStorage
+// Get cart
 function getCart() {
     return JSON.parse(localStorage.getItem("cart")) || [];
 }
@@ -13,11 +13,10 @@ function addToCart(product) {
 
     let cart = getCart();
 
-    // Check if already exists
     let existing = cart.find(item => item.name === product.name);
 
     if (existing) {
-        existing.qty += 1;
+        existing.qty++;
     } else {
         product.qty = 1;
         cart.push(product);
@@ -26,5 +25,70 @@ function addToCart(product) {
     saveCart(cart);
 
     alert(product.name + " added to cart.");
+}
+
+// Show cart on cart.html
+function displayCart() {
+
+    const cartContainer = document.getElementById("cart-items");
+
+    if (!cartContainer) return;
+
+    let cart = getCart();
+
+    if (cart.length === 0) {
+        cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+        return;
+    }
+
+    let html = "";
+    let total = 0;
+
+    cart.forEach((item, index) => {
+
+        total += item.price * item.qty;
+
+        html += `
+        <div class="cart-item">
+
+            <img src="${item.image}" width="120">
+
+            <div>
+
+                <h3>${item.name}</h3>
+
+                <p>Rs. ${item.price.toLocaleString()}</p>
+
+                <p>Quantity : ${item.qty}</p>
+
+                <button onclick="removeItem(${index})">
+                    Remove
+                </button>
+
+            </div>
+
+        </div>
+
+        <hr>
+        `;
+    });
+
+    html += `<h2>Total : Rs. ${total.toLocaleString()}</h2>`;
+
+    cartContainer.innerHTML = html;
+}
+
+// Remove item
+function removeItem(index){
+
+    let cart = getCart();
+
+    cart.splice(index,1);
+
+    saveCart(cart);
+
+    displayCart();
 
 }
+
+displayCart();
