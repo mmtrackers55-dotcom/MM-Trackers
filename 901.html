@@ -805,25 +805,30 @@ target="_blank">
 function changeImage(src){
     document.getElementById("mainImage").src = src;
 }
-
-const swiper = new Swiper(".relatedSwiper", {
+new Swiper(".relatedSwiper", {
     loop: true,
-    slidesPerView: 1,
-    spaceBetween: 20,
+    speed: 800,
+
     autoplay: {
-        delay: 2500,
+        delay: 3000,
         disableOnInteraction: false,
     },
+
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
     },
+
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
     },
+
+    slidesPerView: 1,
+    spaceBetween: 20,
+
     breakpoints: {
-        576: {
+        768: {
             slidesPerView: 2,
         },
         992: {
@@ -835,7 +840,6 @@ const swiper = new Swiper(".relatedSwiper", {
     }
 });
 
-console.log(swiper);
 </script>
 </body>
 </html>
