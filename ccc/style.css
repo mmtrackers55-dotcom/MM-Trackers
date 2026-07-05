@@ -525,67 +525,116 @@ nav a:hover{
             RELATED PRODUCTS
 ==================================================*/
 
+/*==========================
+RELATED PRODUCTS SLIDER
+==========================*/
+
 .related-products{
-    margin-top:50px;
+    padding:70px 0;
 }
 
 .related-products h2{
     text-align:center;
-    margin-bottom:30px;
+    font-size:38px;
+    margin-bottom:35px;
     color:#0b1f3a;
 }
 
-.product-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
+.relatedSwiper{
+    padding:10px 5px 55px;
 }
 
-.product-card{
+.relatedSwiper .swiper-slide{
+    height:auto;
+}
+
+.relatedSwiper .product-card{
     background:#fff;
-    border-radius:16px;
+    border-radius:18px;
     overflow:hidden;
     box-shadow:0 8px 20px rgba(0,0,0,.08);
     transition:.3s;
+    display:flex;
+    flex-direction:column;
 }
 
-.product-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 15px 35px rgba(0,0,0,.12);
+.relatedSwiper .product-card:hover{
+    transform:translateY(-6px);
 }
 
-.product-card img{
+.relatedSwiper .product-card img{
     width:100%;
-    height:220px;
+    height:280px;
     object-fit:contain;
-    background:#fff;
     padding:15px;
+    background:#fff;
     border-bottom:1px solid #eee;
 }
 
-.product-card-content{
-    padding:20px;
+.relatedSwiper .product-card-content{
+    padding:18px;
+    display:flex;
+    flex-direction:column;
 }
 
-.product-card-content h3{
-    font-size:22px;
+.relatedSwiper .product-card-content h3{
+    font-size:24px;
+    line-height:1.3;
     margin-bottom:10px;
     color:#222;
+    min-height:60px;
 }
 
-.product-card-content p{
+.relatedSwiper .product-card-content p{
+    font-size:15px;
+    line-height:1.5;
     color:#666;
     margin-bottom:15px;
-    line-height:1.7;
+
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
 }
 
-.product-price{
-    font-size:26px;
+.relatedSwiper .product-price{
+    font-size:30px;
     color:#00a651;
     font-weight:700;
-    margin-bottom:20px;
+    margin-bottom:18px;
 }
 
+.relatedSwiper .btn{
+    width:100%;
+    text-align:center;
+    padding:14px;
+}
+
+.swiper-button-next,
+.swiper-button-prev{
+    color:#00a651;
+}
+
+.swiper-pagination-bullet-active{
+    background:#00a651;
+}
+
+@media(max-width:768px){
+
+.relatedSwiper .product-card img{
+    height:220px;
+}
+
+.relatedSwiper .product-card-content h3{
+    font-size:20px;
+    min-height:auto;
+}
+
+.relatedSwiper .product-price{
+    font-size:26px;
+}
+
+}
 /*=================================================
                 FOOTER
 ==================================================*/
