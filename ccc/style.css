@@ -1304,4 +1304,48 @@ SHOPPING CART
 
 }
 
+/* Quantity Box */
 
+.qty-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin:12px 0;
+
+}
+
+.qty-box button{
+
+    width:36px;
+
+    height:36px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#00a651;
+
+    color:#fff;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+}
+
+.qty-box span{
+
+    min-width:25px;
+
+    text-align:center;
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
