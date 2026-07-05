@@ -64,9 +64,7 @@ Payment: ${payment}
 -----------------------
 Products:
 `;
------------------------
-Products:
-`;
+
 
     cart.forEach(item=>{
         message += `• ${item.name}
