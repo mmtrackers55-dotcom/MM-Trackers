@@ -1211,10 +1211,15 @@ MOBILE
 .relatedSwiper .swiper-wrapper{
     align-items:stretch;
 }
-
 .relatedSwiper .swiper-slide{
-    width:auto !important;
-    height:auto;
     display:flex;
+    justify-content:center;
+    align-items:stretch;
+    height:auto;
+}
+
+.relatedSwiper .product-card{
+    width:100%;
+    max-width:300px;
 }
 
