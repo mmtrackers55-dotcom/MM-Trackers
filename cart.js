@@ -117,7 +117,6 @@ function updateCartCount(){
 
     badge.textContent = total;
 }
-
 updateCartCount();
 
 
