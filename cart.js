@@ -1,17 +1,46 @@
-// Get cart
+// ==========================
+// GET CART
+// ==========================
 function getCart() {
     return JSON.parse(localStorage.getItem("cart")) || [];
 }
-// Save cart
+
+// ==========================
+// SAVE CART
+// ==========================
 function saveCart(cart) {
     localStorage.setItem("cart", JSON.stringify(cart));
 }
-// Add product
+
+// ==========================
+// UPDATE CART BADGE
+// ==========================
+function updateCartCount() {
+
+    const badge = document.getElementById("cart-count");
+
+    if (!badge) return;
+
+    let cart = getCart();
+
+    let total = 0;
+
+    cart.forEach(item => {
+        total += item.qty;
+    });
+
+    badge.textContent = total;
+}
+
+// ==========================
+// ADD PRODUCT
+// ==========================
 function addToCart(product) {
 
     let cart = getCart();
 
     let existing = cart.find(item => item.name === product.name);
+
     if (existing) {
         existing.qty++;
     } else {
@@ -21,35 +50,36 @@ function addToCart(product) {
 
     saveCart(cart);
 
-updateCartCount();
+    updateCartCount();
 
-alert(product.name + " added to cart.");
+    alert(product.name + " added to cart.");
 }
 
-// Show cart on cart.html
-// Show cart
-function displayCart(){
+// ==========================
+// DISPLAY CART
+// ==========================
+function displayCart() {
 
     const cartContainer = document.getElementById("cart-items");
 
-    if(!cartContainer) return;
+    if (!cartContainer) return;
 
     let cart = getCart();
 
-    if(cart.length===0){
+    if (cart.length === 0) {
 
-        cartContainer.innerHTML="<h3>Your cart is empty.</h3>";
+        cartContainer.innerHTML = "<h3>Your cart is empty.</h3>";
 
-        document.getElementById("cart-total").innerHTML="Total : Rs. 0";
+        document.getElementById("cart-total").innerHTML = "Total : Rs. 0";
 
         return;
     }
 
-    let html="";
+    let html = "";
 
-    let total=0;
+    let total = 0;
 
-    cart.forEach((item,index)=>{
+    cart.forEach((item, index) => {
 
         total += item.price * item.qty;
 
@@ -64,9 +94,19 @@ function displayCart(){
 
                 <p><strong>Price:</strong> Rs. ${item.price.toLocaleString()}</p>
 
-                <p><strong>Quantity:</strong> ${item.qty}</p>
+                <p><strong>Quantity:</strong></p>
 
-                <p><strong>Subtotal:</strong> Rs. ${(item.price*item.qty).toLocaleString()}</p>
+                <div class="qty-box">
+
+                    <button onclick="decreaseQty(${index})">-</button>
+
+                    <span>${item.qty}</span>
+
+                    <button onclick="increaseQty(${index})">+</button>
+
+                </div>
+
+                <p><strong>Subtotal:</strong> Rs. ${(item.price * item.qty).toLocaleString()}</p>
 
                 <button class="remove-btn" onclick="removeItem(${index})">
                     Remove
@@ -76,47 +116,72 @@ function displayCart(){
 
         </div>
         `;
-
     });
 
     cartContainer.innerHTML = html;
 
     document.getElementById("cart-total").innerHTML =
         "Total : Rs. " + total.toLocaleString();
-
 }
-// Remove item
-function removeItem(index){
+
+// ==========================
+// INCREASE QTY
+// ==========================
+function increaseQty(index) {
 
     let cart = getCart();
 
-    cart.splice(index,1);
+    cart[index].qty++;
 
     saveCart(cart);
 
-    displayCart();
+    updateCartCount();
 
+    displayCart();
 }
 
-displayCart();
-
-// Update cart badge
-function updateCartCount(){
-
-    const badge = document.getElementById("cart-count");
-
-    if(!badge) return;
+// ==========================
+// DECREASE QTY
+// ==========================
+function decreaseQty(index) {
 
     let cart = getCart();
 
-    let total = 0;
+    if (cart[index].qty > 1) {
 
-    cart.forEach(item=>{
-        total += item.qty;
-    });
+        cart[index].qty--;
 
-    badge.textContent = total;
+    } else {
+
+        cart.splice(index, 1);
+
+    }
+
+    saveCart(cart);
+
+    updateCartCount();
+
+    displayCart();
 }
+
+// ==========================
+// REMOVE ITEM
+// ==========================
+function removeItem(index) {
+
+    let cart = getCart();
+
+    cart.splice(index, 1);
+
+    saveCart(cart);
+
+    updateCartCount();
+
+    displayCart();
+}
+
+// ==========================
+// LOAD PAGE
+// ==========================
 updateCartCount();
-
-
+displayCart();
