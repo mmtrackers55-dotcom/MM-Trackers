@@ -517,88 +517,101 @@ The customer has complete ownership and control of the device, including access 
 </section>
 
 <!-- ================= RELATED PRODUCTS ================= -->
-
 <section class="related-products">
 
 <h2>Related Products</h2>
 
-<div class="product-grid">
+<div class="swiper relatedSwiper">
+
+<div class="swiper-wrapper">
+
+<div class="swiper-slide">
 
 <div class="product-card">
-
-<img src="images/901A.jpg" alt="SinoTrack ST-901A">
+<img src="images/901a.jpg" alt="ST-901A">
 
 <div class="product-card-content">
-
-<h3>ST-901A GPS Tracker for Bikes and Cars</h3>
-
-<p>Enhanced GPS tracker featuring real-time tracking, built-in backup battery, and advanced vehicle security. Perfect for cars, trucks, and commercial fleets.
-</p>
+<h3>ST-901A GPS Tracker</h3>
+<p>Real-time tracking with backup battery and mobile app.</p>
 
 <div class="product-price">Rs. 8,500</div>
 
-<a href="901A.html" class="btn cart-btn">View Details</a>
+<a href="st901a.html" class="btn cart-btn">
+View Details
+</a>
 
+</div>
 </div>
 
 </div>
+
+<div class="swiper-slide">
 
 <div class="product-card">
-
-<img src="images/901AL.jpg" alt="SinoTrack ST-901AL">
+<img src="images/901al.jpg" alt="ST-901AL">
 
 <div class="product-card-content">
-
-<h3>ST-901AL GPS Tracker for Bikes $ Cars </h3>
-
-<p>Premium 4G GPS tracker with remote voice monitoring, real-time tracking, and advanced security features. Designed for professional fleet management and high-value vehicle protection.</p>
+<h3>ST-901AL GPS Tracker</h3>
+<p>4G GPS Tracker with live tracking and voice monitoring.</p>
 
 <div class="product-price">Rs. 12,000</div>
 
-<a href="901AL.html" class="btn cart-btn">View Details</a>
+<a href="st901al.html" class="btn cart-btn">
+View Details
+</a>
 
+</div>
 </div>
 
 </div>
+
+<div class="swiper-slide">
 
 <div class="product-card">
-
-<img src="images/901L.jpg" alt="Sinotrack ST-901L 4G GPS Tracker">
+<img src="images/901l.jpg" alt="ST-901L">
 
 <div class="product-card-content">
-
-<h3>ST-901L 4G GPS Tracker for Bikes & Cars</h3>
-
-<p>Next-generation 4G LTE GPS tracker with faster connectivity and future-ready network support. Ideal for users seeking reliable, long-term vehicle tracking.</p>
+<h3>ST-901L GPS Tracker</h3>
+<p>Latest 4G GPS Tracker with fast LTE connectivity.</p>
 
 <div class="product-price">Rs. 13,000</div>
 
-<a href="901L.html" class="btn cart-btn">View Details</a>
+<a href="st901l.html" class="btn cart-btn">
+View Details
+</a>
 
+</div>
 </div>
 
 </div>
 
+<div class="swiper-slide">
 
 <div class="product-card">
-
-<img src="images/906.jpg" alt="Sinotrack ST-906 GPS Tracker">
+<img src="images/906.jpg" alt="ST-906">
 
 <div class="product-card-content">
-
-<h3>ST-906 GPS Tracker for Cars</h3>
-
-<p>Compact GPS tracker with real-time location, ACC ignition monitoring, route history, and remote engine cut-off. A reliable choice for cars, motorcycles, and commercial vehicles.</p>
+<h3>ST-906 GPS Tracker</h3>
+<p>Compact GPS Tracker with ACC ignition monitoring.</p>
 
 <div class="product-price">Rs. 12,000</div>
 
-<a href="906.html" class="btn cart-btn">View Details</a>
+<a href="st906.html" class="btn cart-btn">
+View Details
+</a>
 
+</div>
 </div>
 
 </div>
 
+</div>
 
+<div class="swiper-button-prev"></div>
+
+<div class="swiper-button-next"></div>
+
+<div class="swiper-pagination"></div>
 
 </div>
 
@@ -645,6 +658,53 @@ function changeImage(src){
 }
 
 </script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+<script>
+new Swiper(".relatedSwiper",{
+
+loop:true,
+
+speed:800,
+
+spaceBetween:25,
+
+autoplay:{
+delay:3000,
+disableOnInteraction:false,
+},
+
+navigation:{
+nextEl:".swiper-button-next",
+prevEl:".swiper-button-prev",
+},
+
+pagination:{
+el:".swiper-pagination",
+clickable:true,
+},
+
+breakpoints:{
+
+0:{
+slidesPerView:1,
+},
+
+576:{
+slidesPerView:2,
+},
+
+992:{
+slidesPerView:3,
+},
+
+1200:{
+slidesPerView:4,
+}
+
+}
+
+});
+</script>
 </body>
 </html>
