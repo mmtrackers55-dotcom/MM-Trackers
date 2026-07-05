@@ -30,56 +30,64 @@ alert(product.name + " added to cart.");
 }
 
 // Show cart on cart.html
-function displayCart() {
+// Show cart
+function displayCart(){
 
     const cartContainer = document.getElementById("cart-items");
 
-    if (!cartContainer) return;
+    if(!cartContainer) return;
 
     let cart = getCart();
 
-    if (cart.length === 0) {
-        cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+    if(cart.length===0){
+
+        cartContainer.innerHTML="<h3>Your cart is empty.</h3>";
+
+        document.getElementById("cart-total").innerHTML="Total : Rs. 0";
+
         return;
     }
 
-    let html = "";
-    let total = 0;
+    let html="";
 
-    cart.forEach((item, index) => {
+    let total=0;
+
+    cart.forEach((item,index)=>{
 
         total += item.price * item.qty;
 
         html += `
         <div class="cart-item">
 
-            <img src="${item.image}" width="120">
+            <img src="${item.image}" alt="${item.name}">
 
-            <div>
+            <div class="cart-info">
 
                 <h3>${item.name}</h3>
 
-                <p>Rs. ${item.price.toLocaleString()}</p>
+                <p><strong>Price:</strong> Rs. ${item.price.toLocaleString()}</p>
 
-                <p>Quantity : ${item.qty}</p>
+                <p><strong>Quantity:</strong> ${item.qty}</p>
 
-                <button onclick="removeItem(${index})">
+                <p><strong>Subtotal:</strong> Rs. ${(item.price*item.qty).toLocaleString()}</p>
+
+                <button class="remove-btn" onclick="removeItem(${index})">
                     Remove
                 </button>
 
             </div>
 
         </div>
-
-        <hr>
         `;
+
     });
 
-    html += `<h2>Total : Rs. ${total.toLocaleString()}</h2>`;
-
     cartContainer.innerHTML = html;
-}
 
+    document.getElementById("cart-total").innerHTML =
+        "Total : Rs. " + total.toLocaleString();
+
+}
 // Remove item
 function removeItem(index){
 
