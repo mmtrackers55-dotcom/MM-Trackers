@@ -185,3 +185,61 @@ function removeItem(index) {
 // ==========================
 updateCartCount();
 displayCart();
+// ===============================
+// CHECKOUT
+// ===============================
+
+const checkoutForm = document.getElementById("checkoutForm");
+
+if(checkoutForm){
+
+    // Show total on checkout page
+    let cart = getCart();
+
+    let total = 0;
+
+    cart.forEach(item=>{
+        total += item.price * item.qty;
+    });
+
+    document.getElementById("checkout-total").innerHTML =
+        "Total: Rs. " + total.toLocaleString();
+
+    checkoutForm.addEventListener("submit",function(e){
+
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const phone = document.getElementById("phone").value;
+        const city = document.getElementById("city").value;
+        const address = document.getElementById("address").value;
+
+        let message = "📦 *New Order - MM Trackers*%0A%0A";
+
+        message += "*Customer:* " + name + "%0A";
+        message += "*Phone:* " + phone + "%0A";
+        message += "*City:* " + city + "%0A";
+        message += "*Address:* " + address + "%0A%0A";
+
+        message += "*Products:*%0A";
+
+        cart.forEach(item=>{
+
+            message += "• " + item.name +
+            " x" + item.qty +
+            " = Rs. " + (item.price * item.qty).toLocaleString() + "%0A";
+
+        });
+
+        message += "%0A*Total:* Rs. " + total.toLocaleString();
+
+        window.open(
+            "https://wa.me/923159615557?text=" + message,
+            "_blank"
+        );
+
+    });
+
+}
+
+
