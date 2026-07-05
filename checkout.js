@@ -51,7 +51,7 @@ document.getElementById("checkoutForm").addEventListener("submit",function(e){
     const city = document.getElementById("city").value;
     const address = document.getElementById("address").value;
 let paymentElement = document.querySelector('input[name="payment"]:checked');
-let payment = paymentElement ? paymentElement.value : "Not selected";
+let payment = document.querySelector('input[name="payment"]:checked')?.value || "Cash on Delivery";
     let message =
 `*New Order - MM Trackers*
 
