@@ -796,48 +796,43 @@ target="_blank">
 </a>
 
 <!-- ================= JAVASCRIPT ================= -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <script>
 function changeImage(src){
     document.getElementById("mainImage").src = src;
 }
 
-new Swiper(".relatedSwiper", {
+const swiper = new Swiper(".relatedSwiper", {
     loop: true,
     slidesPerView: 1,
     spaceBetween: 20,
-    watchOverflow: true,
-    centeredSlides: false,
-
     autoplay: {
-        delay: 3000,
+        delay: 2500,
         disableOnInteraction: false,
     },
-
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
     },
-
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
     },
-
     breakpoints: {
         576: {
             slidesPerView: 2,
-            spaceBetween: 20,
         },
         992: {
             slidesPerView: 3,
-            spaceBetween: 25,
         },
         1200: {
             slidesPerView: 4,
-            spaceBetween: 25,
         }
     }
 });
+
+console.log(swiper);
 </script>
 </body>
 </html>
