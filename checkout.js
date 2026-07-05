@@ -2,7 +2,6 @@
 // LOAD CART
 // ------------------------------
 let cart = getCart();
-
 let total = 0;
 let html = "";
 // Render cart items
