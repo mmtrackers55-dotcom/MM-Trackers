@@ -1402,6 +1402,57 @@ RELATED PRODUCTS SLIDER
 .relatedSwiper .btn{
     width:100%;
 }
+
+/* ===== RELATED PRODUCTS FIX ===== */
+
+.related-products{
+    overflow:hidden;
+}
+
+.relatedSwiper{
+    width:100%;
+    overflow:hidden;
+}
+
+.relatedSwiper .swiper-wrapper{
+    align-items:stretch;
+}
+
+.relatedSwiper .swiper-slide{
+    display:flex;
+    height:auto;
+}
+
+.relatedSwiper .product-card{
+    width:100%;
+    height:100%;
+}
+
+/* Move arrows outside cards */
+.relatedSwiper .swiper-button-prev{
+    left:-5px;
+}
+
+.relatedSwiper .swiper-button-next{
+    right:-5px;
+}
+
+/* Mobile */
+@media (max-width:768px){
+
+    .relatedSwiper{
+        padding:10px 30px 45px;
+    }
+
+    .relatedSwiper .swiper-button-prev{
+        left:0;
+    }
+
+    .relatedSwiper .swiper-button-next{
+        right:0;
+    }
+}
+
 /*=================================================
                 END OF STYLE.CSS
 ==================================================*/
