@@ -48,9 +48,7 @@ document.getElementById("checkoutForm").addEventListener("submit",function(e){
     const name = document.getElementById("name").value;
     const phone = document.getElementById("phone").value;
     const city = document.getElementById("city").value;
-    const address = document.getElementById("address").value;
-let payment = document.querySelector('input[name="payment"]:checked')?.value || "Cash on Delivery";
-    let message =
+    const address = document.getElementById("address").value; document.getElementById("checkoutForm").addEventListener("submit", function(e){   let message =
 `*New Order - MM Trackers*
 
 Name: ${name}
