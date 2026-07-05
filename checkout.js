@@ -60,7 +60,11 @@ Name: ${name}
 Phone: ${phone}
 City: ${city}
 Address: ${address}
+Payment: ${payment}
 
+-----------------------
+Products:
+`;
 -----------------------
 Products:
 `;
