@@ -232,10 +232,21 @@ if(checkoutForm){
 
         message += "%0A*Total:* Rs. " + total.toLocaleString();
 
-        window.open(
-            "https://wa.me/923159615557?text=" + message,
-            "_blank"
-        );
+       window.open(
+    "https://wa.me/923159615557?text=" + message,
+    "_blank"
+);
+
+// Clear cart
+localStorage.removeItem("cart");
+
+// Update badge
+updateCartCount();
+
+// Redirect to homepage after 1 second
+setTimeout(function () {
+    window.location.href = "index.html";
+}, 1000);
 
     });
 
