@@ -2,8 +2,10 @@
 // LOAD CART
 // ------------------------------
 let cart = getCart();
+
 let total = 0;
 let html = "";
+
 // Render cart items
 cart.forEach(item => {
     total += item.price * item.qty;
@@ -11,9 +13,11 @@ cart.forEach(item => {
     html += `
     <div class="checkout-item">
         <h3>${item.name}</h3>
+
         <p>
             Rs. ${item.price.toLocaleString()} × ${item.qty}
         </p>
+
         <strong>
             Subtotal: Rs. ${(item.price * item.qty).toLocaleString()}
         </strong>
