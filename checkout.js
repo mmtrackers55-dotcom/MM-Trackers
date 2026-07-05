@@ -1,6 +1,5 @@
 // Load cart
 let cart = getCart();
-
 let total = 0;
 
 let html = "";
