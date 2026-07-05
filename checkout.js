@@ -11,10 +11,7 @@ cart.forEach(item => {
     html += `
     <div class="checkout-item">
         <h3>${item.name}</h3>
-        <p>
-            Rs. ${item.price.toLocaleString()}
-            × ${item.qty}
-        </p>
+        <p>Rs. ${item.price.toLocaleString()} × ${item.qty}</p>
 
         <strong>
             Subtotal: Rs. ${(item.price * item.qty).toLocaleString()}
@@ -27,9 +24,10 @@ cart.forEach(item => {
 
 document.getElementById("checkout-items").innerHTML = html;
 document.getElementById("checkout-total").innerHTML =
-    "Total : Rs. " + total.toLocaleString();
+    "Total: Rs. " + total.toLocaleString();
 
 updateCartCount();
+
 
 // Checkout Form
 document.getElementById("checkoutForm").addEventListener("submit", function(e) {
@@ -47,34 +45,34 @@ document.getElementById("checkoutForm").addEventListener("submit", function(e) {
     const city = document.getElementById("city").value;
     const address = document.getElementById("address").value;
 
-    // ✅ PAYMENT FIX (IMPORTANT)
-    let payment = document.querySelector('input[name="payment"]:checked')?.value || "Cash on Delivery";
+    // ✅ PAYMENT (SAFE METHOD)
+    let payment = "Cash on Delivery";
+
+    document.querySelectorAll('input[name="payment"]').forEach(radio => {
+        if (radio.checked) {
+            payment = radio.value;
+        }
+    });
 
     // Message
     let message =
 `*New Order - MM Trackers*
 
-Name: ${name}
-Phone: ${phone}
-City: ${city}
-Address: ${address}
-Payment: ${payment}
+*Customer:* ${name}
+*Phone:* ${phone}
+*City:* ${city}
+*Address:* ${address}
 
------------------------
-Products:
+*Payment Method:* ${payment}
+
+*Products:*
 `;
 
     cart.forEach(item => {
-        message += `• ${item.name}
-Qty: ${item.qty}
-Price: Rs. ${item.price}
-Subtotal: Rs. ${item.price * item.qty}
-
-`;
+        message += `• ${item.name} x${item.qty} = Rs. ${item.price * item.qty}\n`;
     });
 
-    message += `-----------------------
-Total: Rs. ${total}`;
+    message += `\n*Total:* Rs. ${total}`;
 
     // Open WhatsApp
     window.open(
@@ -87,7 +85,7 @@ Total: Rs. ${total}`;
     updateCartCount();
 
     // Redirect
-    setTimeout(function () {
+    setTimeout(() => {
         window.location.href = "index.html";
-    }, 3000);
+    }, 2000);
 });
