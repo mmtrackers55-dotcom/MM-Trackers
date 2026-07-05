@@ -17,7 +17,6 @@ cart.forEach(item => {
         <p>
             Rs. ${item.price.toLocaleString()} × ${item.qty}
         </p>
-
         <strong>
             Subtotal: Rs. ${(item.price * item.qty).toLocaleString()}
         </strong>
