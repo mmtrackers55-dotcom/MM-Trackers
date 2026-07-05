@@ -1389,42 +1389,46 @@ transform:translateY(0);
 RELATED PRODUCTS SLIDER
 ==========================*/
 
-.related-products{
-    padding:70px 0;
-}
-
-.related-products h2{
-    text-align:center;
-    font-size:36px;
-    margin-bottom:35px;
-    color:#0b1f3a;
-}
-
-.relatedSwiper{
-    padding:10px 10px 55px;
-}
-
-.relatedSwiper .swiper-slide{
-    height:auto;
-}
-
 .relatedSwiper .product-card{
-    margin:0;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
-.swiper-button-next,
-.swiper-button-prev{
-    color:#00a651;
+.relatedSwiper .product-card img{
+    width:100%;
+    height:180px;
+    object-fit:contain;
+    padding:10px;
+    background:#fff;
 }
 
-.swiper-pagination-bullet{
-    background:#999;
+.relatedSwiper .product-card-content{
+    padding:15px;
 }
 
-.swiper-pagination-bullet-active{
-    background:#00a651;
+.relatedSwiper .product-card-content h3{
+    font-size:22px;
+    line-height:1.35;
+    margin-bottom:10px;
 }
 
+.relatedSwiper .product-card-content p{
+    font-size:15px;
+    line-height:1.6;
+    margin-bottom:12px;
+    color:#666;
+}
+
+.relatedSwiper .product-price{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.relatedSwiper .btn{
+    width:100%;
+    padding:12px;
+}
 
 
 
