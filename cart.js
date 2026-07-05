@@ -12,7 +12,6 @@ function addToCart(product) {
     let cart = getCart();
 
     let existing = cart.find(item => item.name === product.name);
-
     if (existing) {
         existing.qty++;
     } else {
