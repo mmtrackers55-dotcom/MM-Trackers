@@ -24,7 +24,9 @@ function addToCart(product) {
 
     saveCart(cart);
 
-    alert(product.name + " added to cart.");
+updateCartCount();
+
+alert(product.name + " added to cart.");
 }
 
 // Show cart on cart.html
@@ -92,3 +94,25 @@ function removeItem(index){
 }
 
 displayCart();
+
+// Update cart badge
+function updateCartCount(){
+
+    const badge = document.getElementById("cart-count");
+
+    if(!badge) return;
+
+    let cart = getCart();
+
+    let total = 0;
+
+    cart.forEach(item=>{
+        total += item.qty;
+    });
+
+    badge.textContent = total;
+}
+
+updateCartCount();
+
+
