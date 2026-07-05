@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checkout | MM Trackers</title>
+
+<link rel="stylesheet" href="ccc/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="navbar">
+
+<div class="logo">
+<a href="index.html">
+<img src="images/mmlogo.jpg" alt="MM Trackers">
+</a>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="products.html">Products</a>
+<a href="cart.html">
+Cart <span id="cart-count">0</span>
+</a>
+</nav>
+
+</div>
+
+</header>
+
+<div class="container">
+
+<h1>Checkout</h1>
+
+<form id="checkoutForm">
+
+<input type="text" id="name" placeholder="Full Name" required>
+
+<input type="tel" id="phone" placeholder="Mobile Number" required>
+
+<input type="text" id="city" placeholder="City" required>
+
+<textarea id="address" placeholder="Complete Address" required></textarea>
+
+<h2 id="checkout-total">Total: Rs. 0</h2>
+
+<button type="submit" class="btn whatsapp-btn">
+Place Order on WhatsApp
+</button>
+
+</form>
+
+</div>
+
+<script src="cart.js"></script>
+
+</body>
+</html>
