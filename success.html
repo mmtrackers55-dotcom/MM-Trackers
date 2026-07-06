@@ -68,7 +68,17 @@ Back to Home
 
 </div>
 
+<script>
 
+const orderNo = localStorage.getItem("lastOrderNo");
+
+if(orderNo){
+
+document.getElementById("order-number").innerHTML = orderNo;
+
+}
+
+</script>
 </body>
 
 </html>
