@@ -156,7 +156,7 @@ if (document.getElementById("checkoutForm")) {
         "MMT-" +
         Date.now().toString().slice(-8);
 
-
+localStorage.setItem("lastOrderNo", orderNo);
         let message =
 `🛒 *NEW ORDER - MM TRACKERS*
 
