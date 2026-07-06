@@ -1825,7 +1825,12 @@ MOBILE
     object-fit:contain;
 }
 
-
+.trust-icon{
+    width:32px;
+    height:32px;
+    object-fit:contain;
+    flex-shrink:0;
+}
 
 
 
