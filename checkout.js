@@ -272,7 +272,7 @@ setTimeout(function(){
 
 window.location.href="success.html";
 
-},800);
+},3000);
 });
 
 // =====================================
