@@ -68,7 +68,7 @@ document.getElementById("checkoutForm").addEventListener("submit", function(e){
 *City:* ${city}
 *Address:* ${address}
 
-*Payment Method:* ${payment}
+*TEST PAYMENT:* ABC123
 
 -----------------------
 *Products:*
