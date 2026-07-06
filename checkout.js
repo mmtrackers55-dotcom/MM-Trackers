@@ -2,7 +2,6 @@
 // MM TRACKERS CHECKOUT
 // PART 1 - LOAD CART & TOTALS
 // ==========================================
-
 const SHIPPING = 450;
 const COD_RATE = 0.04;
 
