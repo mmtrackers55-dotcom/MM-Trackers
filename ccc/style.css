@@ -1001,6 +1001,31 @@ flex:1;
     width:100%;
 }
 
+
+.product-price{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    margin:15px 0 20px;
+
+    color:#00a651;
+    font-size:28px;
+    font-weight:700;
+}
+
+.product-price i{
+    font-size:22px;
+}
+
+.product-price strong{
+    color:#222;
+    font-size:18px;
+    font-weight:600;
+}
+
+
+
 /*==============================
 WHY US
 ==============================*/
