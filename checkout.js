@@ -1,26 +1,33 @@
-// ==========================
-// MM TRACKERS CHECKOUT V2
-// ==========================
+// ==========================================
+// MM TRACKERS CHECKOUT
+// PART 1 - LOAD CART & TOTALS
+// ==========================================
+
 const SHIPPING = 450;
 const COD_RATE = 0.04;
 
-let cart = getCart();
-if (document.getElementById("checkoutForm")) {
+const checkoutForm = document.getElementById("checkoutForm");
+
+if (checkoutForm) {
+
+    let cart = getCart();
+
+    if (cart.length === 0) {
+        window.location.href = "cart.html";
+    }
 
     const checkoutItems = document.getElementById("checkout-items");
     const productsTotal = document.getElementById("products-total");
     const codFee = document.getElementById("cod-fee");
     const grandTotal = document.getElementById("grand-total");
-
-    const bankBox = document.getElementById("bank-details");
+    const bankDetails = document.getElementById("bank-details");
 
     let subtotal = 0;
-
-    // -------------------------
-    // Render Products
-    // -------------------------
-
     let html = "";
+
+    // ===============================
+    // DISPLAY PRODUCTS
+    // ===============================
 
     cart.forEach(item => {
 
@@ -31,14 +38,24 @@ if (document.getElementById("checkoutForm")) {
 
             <h3>${item.name}</h3>
 
-            <p>Price : Rs. ${item.price.toLocaleString()}</p>
+            <p>
+                Price:
+                <strong>Rs. ${item.price.toLocaleString()}</strong>
+            </p>
 
-            <p>Quantity : ${item.qty}</p>
+            <p>
+                Quantity:
+                <strong>${item.qty}</strong>
+            </p>
 
-            <strong>
-            Subtotal :
-            Rs. ${(item.price * item.qty).toLocaleString()}
-            </strong>
+            <p>
+                Subtotal:
+                <strong>
+                Rs. ${(item.price * item.qty).toLocaleString()}
+                </strong>
+            </p>
+
+            <hr>
 
         </div>
         `;
@@ -51,11 +68,11 @@ if (document.getElementById("checkoutForm")) {
         "Rs. " + subtotal.toLocaleString();
 
 
-    // -------------------------
-    // Live Total
-    // -------------------------
+    // ===============================
+    // CALCULATE TOTAL
+    // ===============================
 
-    function calculateTotal(){
+    function calculateTotal() {
 
         const payment =
         document.querySelector('input[name="payment"]:checked').value;
@@ -64,44 +81,47 @@ if (document.getElementById("checkoutForm")) {
 
         let cod = 0;
 
-        if(payment === "Cash on Delivery"){
+        if (payment === "Cash on Delivery") {
 
             cod = Math.round((subtotal + shipping) * COD_RATE);
 
-            bankBox.style.display="none";
+            bankDetails.style.display = "none";
 
-        }else{
+        } else {
 
-            bankBox.style.display="block";
+            bankDetails.style.display = "block";
 
         }
 
         codFee.innerHTML =
-        "Rs. " + cod.toLocaleString();
+            "Rs. " + cod.toLocaleString();
 
         grandTotal.innerHTML =
-        "Rs. " +
-        (subtotal + shipping + cod).toLocaleString();
+            "Rs. " +
+            (subtotal + shipping + cod).toLocaleString();
 
     }
 
     calculateTotal();
 
-    document.querySelectorAll('input[name="payment"]').forEach(radio=>{
+    document
+    .querySelectorAll('input[name="payment"]')
+    .forEach(radio => {
 
-        radio.addEventListener("change",calculateTotal);
+        radio.addEventListener(
+            "change",
+            calculateTotal
+        );
 
     });
 
     updateCartCount();
 
+    // ===============================
+    // PLACE ORDER
+    // ===============================
 
-    // -------------------------
-    // Submit Order
-    // -------------------------
-
-    document.getElementById("checkoutForm")
-    .addEventListener("submit",function(e){
+    checkoutForm.addEventListener("submit", function(e){
 
         e.preventDefault();
 
@@ -118,8 +138,7 @@ if (document.getElementById("checkoutForm")) {
 
         btn.disabled = true;
 
-        btn.innerHTML="Please Wait...";
-
+        btn.innerHTML = "Please Wait...";
 
         const name =
         document.getElementById("name").value.trim();
@@ -136,7 +155,6 @@ if (document.getElementById("checkoutForm")) {
         const payment =
         document.querySelector('input[name="payment"]:checked').value;
 
-
         let shipping = SHIPPING;
 
         let cod = 0;
@@ -147,42 +165,41 @@ if (document.getElementById("checkoutForm")) {
 
         }
 
-        const total =
+        const grand =
         subtotal + shipping + cod;
 
+        // ===============================
+        // ORDER NUMBER
+        // ===============================
 
         const orderNo =
-        "MMT-" +
-        Date.now().toString().slice(-8);
+        "MMT-" + Date.now().toString().slice(-8);
 
-localStorage.setItem("lastOrderNo", orderNo);
-      let message = "🛒 *New Order - MM Trackers*\n\n";
+        localStorage.setItem(
+            "lastOrderNo",
+            orderNo
+        );
 
-message += "🆔 *Order No:* " + orderNo + "\n\n";
+        // ===============================
+        // WHATSAPP MESSAGE
+        // ===============================
 
-Order No:
-${orderNo}
+        let message =
+`🛒 *New Order - MM Trackers*
 
-━━━━━━━━━━━━━━━━━━
+🆔 *Order No:* ${orderNo}
 
-👤 Customer:
-${name}
+👤 *Customer:* ${name}
+📞 *Phone:* ${phone}
+🏙 *City:* ${city}
+📍 *Address:* ${address}
 
-📞 Phone:
-${phone}
-
-🏙 City:
-${city}
-
-📍 Address:
-${address}
-
-💳 Payment:
-${payment}
+💳 *Payment Method:* ${payment}
 
 ━━━━━━━━━━━━━━━━━━
 
-📦 Products:
+📦 *Products:*
+
 `;
 
         cart.forEach(item=>{
@@ -197,11 +214,10 @@ Subtotal: Rs. ${(item.price*item.qty).toLocaleString()}
 
         });
 
-
-message +=
+        message +=
 `━━━━━━━━━━━━━━━━━━
 
-Products:
+Products Total:
 Rs. ${subtotal.toLocaleString()}
 
 Shipping:
@@ -212,117 +228,133 @@ Rs. ${cod.toLocaleString()}
 
 ━━━━━━━━━━━━━━━━━━
 
-💰 Grand Total:
-Rs. ${total.toLocaleString()}
+💰 *Grand Total:*
+Rs. ${grand.toLocaleString()}
 `;
 
-if(payment==="Meezan Bank"){
+        if(payment==="Meezan Bank"){
 
 message += `
 
-🏦 Meezan Bank
+🏦 *Meezan Bank*
 
-Title:
+Account Title:
 MM Trackers
 
-Account:
+Account Number:
 07010102734800
 
 IBAN:
 PK89MEZN0007010102734800`;
 
-}
+        }
 
-if(payment==="EasyPaisa"){
-
-message += `
-
-📱 EasyPaisa
-
-03159615557`;
-
-}
-
-if(payment==="NayaPay"){
+        if(payment==="EasyPaisa"){
 
 message += `
 
-💙 NayaPay / Raast
+📱 *EasyPaisa*
 
-03159615557`;
+0315 9615557`;
 
-}
-const orderNo = "MMT-" + Date.now().toString().slice(-8);
+        }
 
-localStorage.setItem("lastOrderNo", orderNo);
-window.open(
+        if(payment==="NayaPay"){
 
-"https://wa.me/923159615557?text=" +
+message += `
 
-encodeURIComponent(message),
+💙 *NayaPay / Raast*
 
-"_blank"
+0315 9615557`;
 
-);
+        }
 
-localStorage.removeItem("cart");
+        // ===============================
+        // OPEN WHATSAPP
+        // ===============================
 
-updateCartCount();
+        const whatsappURL =
+        "https://wa.me/923159615557?text=" +
+        encodeURIComponent(message);
 
-window.location.href = "success.html";
+        const win = window.open(
+            whatsappURL,
+            "_blank"
+        );
 
-});
+        // If popup blocked
+        if(!win){
 
-// =====================================
-// COPY PAYMENT DETAILS
-// =====================================
+            alert("Please allow pop-ups for this website so WhatsApp can open.");
 
-function copyText(id){
+            btn.disabled = false;
+            btn.innerHTML = "Place Order on WhatsApp";
 
-    const text = document.getElementById(id).innerText;
+            return;
 
-    if(navigator.clipboard){
+        }
 
-        navigator.clipboard.writeText(text)
-        .then(function(){
+        // ===============================
+        // CLEAR CART
+        // ===============================
 
-            alert(text + "\n\nCopied successfully.");
+        localStorage.removeItem("cart");
 
-        })
-        .catch(function(){
+        updateCartCount();
 
-            fallbackCopy(text);
+        // ===============================
+        // SUCCESS PAGE
+        // ===============================
 
-        });
+        setTimeout(function(){
 
-    }else{
+            window.location.href="success.html";
 
-        fallbackCopy(text);
+        },500);
+
+    });
+
+    // ===============================
+    // COPY TEXT
+    // ===============================
+
+    function copyText(id){
+
+        const text =
+        document.getElementById(id).innerText;
+
+        if(navigator.clipboard){
+
+            navigator.clipboard.writeText(text)
+            .then(function(){
+
+                alert("Copied Successfully");
+
+            });
+
+        }else{
+
+            const input =
+            document.createElement("textarea");
+
+            input.value = text;
+
+            document.body.appendChild(input);
+
+            input.select();
+
+            document.execCommand("copy");
+
+            document.body.removeChild(input);
+
+            alert("Copied Successfully");
+
+        }
 
     }
 
 }
 
-function fallbackCopy(text){
-
-    const input = document.createElement("textarea");
-
-    input.value = text;
-
-    document.body.appendChild(input);
-
-    input.select();
-
-    document.execCommand("copy");
-
-    document.body.removeChild(input);
-
-    alert(text + "\n\nCopied successfully.");
-
-}
 
 
 
-
-
-}
