@@ -1,7 +1,6 @@
 // ==========================
 // MM TRACKERS CHECKOUT V2
 // ==========================
-
 const SHIPPING = 450;
 const COD_RATE = 0.04;
 
