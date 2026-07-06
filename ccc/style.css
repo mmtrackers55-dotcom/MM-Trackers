@@ -1744,5 +1744,25 @@ text-align:center;
 
 }
 
+/*==============================
+PRODUCT CARD BUTTONS
+==============================*/
 
+.product-buttons{
+
+display:flex;
+
+gap:10px;
+
+margin-top:15px;
+
+}
+
+.product-buttons .btn{
+
+flex:1;
+
+text-align:center;
+
+}
 
