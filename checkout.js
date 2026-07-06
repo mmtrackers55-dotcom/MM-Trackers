@@ -267,12 +267,12 @@ localStorage.removeItem("cart");
 
 updateCartCount();
 
+
 setTimeout(function(){
 
-window.location.href="index.html";
+window.location.href="success.html";
 
-},1200);
-
+},800);
 });
 
 // =====================================
