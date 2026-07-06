@@ -1881,4 +1881,44 @@ white-space:nowrap;
 
 }
 
+/*==============================
+RESPONSIVE
+==============================*/
 
+@media (max-width:991px){
+
+.home-product-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media (max-width:576px){
+
+.home-product-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.home-product-card img{
+
+height:220px;
+
+}
+
+.product-buttons{
+
+flex-direction:column;
+
+}
+
+.product-buttons .btn{
+
+width:100%;
+
+}
+
+}
