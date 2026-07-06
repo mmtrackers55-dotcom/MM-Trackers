@@ -156,8 +156,9 @@ if (document.getElementById("checkoutForm")) {
         Date.now().toString().slice(-8);
 
 localStorage.setItem("lastOrderNo", orderNo);
-        let message =
-`🛒 *NEW ORDER - MM TRACKERS*
+      let message = "🛒 *New Order - MM Trackers*\n\n";
+
+message += "🆔 *Order No:* " + orderNo + "\n\n";
 
 Order No:
 ${orderNo}
@@ -251,7 +252,9 @@ message += `
 03159615557`;
 
 }
+const orderNo = "MMT-" + Date.now().toString().slice(-8);
 
+localStorage.setItem("lastOrderNo", orderNo);
 window.open(
 
 "https://wa.me/923159615557?text=" +
