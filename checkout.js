@@ -275,4 +275,56 @@ window.location.href="index.html";
 
 });
 
+// =====================================
+// COPY PAYMENT DETAILS
+// =====================================
+
+function copyText(id){
+
+    const text = document.getElementById(id).innerText;
+
+    if(navigator.clipboard){
+
+        navigator.clipboard.writeText(text)
+        .then(function(){
+
+            alert(text + "\n\nCopied successfully.");
+
+        })
+        .catch(function(){
+
+            fallbackCopy(text);
+
+        });
+
+    }else{
+
+        fallbackCopy(text);
+
+    }
+
+}
+
+function fallbackCopy(text){
+
+    const input = document.createElement("textarea");
+
+    input.value = text;
+
+    document.body.appendChild(input);
+
+    input.select();
+
+    document.execCommand("copy");
+
+    document.body.removeChild(input);
+
+    alert(text + "\n\nCopied successfully.");
+
+}
+
+
+
+
+
 }
