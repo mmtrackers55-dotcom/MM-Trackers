@@ -42,17 +42,60 @@ Cart <span id="cart-count">0</span>
 
 <form id="checkoutForm">
 
-<input type="text" id="name" placeholder="Full Name" required>
+<h2>Customer Information</h2>
 
-<input type="tel" id="phone" placeholder="Mobile Number" required>
+<input type="text"
+id="name"
+placeholder="Full Name"
+required>
 
-<input type="text" id="city" placeholder="City" required>
+<input type="tel"
+id="phone"
+placeholder="03XXXXXXXXX"
+maxlength="11"
+required>
 
-<textarea id="address" placeholder="Complete Address" required></textarea>
+<input type="text"
+id="city"
+placeholder="City"
+required>
+
+<textarea
+id="address"
+placeholder="Complete Delivery Address"
+required></textarea>
+
+
 <h2>Your Order</h2>
 
 <div id="checkout-items"></div>
-<h2 id="checkout-total">Total: Rs. 0</h2>
+
+
+<div class="order-summary">
+
+<div class="summary-row">
+<span>Products Total</span>
+<span id="products-total">Rs. 0</span>
+</div>
+
+<div class="summary-row">
+<span>Shipping Charges</span>
+<span>Rs. 450</span>
+</div>
+
+<div class="summary-row">
+<span>COD Fee (4%)</span>
+<span id="cod-fee">Rs. 0</span>
+</div>
+
+<hr>
+
+<div class="summary-row total-row">
+<strong>Grand Total</strong>
+<strong id="grand-total">Rs. 0</strong>
+</div>
+
+</div>
 
 
 <h2>Payment Method</h2>
@@ -60,19 +103,101 @@ Cart <span id="cart-count">0</span>
 <div class="payment-options">
 
 <label class="payment-option">
-<input type="radio" name="payment" value="Cash on Delivery" checked>
-Cash on Delivery (COD)
+
+<input
+type="radio"
+name="payment"
+value="Cash on Delivery"
+checked>
+
+💵 Cash on Delivery
+<small>(+4% COD Fee)</small>
+
 </label>
 
 <label class="payment-option">
-<input type="radio" name="payment" value="Bank Transfer">
-Bank Transfer
+
+<input
+type="radio"
+name="payment"
+value="Meezan Bank">
+
+🏦 Meezan Bank Transfer
+
+</label>
+
+<label class="payment-option">
+
+<input
+type="radio"
+name="payment"
+value="EasyPaisa">
+
+📱 EasyPaisa
+
+</label>
+
+<label class="payment-option">
+
+<input
+type="radio"
+name="payment"
+value="NayaPay">
+
+💙 NayaPay / Raast
+
 </label>
 
 </div>
 
-<button type="submit" class="btn whatsapp-btn">
+
+<div id="bank-details" style="display:none;">
+
+<h3>Payment Details</h3>
+
+<div class="bank-box">
+
+<strong>🏦 Meezan Bank</strong>
+
+<p>
+Account Title:<br>
+MM Trackers
+</p>
+
+<p>
+Account Number:<br>
+07010102734800
+</p>
+
+<p>
+IBAN:<br>
+PK89MEZN0007010102734800
+</p>
+
+<hr>
+
+<p>
+📱 EasyPaisa<br>
++92 315 9615557
+</p>
+
+<p>
+💙 NayaPay / Raast<br>
+0315 9615557
+</p>
+
+</div>
+
+</div>
+
+
+<button
+type="submit"
+class="btn whatsapp-btn"
+id="placeOrderBtn">
+
 Place Order on WhatsApp
+
 </button>
 
 </form>
