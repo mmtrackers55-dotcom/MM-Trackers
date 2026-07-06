@@ -5,7 +5,6 @@ const SHIPPING = 450;
 const COD_RATE = 0.04;
 
 let cart = getCart();
-
 if (document.getElementById("checkoutForm")) {
 
     const checkoutItems = document.getElementById("checkout-items");
