@@ -1,3 +1,18 @@
+
+
+// Prevent returning to checkout using browser Back button
+window.addEventListener("pageshow", function (event) {
+    if (event.persisted) {
+        window.location.replace("cart.html");
+    }
+});
+
+// Rest of your checkout.js code starts here...
+let cart = getCart();
+
+// ...
+
+
 // ==========================================
 // MM TRACKERS CHECKOUT
 // PART 1 - LOAD CART & TOTALS
