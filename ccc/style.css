@@ -1722,7 +1722,27 @@ margin-top:25px;
 display:inline-block;
 
 }
+.success-buttons{
 
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+margin-top:30px;
+
+flex-wrap:wrap;
+
+}
+
+.success-buttons a{
+
+min-width:180px;
+
+text-align:center;
+
+}
 
 
 
