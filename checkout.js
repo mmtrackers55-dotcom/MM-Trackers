@@ -1,7 +1,3 @@
-
-
-alert("NEW CHECKOUT.JS LOADED");
-
 // ------------------------------
 // LOAD CART
 // ------------------------------
@@ -10,7 +6,6 @@ let cart = getCart();
 let total = 0;
 let html = "";
 
-// Render cart items
 cart.forEach(item => {
 
     total += item.price * item.qty;
@@ -22,9 +17,7 @@ cart.forEach(item => {
 
         <p>Rs. ${item.price.toLocaleString()} × ${item.qty}</p>
 
-        <strong>
-            Subtotal: Rs. ${(item.price * item.qty).toLocaleString()}
-        </strong>
+        <strong>Subtotal: Rs. ${(item.price * item.qty).toLocaleString()}</strong>
 
         <hr>
 
@@ -59,40 +52,41 @@ document.getElementById("checkoutForm").addEventListener("submit", function(e){
     const address = document.getElementById("address").value.trim();
 
     // Payment Method
-    const payment =
-        document.querySelector('input[name="payment"]:checked')?.value
-        || "Cash on Delivery";
+    const selectedPayment = document.querySelector('input[name="payment"]:checked');
+    const payment = selectedPayment ? selectedPayment.value : "Cash on Delivery";
 
     // WhatsApp Message
     let message =
-`*New Order - MM Trackers*
+`*🛒 New Order - MM Trackers*
 
-*Customer:* ${name}
-*Phone:* ${phone}
-*City:* ${city}
-*Address:* ${address}
+👤 Customer: ${name}
+📞 Phone: ${phone}
+🏙 City: ${city}
+📍 Address: ${address}
 
-*TEST PAYMENT:* ABC123
+💳 Payment Method: ${payment}
 
------------------------
-*Products:*
+━━━━━━━━━━━━━━━━━━
+📦 Products:
 `;
 
     cart.forEach(item => {
 
         message +=
 `• ${item.name}
-Qty: ${item.qty}
-Price: Rs. ${item.price.toLocaleString()}
-Subtotal: Rs. ${(item.price * item.qty).toLocaleString()}
+   Qty: ${item.qty}
+   Price: Rs. ${item.price.toLocaleString()}
+   Subtotal: Rs. ${(item.price * item.qty).toLocaleString()}
 
 `;
 
     });
 
     message +=
-`-----------------------
-*Total:* Rs. ${total.toLocaleString()}`;
+`━━━━━━━━━━━━━━━━━━
+💰 Total: Rs. ${total.toLocaleString()}
+
+Thank you for shopping with MM Trackers.`;
 
     // Open WhatsApp
     window.open(
@@ -106,7 +100,6 @@ Subtotal: Rs. ${(item.price * item.qty).toLocaleString()}
 
     updateCartCount();
 
-    // Redirect
     setTimeout(function(){
         window.location.href = "index.html";
     },1000);
