@@ -2,8 +2,9 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Order Successful | MM Trackers</title>
 
@@ -20,50 +21,58 @@
 <div class="success-card">
 
 <div class="success-icon">
-
 ✅
-
 </div>
 
 <h1>Thank You!</h1>
 
 <p>
-
-Thank you for shopping with
-<strong>MM Trackers</strong>.
-
+Your order details have been prepared successfully.
 </p>
 
 <p>
-
-Your WhatsApp order has been prepared.
-
-Our team will contact you shortly to confirm your order.
-
+If you haven't already, please tap <strong>Send</strong> in WhatsApp to complete your order.
 </p>
 
-<h2>
-Your order has been sent successfully.
-</h2>
+<div class="order-card">
+
+<h3>Your Order Number</h3>
+
+<h1 id="order-number">
+MMT-00000000
+</h1>
+
+<button
+type="button"
+class="btn cart-btn"
+onclick="copyOrderNumber()">
+
+Copy Order Number
+
+</button>
 
 <p>
-Our team will contact you shortly to confirm your order.
+
+Please save this Order Number.
+
+If you need any support regarding your order, simply share this Order Number with us on WhatsApp.
+
 </p>
+
+</div>
+
 <div class="success-buttons">
 
 <a href="products.html" class="btn whatsapp-btn">
-
 Continue Shopping
-
 </a>
 
 <a href="index.html" class="btn cart-btn">
-
 Back to Home
-
 </a>
 
 </div>
+
 </div>
 
 </div>
@@ -78,7 +87,36 @@ document.getElementById("order-number").innerHTML = orderNo;
 
 }
 
+function copyOrderNumber(){
+
+const text = document.getElementById("order-number").innerText;
+
+if(navigator.clipboard){
+
+navigator.clipboard.writeText(text);
+
+}else{
+
+const input=document.createElement("textarea");
+
+input.value=text;
+
+document.body.appendChild(input);
+
+input.select();
+
+document.execCommand("copy");
+
+document.body.removeChild(input);
+
+}
+
+alert("Order Number Copied\n\n"+text);
+
+}
+
 </script>
+
 </body>
 
 </html>
