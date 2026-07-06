@@ -1604,6 +1604,61 @@ font-size:18px;
 
 }
 
+/* Payment Selected Effect */
+
+.payment-option{
+transition:.25s;
+}
+
+.payment-option:has(input:checked){
+
+border:2px solid #25D366;
+background:#f2fff5;
+
+box-shadow:0 0 15px rgba(37,211,102,.15);
+
+}
+
+.bank-box{
+
+animation:fade .35s;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(-10px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+#placeOrderBtn{
+
+transition:.3s;
+
+}
+
+#placeOrderBtn:hover{
+
+transform:translateY(-2px);
+
+box-shadow:0 10px 20px rgba(0,0,0,.15);
+
+}
+
+
+
 
 
 
