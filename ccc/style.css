@@ -948,7 +948,6 @@ FEATURED PRODUCTS
 .home-product-info{
     display:flex;
     flex-direction:column;
-    flex:1;
     padding:20px;
 }
 
@@ -960,43 +959,25 @@ FEATURED PRODUCTS
 }
 
 .home-product-info p{
-    flex:1;
     margin-bottom:15px;
     color:#666;
     line-height:1.7;
-}
-
-.home-price{
-    margin-bottom:18px;
-    color:#00a651;
-    font-size:28px;
-    font-weight:700;
-}
-
-.home-product-info .btn{
-    width:100%;
 }
 
 .product-price{
     display:flex;
     align-items:center;
     gap:8px;
-
-    margin:15px 0 20px;
-
+    margin:10px 0 18px;
     color:#00a651;
     font-size:28px;
     font-weight:700;
 }
 
-.product-price i{
-    font-size:22px;
-}
-
-.product-price strong{
-    color:#222;
-    font-size:18px;
-    font-weight:600;
+.product-buttons{
+    display:flex;
+    gap:10px;
+    margin-top:auto;
 }
 
 
