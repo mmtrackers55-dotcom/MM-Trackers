@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Order Successful | MM Trackers</title>
+
+<link rel="stylesheet" href="ccc/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="success-page">
+
+<div class="success-card">
+
+<div class="success-icon">
+
+✅
+
+</div>
+
+<h1>Order Sent Successfully!</h1>
+
+<p>
+
+Thank you for shopping with
+<strong>MM Trackers</strong>.
+
+</p>
+
+<p>
+
+Your WhatsApp order has been prepared.
+
+Our team will contact you shortly to confirm your order.
+
+</p>
+
+<h2 id="countdown">Redirecting in 5 seconds...</h2>
+
+<a href="index.html" class="btn cart-btn">
+
+Continue Shopping
+
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+let sec = 5;
+
+const timer = document.getElementById("countdown");
+
+const x = setInterval(function(){
+
+sec--;
+
+timer.innerHTML =
+"Redirecting in "+sec+" seconds...";
+
+if(sec<=0){
+
+clearInterval(x);
+
+window.location.href="index.html";
+
+}
+
+},1000);
+
+</script>
+
+</body>
+
+</html>
