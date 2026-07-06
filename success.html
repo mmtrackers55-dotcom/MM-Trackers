@@ -43,42 +43,32 @@ Our team will contact you shortly to confirm your order.
 
 </p>
 
-<h2 id="countdown">Redirecting in 5 seconds...</h2>
+<h2>
+Your order has been sent successfully.
+</h2>
 
-<a href="index.html" class="btn cart-btn">
+<p>
+Our team will contact you shortly to confirm your order.
+</p>
+<div class="success-buttons">
+
+<a href="products.html" class="btn whatsapp-btn">
 
 Continue Shopping
 
 </a>
 
+<a href="index.html" class="btn cart-btn">
+
+Back to Home
+
+</a>
+
+</div>
 </div>
 
 </div>
 
-<script>
-
-let sec = 5;
-
-const timer = document.getElementById("countdown");
-
-const x = setInterval(function(){
-
-sec--;
-
-timer.innerHTML =
-"Redirecting in "+sec+" seconds...";
-
-if(sec<=0){
-
-clearInterval(x);
-
-window.location.href="index.html";
-
-}
-
-},1000);
-
-</script>
 
 </body>
 
