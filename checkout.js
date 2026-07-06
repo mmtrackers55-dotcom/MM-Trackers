@@ -1,107 +1,279 @@
-// ------------------------------
-// LOAD CART
-// ------------------------------
+// ==========================
+// MM TRACKERS CHECKOUT V2
+// ==========================
+
+const SHIPPING = 450;
+const COD_RATE = 0.04;
+
 let cart = getCart();
 
-let total = 0;
-let html = "";
+if (document.getElementById("checkoutForm")) {
 
-cart.forEach(item => {
+    const checkoutItems = document.getElementById("checkout-items");
+    const productsTotal = document.getElementById("products-total");
+    const codFee = document.getElementById("cod-fee");
+    const grandTotal = document.getElementById("grand-total");
 
-    total += item.price * item.qty;
+    const bankBox = document.getElementById("bank-details");
 
-    html += `
-    <div class="checkout-item">
+    let subtotal = 0;
 
-        <h3>${item.name}</h3>
+    // -------------------------
+    // Render Products
+    // -------------------------
 
-        <p>Rs. ${item.price.toLocaleString()} × ${item.qty}</p>
-
-        <strong>Subtotal: Rs. ${(item.price * item.qty).toLocaleString()}</strong>
-
-        <hr>
-
-    </div>
-    `;
-
-});
-
-document.getElementById("checkout-items").innerHTML = html;
-document.getElementById("checkout-total").innerHTML =
-"Total: Rs. " + total.toLocaleString();
-
-updateCartCount();
-
-
-// ------------------------------
-// CHECKOUT FORM
-// ------------------------------
-document.getElementById("checkoutForm").addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-    if(cart.length === 0){
-        alert("Your cart is empty.");
-        return;
-    }
-
-    // Customer Details
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const city = document.getElementById("city").value.trim();
-    const address = document.getElementById("address").value.trim();
-
-    // Payment Method
-    const selectedPayment = document.querySelector('input[name="payment"]:checked');
-    const payment = selectedPayment ? selectedPayment.value : "Cash on Delivery";
-
-    // WhatsApp Message
-    let message =
-`*🛒 New Order - MM Trackers*
-
-👤 Customer: ${name}
-📞 Phone: ${phone}
-🏙 City: ${city}
-📍 Address: ${address}
-
-💳 Payment Method: ${payment}
-
-━━━━━━━━━━━━━━━━━━
-📦 Products:
-`;
+    let html = "";
 
     cart.forEach(item => {
 
-        message +=
-`• ${item.name}
-   Qty: ${item.qty}
-   Price: Rs. ${item.price.toLocaleString()}
-   Subtotal: Rs. ${(item.price * item.qty).toLocaleString()}
+        subtotal += item.price * item.qty;
 
-`;
+        html += `
+        <div class="checkout-item">
+
+            <h3>${item.name}</h3>
+
+            <p>Price : Rs. ${item.price.toLocaleString()}</p>
+
+            <p>Quantity : ${item.qty}</p>
+
+            <strong>
+            Subtotal :
+            Rs. ${(item.price * item.qty).toLocaleString()}
+            </strong>
+
+        </div>
+        `;
 
     });
 
-    message +=
-`━━━━━━━━━━━━━━━━━━
-💰 Total: Rs. ${total.toLocaleString()}
+    checkoutItems.innerHTML = html;
 
-Thank you for shopping with MM Trackers.`;
+    productsTotal.innerHTML =
+        "Rs. " + subtotal.toLocaleString();
 
-    // Open WhatsApp
-    window.open(
-        "https://wa.me/923159615557?text=" + encodeURIComponent(message),
-        "_blank"
-    );
 
-    // Clear Cart
-    localStorage.removeItem("cart");
-    cart = [];
+    // -------------------------
+    // Live Total
+    // -------------------------
+
+    function calculateTotal(){
+
+        const payment =
+        document.querySelector('input[name="payment"]:checked').value;
+
+        let shipping = SHIPPING;
+
+        let cod = 0;
+
+        if(payment === "Cash on Delivery"){
+
+            cod = Math.round((subtotal + shipping) * COD_RATE);
+
+            bankBox.style.display="none";
+
+        }else{
+
+            bankBox.style.display="block";
+
+        }
+
+        codFee.innerHTML =
+        "Rs. " + cod.toLocaleString();
+
+        grandTotal.innerHTML =
+        "Rs. " +
+        (subtotal + shipping + cod).toLocaleString();
+
+    }
+
+    calculateTotal();
+
+    document.querySelectorAll('input[name="payment"]').forEach(radio=>{
+
+        radio.addEventListener("change",calculateTotal);
+
+    });
 
     updateCartCount();
 
-    setTimeout(function(){
-        window.location.href = "index.html";
-    },1000);
+
+    // -------------------------
+    // Submit Order
+    // -------------------------
+
+    document.getElementById("checkoutForm")
+    .addEventListener("submit",function(e){
+
+        e.preventDefault();
+
+        if(cart.length===0){
+
+            alert("Your cart is empty.");
+
+            return;
+
+        }
+
+        const btn =
+        document.getElementById("placeOrderBtn");
+
+        btn.disabled = true;
+
+        btn.innerHTML="Please Wait...";
+
+
+        const name =
+        document.getElementById("name").value.trim();
+
+        const phone =
+        document.getElementById("phone").value.trim();
+
+        const city =
+        document.getElementById("city").value.trim();
+
+        const address =
+        document.getElementById("address").value.trim();
+
+        const payment =
+        document.querySelector('input[name="payment"]:checked').value;
+
+
+        let shipping = SHIPPING;
+
+        let cod = 0;
+
+        if(payment==="Cash on Delivery"){
+
+            cod = Math.round((subtotal + shipping) * COD_RATE);
+
+        }
+
+        const total =
+        subtotal + shipping + cod;
+
+
+        const orderNo =
+        "MMT-" +
+        Date.now().toString().slice(-8);
+
+
+        let message =
+`🛒 *NEW ORDER - MM TRACKERS*
+
+Order No:
+${orderNo}
+
+━━━━━━━━━━━━━━━━━━
+
+👤 Customer:
+${name}
+
+📞 Phone:
+${phone}
+
+🏙 City:
+${city}
+
+📍 Address:
+${address}
+
+💳 Payment:
+${payment}
+
+━━━━━━━━━━━━━━━━━━
+
+📦 Products:
+`;
+
+        cart.forEach(item=>{
+
+message +=
+`• ${item.name}
+Qty: ${item.qty}
+Price: Rs. ${item.price.toLocaleString()}
+Subtotal: Rs. ${(item.price*item.qty).toLocaleString()}
+
+`;
+
+        });
+
+
+message +=
+`━━━━━━━━━━━━━━━━━━
+
+Products:
+Rs. ${subtotal.toLocaleString()}
+
+Shipping:
+Rs. ${shipping.toLocaleString()}
+
+COD Fee:
+Rs. ${cod.toLocaleString()}
+
+━━━━━━━━━━━━━━━━━━
+
+💰 Grand Total:
+Rs. ${total.toLocaleString()}
+`;
+
+if(payment==="Meezan Bank"){
+
+message += `
+
+🏦 Meezan Bank
+
+Title:
+MM Trackers
+
+Account:
+07010102734800
+
+IBAN:
+PK89MEZN0007010102734800`;
+
+}
+
+if(payment==="EasyPaisa"){
+
+message += `
+
+📱 EasyPaisa
+
+03159615557`;
+
+}
+
+if(payment==="NayaPay"){
+
+message += `
+
+💙 NayaPay / Raast
+
+03159615557`;
+
+}
+
+window.open(
+
+"https://wa.me/923159615557?text=" +
+
+encodeURIComponent(message),
+
+"_blank"
+
+);
+
+localStorage.removeItem("cart");
+
+updateCartCount();
+
+setTimeout(function(){
+
+window.location.href="index.html";
+
+},1200);
 
 });
+
+}
