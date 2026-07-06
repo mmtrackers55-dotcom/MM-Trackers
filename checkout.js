@@ -267,12 +267,8 @@ localStorage.removeItem("cart");
 
 updateCartCount();
 
+window.location.href = "success.html";
 
-setTimeout(function(){
-
-window.location.href="success.html";
-
-},3000);
 });
 
 // =====================================
