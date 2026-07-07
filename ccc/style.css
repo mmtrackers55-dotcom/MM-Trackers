@@ -960,24 +960,27 @@ border-bottom:1px solid #eee;
     line-height:1.35;
     margin-bottom:10px;
 
+    /* Keep all titles equal height */
     min-height:60px;
 
     display:flex;
     align-items:flex-start;
 }
-
 .home-product-info p{
     color:#666;
     line-height:1.7;
     margin-bottom:15px;
-
-    min-height:82px;
 }
 .product-price{
     display:flex;
-    align-items:flex-end;
-    gap:6px;
-    margin:12px 0 18px;
+    align-items:center;
+    gap:8px;
+
+    margin:0 0 18px;
+
+    color:#00a651;
+    font-size:28px;
+    font-weight:700;
 }
 
 .product-price .currency{
