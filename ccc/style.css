@@ -1832,5 +1832,49 @@ MOBILE
     flex-shrink:0;
 }
 
+/*==============================
+PRODUCT CATEGORIES
+==============================*/
+
+.category-nav{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin:40px 0 50px;
+}
+
+.category-pill{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:12px 22px;
+
+    background:#fff;
+    border:2px solid #e5e5e5;
+    border-radius:50px;
+
+    color:#333;
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.category-pill:hover{
+    background:#00a651;
+    border-color:#00a651;
+    color:#fff;
+}
+
+.product-category-title{
+    margin:60px 0 30px;
+    padding-bottom:12px;
+
+    color:#0b1f3a;
+    font-size:32px;
+
+    border-bottom:3px solid #00a651;
+}
 
 
