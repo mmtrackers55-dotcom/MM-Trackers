@@ -1889,15 +1889,24 @@ PRODUCT CATEGORIES
 }
 
 
+
+
+
 .category-banner{
+    width:100%;
     margin:20px 0 40px;
     border-radius:22px;
     overflow:hidden;
 }
 
-.category-banner picture,
-.category-banner img{
+.category-banner picture{
     display:block;
+}
+
+.category-banner img{
     width:100%;
     height:auto;
+    display:block;
+    object-fit:contain;
 }
+   
