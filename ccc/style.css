@@ -1937,22 +1937,12 @@ CATEGORY BANNERS
 
     height:100%;
 
-    background:linear-gradient(90deg,
-    rgba(11,31,58,.92),
-    rgba(11,31,58,.55),
-    rgba(11,31,58,.15));
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    padding:60px;
-
-    color:#fff;
-
-}
+   background:linear-gradient(
+90deg,
+rgba(0,0,0,.35),
+rgba(0,0,0,.10),
+transparent
+);
 
 .banner-tag{
 
