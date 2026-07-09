@@ -1920,9 +1920,14 @@ CATEGORY BANNERS
 }
 
 .vehicle-banner{
-
     background-image:url("../images/vehicle-banner.png");
+}
 
+@media(max-width:768px){
+    .vehicle-banner{
+        background-image:url("../images/vehicle-banner-mobile.png");
+        height:260px;
+    }
 }
 
 .portable-banner{
