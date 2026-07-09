@@ -1896,131 +1896,90 @@ PRODUCT CATEGORIES
 /*==============================
 CATEGORY BANNERS
 ==============================*/
-
 .category-banner{
-
     height:320px;
-
-    border-radius:22px;
-
-    overflow:hidden;
-
-    position:relative;
-
     margin:20px 0 45px;
-
-    background-size:cover;
-
-    background-position:center;
-
+    border-radius:22px;
+    overflow:hidden;
+    position:relative;
     display:flex;
-
     align-items:center;
-
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
 }
+
+/* Desktop Images */
 
 .vehicle-banner{
     background-image:url("../images/vehicle-banner.png");
 }
 
-@media(max-width:768px){
+.portable-banner{
+    background-image:url("../images/portable-banner.png");
+}
+
+/* Overlay */
+
+.banner-overlay{
+    width:100%;
+    height:100%;
+    padding:60px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    color:#fff;
+    background:linear-gradient(
+        90deg,
+        rgba(0,0,0,.35),
+        rgba(0,0,0,.10),
+        transparent
+    );
+}
+
+.banner-tag{
+    display:inline-block;
+    width:max-content;
+    padding:8px 18px;
+    margin-bottom:20px;
+    border-radius:30px;
+    background:#16a34a;
+    color:#fff;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:1px;
+}
+
+.banner-overlay h2{
+    font-size:42px;
+    margin-bottom:18px;
+}
+
+.banner-overlay p{
+    max-width:650px;
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+    .category-banner{
+        height:220px;
+    }
+
     .vehicle-banner{
         background-image:url("../images/vehicle-banner-mobile.png");
-        height:260px;
     }
-}
 
-.portable-banner{
+    .portable-banner{
+        background-image:url("../images/portable-banner-mobile.png");
+    }
 
-    background-image:url("../images/portable-banner.png");
-
-}
-
-.banner-overlay{
-
-    width:100%;
-
-    height:100%;
-
-   background:linear-gradient(
-90deg,
-rgba(0,0,0,.35),
-rgba(0,0,0,.10),
-transparent
-);
-
-.banner-tag{
-
-    display:inline-block;
-
-    background:#16a34a;
-
-    padding:8px 18px;
-
-    border-radius:30px;
-
-    width:max-content;
-
-    font-size:13px;
-
-    font-weight:600;
-
-    letter-spacing:1px;
-
-    margin-bottom:20px;
-
-}
-
-.banner-overlay h2{
-
-    font-size:42px;
-
-    margin-bottom:18px;
-
-}
-
-.banner-overlay p{
-
-    font-size:18px;
-
-    line-height:1.8;
-
-    max-width:650px;
-
-}
-
-@media(max-width:768px){
-
-.category-banner{
-
-height:220px;
-
-}
-
-.banner-overlay{
-
-padding:28px;
-
-}
-
-.banner-overlay h2{
-
-font-size:28px;
-
-}
-
-.banner-overlay p{
-
-font-size:14px;
-
-line-height:1.6;
-
-}
-
-.banner-tag{
-
-font-size:11px;
-
-}
+    /* Hide overlay because text is already inside mobile images */
+    .banner-overlay{
+        display:none;
+    }
 
 }
