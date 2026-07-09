@@ -1893,19 +1893,9 @@ PRODUCT CATEGORIES
 /*==============================
 CATEGORY BANNERS
 ==============================*/
-/*==============================
-CATEGORY BANNERS
-==============================*/
-
 .category-banner{
+    width:100%;
     margin:20px 0 45px;
-    border-radius:22px;
-    overflow:hidden;
-    line-height:0;
-}
-
-.category-banner picture{
-    display:block;
 }
 
 .category-banner img{
@@ -1915,11 +1905,30 @@ CATEGORY BANNERS
     border-radius:22px;
 }
 
-@media(max-width:768px){
+/* Desktop */
+
+.banner-desktop{
+    display:block;
+}
+
+.banner-mobile{
+    display:none;
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+    .banner-desktop{
+        display:none;
+    }
+
+    .banner-mobile{
+        display:block;
+    }
 
     .category-banner{
-        margin:20px 0 35px;
-        border-radius:18px;
+        margin:15px 0 35px;
     }
 
     .category-banner img{
