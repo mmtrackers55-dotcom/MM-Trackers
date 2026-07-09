@@ -1890,3 +1890,142 @@ PRODUCT CATEGORIES
     color:#666;
     max-width:700px;
 }
+
+
+
+/*==============================
+CATEGORY BANNERS
+==============================*/
+
+.category-banner{
+
+    height:320px;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    margin:20px 0 45px;
+
+    background-size:cover;
+
+    background-position:center;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.vehicle-banner{
+
+    background-image:url("../images/vehicle-banner.jpg");
+
+}
+
+.portable-banner{
+
+    background-image:url("../images/portable-banner.jpg");
+
+}
+
+.banner-overlay{
+
+    width:100%;
+
+    height:100%;
+
+    background:linear-gradient(90deg,
+    rgba(11,31,58,.92),
+    rgba(11,31,58,.55),
+    rgba(11,31,58,.15));
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    padding:60px;
+
+    color:#fff;
+
+}
+
+.banner-tag{
+
+    display:inline-block;
+
+    background:#16a34a;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    width:max-content;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    margin-bottom:20px;
+
+}
+
+.banner-overlay h2{
+
+    font-size:42px;
+
+    margin-bottom:18px;
+
+}
+
+.banner-overlay p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    max-width:650px;
+
+}
+
+@media(max-width:768px){
+
+.category-banner{
+
+height:220px;
+
+}
+
+.banner-overlay{
+
+padding:28px;
+
+}
+
+.banner-overlay h2{
+
+font-size:28px;
+
+}
+
+.banner-overlay p{
+
+font-size:14px;
+
+line-height:1.6;
+
+}
+
+.banner-tag{
+
+font-size:11px;
+
+}
+
+}
