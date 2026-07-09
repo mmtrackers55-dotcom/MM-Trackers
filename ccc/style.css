@@ -1877,4 +1877,16 @@ PRODUCT CATEGORIES
     border-bottom:3px solid #00a651;
 }
 
+.product-category{
+    margin-top:80px;
+}
 
+.category-title{
+    margin-bottom:12px;
+}
+
+.category-description{
+    margin-bottom:35px;
+    color:#666;
+    max-width:700px;
+}
