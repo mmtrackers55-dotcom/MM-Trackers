@@ -1,42 +1,96 @@
-const slides=document.querySelectorAll(".slide");
-const dots=document.querySelectorAll(".dot");
+/*=========================================
+MM TRACKERS HERO SLIDER
+=========================================*/
 
-let current=0;
+const slides = document.querySelector(".slides");
+const slideItems = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+const next = document.querySelector(".next");
+const prev = document.querySelector(".prev");
 
-function showSlide(n){
+let current = 0;
+const total = slideItems.length;
 
-slides.forEach(slide=>slide.classList.remove("active"));
+function showSlide(index){
 
-dots.forEach(dot=>dot.classList.remove("active"));
+    if(index >= total){
+        current = 0;
+    }else if(index < 0){
+        current = total - 1;
+    }else{
+        current = index;
+    }
 
-slides[n].classList.add("active");
+    slides.style.transform = `translateX(-${current * 100}%)`;
 
-dots[n].classList.add("active");
-
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[current].classList.add("active");
 }
 
-setInterval(()=>{
+/* Next */
 
-current++;
-
-if(current>=slides.length){
-
-current=0;
-
+if(next){
+    next.addEventListener("click", () => {
+        showSlide(current + 1);
+    });
 }
 
-showSlide(current);
+/* Previous */
 
-},5000);
+if(prev){
+    prev.addEventListener("click", () => {
+        showSlide(current - 1);
+    });
+}
 
-dots.forEach((dot,index)=>{
+/* Dots */
 
-dot.addEventListener("click",()=>{
+dots.forEach((dot, index) => {
 
-current=index;
+    dot.addEventListener("click", () => {
 
-showSlide(current);
+        showSlide(index);
+
+    });
 
 });
 
+/* Auto Slide */
+
+setInterval(() => {
+
+    showSlide(current + 1);
+
+}, 5000);
+
+/* Swipe Support */
+
+let startX = 0;
+
+slides.addEventListener("touchstart", e => {
+
+    startX = e.touches[0].clientX;
+
 });
+
+slides.addEventListener("touchend", e => {
+
+    let endX = e.changedTouches[0].clientX;
+
+    if(startX - endX > 50){
+
+        showSlide(current + 1);
+
+    }
+
+    if(endX - startX > 50){
+
+        showSlide(current - 1);
+
+    }
+
+});
+
+/* First Slide */
+
+showSlide(0);
