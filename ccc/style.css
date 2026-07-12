@@ -755,25 +755,6 @@ MOBILE
 /*==================================================
 HOME PAGE PREMIUM
 ==================================================*/
-
-.header{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:9999;
-    background:rgba(7,28,61,.85);
-    backdrop-filter:blur(12px);
-    box-shadow:0 5px 20px rgba(0,0,0,.15);
-}
-
-.nav-container{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    min-height:80px;
-}
-
 .logo img{
     height:55px;
 }
@@ -1093,43 +1074,36 @@ flex-direction:column;
 }
 
 
-
-@media(max-width:768px){
-
-.nav-container{
-flex-direction:column;
-padding:15px 0;
-}
+@media (max-width:768px){
 
 .navbar{
-flex-wrap:wrap;
-justify-content:center;
-}
 
-.slide img{
-height:520px;
-}
-
-.hero-content{
-left:25px;
-right:25px;
-max-width:100%;
-}
-
-.hero-content h1{
-font-size:34px;
-}
-
-.hero-content p{
-font-size:17px;
-}
-
-.stats-grid{
-grid-template-columns:1fr;
-}
-
-.cta-buttons{
 flex-direction:column;
+
+align-items:center;
+
+padding:10px 0;
+
+}
+
+nav{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:14px;
+
+margin-top:10px;
+
+}
+
+.logo img{
+
+height:38px;
+
 }
 
 }
