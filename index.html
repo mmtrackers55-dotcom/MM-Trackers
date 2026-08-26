@@ -57,61 +57,61 @@
 <!-- ================= HERO ================= -->
 
 
-<section class="hero">
+<!-- ================= HERO SLIDER ================= -->
 
-<div class="hero-container">
+<section class="hero-slider">
 
-<div class="hero-left">
+    <div class="slider-container">
 
-<div class="official">
-🇵🇰 Official SinoTrack Reseller in Pakistan
-</div>
+        <div class="slide active">
+            <img src="images/banner1.png"
+                 alt="MM Trackers GPS Tracking Solutions"
+                 loading="eager">
+        </div>
 
-<h1>
-Professional GPS Tracking Solutions
-</h1>
+        <div class="slide">
+            <img src="images/banner2.png"
+                 alt="SinoTrack GPS Trackers Pakistan"
+                 loading="lazy">
+        </div>
 
-<p>
-100% Genuine SinoTrack GPS Trackers with Official Warranty,
-Android & iPhone Apps, Live Web Tracking Platform,
-Technical Support and Nationwide Delivery.
-</p>
+        <div class="slide">
+            <img src="images/banner3.png"
+                 alt="Professional GPS Tracking Solutions"
+                 loading="lazy">
+        </div>
 
-<ul class="hero-features">
-<li><i class="fa-solid fa-circle-check"></i> Genuine SinoTrack Products</li>
-<li><i class="fa-solid fa-circle-check"></i> Android & iPhone App</li>
-<li><i class="fa-solid fa-circle-check"></i> Live Web Tracking</li>
-<li><i class="fa-solid fa-circle-check"></i> Nationwide Delivery</li>
-</ul>
+        <!-- Previous / Next -->
 
-<div class="hero-buttons">
+        <button class="slider-btn prev" onclick="changeSlide(-1)">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
 
-<a href="products.html" class="btn cart-btn">
-<i class="fa-solid fa-cart-shopping"></i>
-Shop Now
-</a>
+        <button class="slider-btn next" onclick="changeSlide(1)">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
 
-<a href="https://wa.me/923159615557"
-class="btn whatsapp-btn"
-target="_blank">
-<i class="fa-brands fa-whatsapp"></i>
-WhatsApp
-</a>
+        <!-- Dots -->
 
-</div>
+        <div class="slider-dots">
 
-</div>
+            <button class="dot active"
+                    onclick="goToSlide(0)">
+            </button>
 
-<div class="hero-right">
+            <button class="dot"
+                    onclick="goToSlide(1)">
+            </button>
 
-<img src="images/banner.jpg" alt="MM Trackers">
+            <button class="dot"
+                    onclick="goToSlide(2)">
+            </button>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
-
 <footer>
 
 <p><strong>MM Trackers</strong></p>
