@@ -1197,7 +1197,7 @@ RELATED PRODUCTS
 .relatedSwiper{
     width:100%;
     padding:10px 5px 55px;
-    overflow:hidden;
+    overflow:visible;
 }
 
 .relatedSwiper .swiper-wrapper{
@@ -1218,7 +1218,7 @@ RELATED PRODUCTS
     background:#fff;
     border:1px solid #e8e8e8;
     border-radius:16px;
-    overflow:hidden;
+    overflow:visible;
 
     box-shadow:0 6px 18px rgba(0,0,0,.06);
     transition:.3s;
