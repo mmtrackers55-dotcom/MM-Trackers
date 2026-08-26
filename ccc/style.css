@@ -2102,165 +2102,156 @@ MOBILE
 }
 
 /*==================================================
-    HOMEPAGE - TRACK SMARTER SECTION
+    HOMEPAGE - SMART GPS INTRO
 ==================================================*/
 
-.track-intro{
-    position:relative;
-    padding:85px 0;
+.smart-intro{
+    padding:60px 0 65px;
     background:#f5f7fa;
-    overflow:hidden;
 }
 
-.track-intro::before{
-    content:"";
-    position:absolute;
-
-    width:420px;
-    height:420px;
-
-    right:-180px;
-    top:-180px;
-
-    background:#00a651;
-    opacity:.06;
-
-    border-radius:50%;
-}
-
-.track-intro-heading{
-    max-width:760px;
-    margin:0 auto 55px;
-
+.smart-heading{
+    max-width:720px;
+    margin:0 auto 38px;
     text-align:center;
 }
 
-.section-label{
+.smart-label{
     display:inline-flex;
     align-items:center;
-    gap:8px;
+    gap:7px;
 
-    margin-bottom:18px;
-    padding:8px 18px;
+    margin-bottom:12px;
+    padding:6px 15px;
 
     background:#eafbf2;
     color:#00a651;
 
     border-radius:30px;
 
-    font-size:13px;
+    font-size:11px;
     font-weight:700;
-    letter-spacing:1px;
+    letter-spacing:.8px;
 }
 
-.track-intro-heading h2{
-    margin-bottom:20px;
-
-    color:#0b1f3a;
-
-    font-size:46px;
-    line-height:1.15;
-    font-weight:700;
-}
-
-.track-intro-heading h2 span{
-    color:#00a651;
-}
-
-.track-intro-heading p{
-    max-width:680px;
-    margin:auto;
-
-    color:#666;
-
-    font-size:17px;
-    line-height:1.8;
-}
-
-
-/*==============================
-FEATURE GRID
-==============================*/
-
-.track-features{
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:20px;
-}
-
-
-.track-feature{
-    position:relative;
-
-    display:flex;
-    flex-direction:column;
-
-    min-height:245px;
-
-    padding:28px 24px;
-
-    background:#fff;
-
-    border:1px solid #e7ebef;
-    border-radius:18px;
-
-    box-shadow:0 8px 25px rgba(0,0,0,.05);
-
-    transition:.3s ease;
-}
-
-.track-feature:hover{
-    transform:translateY(-8px);
-
-    border-color:#00a651;
-
-    box-shadow:0 16px 35px rgba(0,0,0,.10);
-}
-
-
-.track-feature-icon{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    width:58px;
-    height:58px;
-
-    margin-bottom:22px;
-
-    background:#eafbf2;
-
-    color:#00a651;
-
-    border-radius:15px;
-
-    font-size:25px;
-
-    transition:.3s;
-}
-
-.track-feature:hover .track-feature-icon{
-    background:#00a651;
-    color:#fff;
-}
-
-
-.track-feature h3{
+.smart-heading h2{
     margin-bottom:10px;
 
     color:#0b1f3a;
 
-    font-size:19px;
+    font-size:38px;
+    line-height:1.2;
+}
+
+.smart-heading h2 span{
+    color:#00a651;
+}
+
+.smart-heading p{
+    margin:auto;
+
+    color:#666;
+
+    font-size:15px;
+    line-height:1.7;
 }
 
 
-.track-feature p{
-    color:#666;
+/*==============================
+FEATURE STRIP
+==============================*/
 
+.smart-features{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    max-width:1050px;
+    margin:auto;
+
+    background:#fff;
+
+    border:1px solid #e5e9ed;
+    border-radius:16px;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.05);
+
+    overflow:hidden;
+}
+
+.smart-feature{
+    display:flex;
+    align-items:center;
+    gap:13px;
+
+    min-height:88px;
+    padding:18px 22px;
+
+    border-right:1px solid #e8ecef;
+
+    transition:.25s;
+}
+
+.smart-feature:last-child{
+    border-right:none;
+}
+
+.smart-feature:hover{
+    background:#f8fffb;
+}
+
+.smart-feature > i{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    flex-shrink:0;
+
+    width:42px;
+    height:42px;
+
+    border-radius:11px;
+
+    background:#eafbf2;
+    color:#00a651;
+
+    font-size:18px;
+}
+
+.smart-feature strong{
+    display:block;
+
+    margin-bottom:2px;
+
+    color:#0b1f3a;
     font-size:14px;
-    line-height:1.7;
+}
+
+.smart-feature small{
+    display:block;
+
+    color:#777;
+    font-size:12px;
+}
+
+
+/*==============================
+TABLET
+==============================*/
+
+@media(max-width:900px){
+
+    .smart-features{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .smart-feature:nth-child(2){
+        border-right:none;
+    }
+
+    .smart-feature:nth-child(-n+2){
+        border-bottom:1px solid #e8ecef;
+    }
+
 }
 
 
@@ -2268,41 +2259,37 @@ FEATURE GRID
 MOBILE
 ==============================*/
 
-@media(max-width:991px){
-
-    .track-features{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-}
-
-
 @media(max-width:576px){
 
-    .track-intro{
-        padding:60px 0;
+    .smart-intro{
+        padding:45px 0 50px;
     }
 
-    .track-intro-heading{
-        margin-bottom:40px;
+    .smart-heading{
+        margin-bottom:28px;
     }
 
-    .track-intro-heading h2{
-        font-size:34px;
+    .smart-heading h2{
+        font-size:30px;
     }
 
-    .track-intro-heading p{
-        font-size:15px;
+    .smart-heading p{
+        font-size:14px;
     }
 
-    .track-features{
+    .smart-features{
         grid-template-columns:1fr;
+        border-radius:14px;
     }
 
-    .track-feature{
-        min-height:auto;
-        padding:24px;
+    .smart-feature{
+        min-height:72px;
+        border-right:none;
+        border-bottom:1px solid #e8ecef;
+    }
+
+    .smart-feature:last-child{
+        border-bottom:none;
     }
 
 }
-
