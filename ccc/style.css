@@ -1930,3 +1930,178 @@ CATEGORY BANNERS
     }
 
 }
+
+/*==================================================
+    HOMEPAGE - HERO SLIDER
+==================================================*/
+
+.hero-slider{
+    width:100%;
+    background:#081a34;
+    overflow:hidden;
+}
+
+.slider-container{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+}
+
+.slide{
+    display:none;
+    width:100%;
+}
+
+.slide.active{
+    display:block;
+    animation:slideFade .6s ease;
+}
+
+.slide img{
+    display:block;
+    width:100%;
+    height:auto;
+    max-height:700px;
+    object-fit:cover;
+}
+
+
+/*==============================
+SLIDER BUTTONS
+==============================*/
+
+.slider-btn{
+    position:absolute;
+
+    top:50%;
+    transform:translateY(-50%);
+
+    width:52px;
+    height:52px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,.45);
+    color:#fff;
+
+    font-size:20px;
+
+    backdrop-filter:blur(8px);
+
+    transition:.25s;
+
+    z-index:5;
+}
+
+.slider-btn:hover{
+    background:#00a651;
+    transform:translateY(-50%) scale(1.08);
+}
+
+.slider-btn.prev{
+    left:25px;
+}
+
+.slider-btn.next{
+    right:25px;
+}
+
+
+/*==============================
+SLIDER DOTS
+==============================*/
+
+.slider-dots{
+    position:absolute;
+
+    left:50%;
+    bottom:22px;
+
+    transform:translateX(-50%);
+
+    display:flex;
+    gap:10px;
+
+    z-index:5;
+}
+
+.dot{
+    width:11px;
+    height:11px;
+
+    padding:0;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.55);
+
+    transition:.25s;
+}
+
+.dot.active{
+    width:30px;
+    border-radius:20px;
+    background:#00a651;
+}
+
+
+/*==============================
+SLIDER ANIMATION
+==============================*/
+
+@keyframes slideFade{
+
+    from{
+        opacity:.3;
+        transform:scale(1.01);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+
+/*==============================
+MOBILE
+==============================*/
+
+@media(max-width:768px){
+
+    .slider-btn{
+        width:40px;
+        height:40px;
+        font-size:15px;
+    }
+
+    .slider-btn.prev{
+        left:12px;
+    }
+
+    .slider-btn.next{
+        right:12px;
+    }
+
+    .slider-dots{
+        bottom:12px;
+    }
+
+    .dot{
+        width:8px;
+        height:8px;
+    }
+
+    .dot.active{
+        width:24px;
+    }
+
+}
+
+
+
