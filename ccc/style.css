@@ -3128,3 +3128,12 @@ MOBILE
 
 }
 
+/* HOMEPAGE SPACING */
+
+.smart-intro {
+    padding: 35px 0 40px;
+}
+
+.featured-trackers {
+    padding: 40px 0 50px;
+}
