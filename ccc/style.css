@@ -2880,7 +2880,18 @@ MOBILE
     }
 
 }
+/* =========================
+   HOMEPAGE SPACING FIX
+========================= */
 
+.featured-trackers {
+    padding-top: 35px !important;
+    padding-bottom: 50px !important;
+}
+
+.featured-heading {
+    margin-bottom: 28px !important;
+}
 
 
 
