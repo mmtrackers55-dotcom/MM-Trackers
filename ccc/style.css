@@ -3146,3 +3146,109 @@ MOBILE
     margin-top:0;
     margin-bottom:0;
 }
+
+
+/*==================================================
+   MM TRACKERS - FINAL PRODUCT CARD BUTTON FIX
+==================================================*/
+
+.product-buttons{
+    display:flex;
+    width:100%;
+    gap:8px;
+    margin-top:12px;
+}
+
+.product-buttons .btn{
+    flex:1 1 0;
+    min-width:0;
+    width:0;
+
+    height:44px;
+    padding:0 10px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:6px;
+
+    font-size:13px;
+    font-weight:600;
+
+    white-space:nowrap;
+    overflow:hidden;
+
+    border-radius:8px;
+}
+
+/* Add to Cart */
+.product-buttons .cart-btn{
+    background:#00a651;
+    color:#fff;
+}
+
+/* View Details */
+.product-buttons a{
+    background:#0b1f3a;
+    color:#fff;
+}
+
+/* Hover */
+.product-buttons .btn:hover{
+    transform:translateY(-2px);
+}
+
+/* Make sure the card never lets buttons escape */
+.home-product-card,
+.featured-card{
+    overflow:hidden;
+}
+
+/*==================================================
+   DESKTOP
+==================================================*/
+
+@media (min-width:993px){
+
+    .product-buttons .btn{
+        font-size:12px;
+        padding:0 7px;
+    }
+
+}
+
+/*==================================================
+   TABLET
+==================================================*/
+
+@media (max-width:992px){
+
+    .product-buttons{
+        flex-direction:row;
+    }
+
+    .product-buttons .btn{
+        width:50%;
+        flex:1 1 50%;
+    }
+
+}
+
+/*==================================================
+   MOBILE
+==================================================*/
+
+@media (max-width:576px){
+
+    .product-buttons{
+        gap:7px;
+    }
+
+    .product-buttons .btn{
+        height:40px;
+        font-size:11px;
+        padding:0 6px;
+    }
+
+}
