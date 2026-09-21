@@ -2,18 +2,20 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SinoTrack ST-906L GPS Vehicle Tracker | MM Trackers</title>
-
+<title>SinoTrack ST-906L GPS Tracker for Cars| MM Trackers</title>
 <link rel="stylesheet" href="ccc/style.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
 
 </head>
 
@@ -29,12 +31,11 @@
 
 <a href="index.html">
 
-<img src="images/mmlogo.jpg" alt="MM Trackers">
+<img src="images/mmlogo.png" alt="MM Trackers">
 
 </a>
 
 </div>
-
 <nav>
 
 <a href="index.html">Home</a>
@@ -45,8 +46,12 @@
 
 <a href="contact.html">Contact</a>
 
-</nav>
+<a href="cart.html" class="cart-icon">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span id="cart-count">0</span>
+</a>
 
+</nav>
 </div>
 
 </header>
@@ -61,22 +66,16 @@
 
 <div class="gallery">
 
-<img src="images/906L.jpg" onclick="changeImage(this.src)">
+<img src="images/906L1.jpg" onclick="changeImage(this.src)">
 
-<img src="images/901A-1.jpg" onclick="changeImage(this.src)">
+<img src="images/906-5.jpg" onclick="changeImage(this.src)">
 
-<img src="images/901A-2.jpg" onclick="changeImage(this.src)">
+<img src="images/906-2.jpg" onclick="changeImage(this.src)">
 
-<img src="images/901A-3.jpg" onclick="changeImage(this.src)">
+<img src="images/906-3.jpg" onclick="changeImage(this.src)">
 
-<img src="images/901A-4.jpg" onclick="changeImage(this.src)">
-
-<img src="images/901A-5.jpg" onclick="changeImage(this.src)">
-
-<img src="images/901A-6.jpg" onclick="changeImage(this.src)">
-
+<img src="images/901-6.jpg" onclick="changeImage(this.src)">
 <img src="images/901A-7.jpg" onclick="changeImage(this.src)">
-
 <img src="images/901A-8.jpg" onclick="changeImage(this.src)">
 
 <img src="images/901A-9.jpg" onclick="changeImage(this.src)">
@@ -91,68 +90,39 @@
 <img
 id="mainImage"
 class="main-image"
-src="images/906L.jpg"
+src="images/906L1.jpg"
 alt="SinoTrack ST-906L">
 
 </div>
 
 <!-- ================= PRODUCT INFO ================= -->
-
+ 
 <div class="product-info">
-
-<div class="badges">
-
-<span class="badge">✔ In Stock</span>
-
-<span class="badge">✔ Original Product</span>
-
-<span class="badge">✔ 1 Year Warranty</span>
-
-<span class="badge">✔ Fast Delivery</span>
-
-</div>
 
 <h1>
 
-SinoTrack ST-906L 4G GPS Vehicle Tracker for Cars
+SinoTrack ST-906L 4G GPS Vehicle Tracker with Voice Monitoring 
 
 </h1>
 
-<div class="rating">
-
-<i class="fa-solid fa-star"></i>
-
-<i class="fa-solid fa-star"></i>
-
-<i class="fa-solid fa-star"></i>
-
-<i class="fa-solid fa-star"></i>
-
-<i class="fa-solid fa-star"></i>
-
-<span>(5.0)</span>
-
-
-</div>
 
 <div class="price">
 
-Rs. 8,500
+Rs. 14,500
 
 </div>
 
-<p class="short-description">
-
-Professional GPS tracking device for cars, bikes, trucks and fleet management with real-time tracking, Android App, iOS App, Website and SMS support.
-
-</p>
-
 <div class="buttons">
 
-<button class="btn cart-btn">
+<button class="btn cart-btn"
+onclick="addToCart({
+name:'SinoTrack ST-906',
+price:14500,
+image:'images/906L1.jpg',
+link:'906L.html'
+})">
 
 <i class="fa-solid fa-cart-shopping"></i>
-
 Add To Cart
 
 </button>
@@ -214,19 +184,33 @@ Buy on WhatsApp
 </div>
 
 </div>
+
 <div class="trust-item">
 
-<i class="fa-solid fa-lock"></i>
+<i class="fa-solid fa-award"></i>
 
 <div>
 
-<h4>Secure Shopping</h4>
+<h4>1 Year Replacement Warranty</h4>
+<p>Original Product with Replacement Warranty</p>
 
-<p>Trusted Seller</p>
+</div>
 
 </div>
 
+
+<div class="trust-item">
+
+    <img src="images/pta-logo.png" alt="PTA Approved" class="trust-icon">
+
+    <div>
+        <h4>PTA Approved</h4>
+        <p>Officially Approved Device</p>
+    </div>
+
 </div>
+
+
 
 </div>
 
@@ -235,7 +219,6 @@ Buy on WhatsApp
 </div>
 
 <div class="product-content">
-
 <!-- ================= DESCRIPTION ================= -->
 
 <section class="section-card">
@@ -244,18 +227,7 @@ Buy on WhatsApp
 
 <p>
 
-The <strong>SinoTrack ST-901A GPS Vehicle Tracker</strong> is a reliable
-real-time vehicle monitoring device designed for cars, motorcycles,
-trucks, buses and fleet vehicles.
-
-Using the Android App, iOS App, Web Platform or SMS commands,
-you can monitor your vehicle from anywhere with accurate GPS tracking.
-
-Track live location, ignition status, travel history, mileage,
-speed, parking location and receive instant security alerts.
-
-Ideal for personal vehicles, commercial transport,
-rental companies and fleet management.
+SinoTrack ST-906L 4G GPS Tracker — Advanced vehicle tracking with strong 4G signal, voice monitoring, accurate mileage tracking, and fuel monitoring. Enjoy real-time GPS location, fast 5-second refresh, and detailed trip and vehicle reports.
 
 </p>
 
@@ -277,13 +249,20 @@ rental companies and fleet management.
 
 <li><i class="fa-solid fa-satellite-dish"></i> GPS + GSM Positioning</li>
 
+<li><i class="fa-solid fa-signal"></i> Strong 4G Signal</li>
+
+
+<li><i class="fa-solid fa-arrows-rotate"></i> 5-Second Refresh Rate</li>
+
+<li><i class="fa-solid fa-microphone"></i> Remote Voice Monitoring</li>
+
 <li><i class="fa-solid fa-clock-rotate-left"></i> Travel History Playback</li>
 
 <li><i class="fa-solid fa-road"></i> Mileage Reports</li>
 
 <li><i class="fa-solid fa-gauge-high"></i> Speed Monitoring</li>
 
-<li><i class="fa-solid fa-key"></i> ACC Ignition Detection</li>
+<li><i class="fa-solid fa-key"></i> ACC On/Off Ignition Alert</li>
 
 <li><i class="fa-solid fa-power-off"></i> Remote Engine Cut-Off</li>
 
@@ -291,7 +270,12 @@ rental companies and fleet management.
 
 <li><i class="fa-solid fa-draw-polygon"></i> Geo-Fence Alerts</li>
 
-<li><i class="fa-solid fa-shield-halved"></i> Anti-Theft Protection</li>
+<li><i class="fa-solid fa-battery-half"></i> Built-in Rechargeable Battery</li>
+
+<li><i class="fa-solid fa-triangle-exclamation"></i> Battery Tamper Alarm</li>
+
+<li><i class="fa-solid fa-bell"></i> Shock & Vibration Alert</li>
+<li><i class="fa-solid fa-droplet"></i> IP65 Waterproof Design</li>
 
 </ul>
 
@@ -304,14 +288,6 @@ rental companies and fleet management.
 <h2>Technical Specifications</h2>
 
 <table class="spec-table">
-
-<tr>
-
-<td>Model</td>
-
-<td>SinoTrack ST-901A</td>
-
-</tr>
 
 <tr>
 
@@ -328,9 +304,12 @@ rental companies and fleet management.
 <td>5–10 Meters</td>
 
 </tr>
-
 <tr>
 
+<td>Battery Backup time</td>
+<td>4-5 in gprs mode 24 hrs in sleep mode</td>
+</tr>
+<tr>
 <td>Working Voltage</td>
 
 <td>9V – 90V DC</td>
@@ -357,15 +336,7 @@ rental companies and fleet management.
 
 <td>SIM Card</td>
 
-<td>Standard GSM SIM</td>
-
-</tr>
-
-<tr>
-
-<td>Backup Battery</td>
-
-<td>Built-in Rechargeable Battery</td>
+<td>Standard SIM Card of Any Network ( Ufone, Jazz, Zong as per Your Area)</td>
 
 </tr>
 
@@ -379,11 +350,24 @@ rental companies and fleet management.
 
 <tr>
 
-<td>Warranty</td>
+<td>App Name</td>
 
-<td>1 Year</td>
+<td>Sinotrackpro</td>
 
 </tr>
+<tr>
+
+<td>Website</td>
+
+<td>
+<a href="https://www.sinotrackpro.com" target="_blank">
+www.sinotrackpro.com
+</a>
+</td>
+</tr>
+
+
+
 
 </table>
 
@@ -457,11 +441,13 @@ rental companies and fleet management.
 
 <ul class="package-list">
 
-<li><i class="fa-solid fa-box-open"></i> SinoTrack ST-901A GPS Tracker</li>
+<li><i class="fa-solid fa-box-open"></i> SinoTrack ST-906L GPS Tracker</li>
 
 <li><i class="fa-solid fa-plug"></i> Wiring Harness</li>
 
 <li><i class="fa-solid fa-microchip"></i> Engine Cut Relay</li>
+
+<li><i class="fa-solid fa-microphone"></i> Mic for Voice Listening</li>
 
 <li><i class="fa-solid fa-book"></i> User Manual</li>
 
@@ -478,14 +464,14 @@ rental companies and fleet management.
 <p>
 
 Professional installation is recommended for the best performance.
-
+First Insert the SIM as per directions.
 Connect the tracker directly to your vehicle battery and ACC wire.
 
 Insert a working GSM SIM card with SMS and internet package.
 
-Download the SinoTrack App, scan the QR code or enter the device ID to start live tracking.
+Download the SinoTrackpro App, scan the QR code or enter the device ID and default password to start live tracking.
 
-Complete installation support is available from MM Trackers.
+Installation service is available all over Pakistan.
 
 </p>
 
@@ -513,7 +499,7 @@ Complete installation support is available from MM Trackers.
 
 <h3>Can I stop my vehicle remotely?</h3>
 
-<p>Yes. The ST-901A supports remote engine cut-off when installed with the relay.</p>
+<p>Yes. The ST-906L supports remote engine cut-off when installed with the relay.</p>
 
 <br>
 
@@ -521,71 +507,246 @@ Complete installation support is available from MM Trackers.
 
 <p>No monthly fee for the tracker itself. Only your SIM card's internet/SMS charges apply.</p>
 
+<br>
+<h4>Do you provide tracking services?</h4>
+
+
+
+<p>No. We do not provide vehicle tracking or monitoring services. We supply the GPS tracking device along with technical support for setup and troubleshooting.
+
+The customer has complete ownership and control of the device, including access to live location, travel history, alerts, reports, and features such as remote engine cut-off (where supported). Only the customer can monitor and manage their vehicle through the mobile app or web platform.</p>
+
 </div>
 
 </section>
 
 <!-- ================= RELATED PRODUCTS ================= -->
-
 <section class="related-products">
 
 <h2>Related Products</h2>
 
-<div class="product-grid">
+<div class="swiper relatedSwiper">
+
+<div class="swiper-wrapper">
+
+
+<div class="swiper-slide">
+
 
 <div class="product-card">
-
-<img src="images/905l.jpg" alt="SinoTrack ST-905">
+<img src="images/901A.jpg" alt="ST-901A">
 
 <div class="product-card-content">
+<h3>ST-901A GPS Tracker</h3>
+<p>GPS tracker with live tracking, ACC alerts, and remote engine cut-off.</p>
 
-<h3>SinoTrack ST-905</h3>
+<div class="product-price">Rs. 7,500</div>
 
-<p>Waterproof GPS Tracker with built-in battery.</p>
+<a href="901A.html" class="btn cart-btn">
+View Details
+</a>
 
-<div class="product-price">Rs. 9,500</div>
-
-<a href="st-905.html" class="btn cart-btn">View Details</a>
-
+</div>
 </div>
 
 </div>
 
-<div class="product-card">
 
-<img src="images/906.jpg" alt="SinoTrack ST-906">
+<div class="swiper-slide">
+
+
+<div class="product-card">
+<img src="images/901.jpg" alt="ST-901">
 
 <div class="product-card-content">
+<h3>ST-901 GPS Tracker</h3>
+<p>Waterproof GPS tracker with live tracking, ACC alerts, and remote engine cut-off.</p>
 
-<h3>SinoTrack ST-906</h3>
+<div class="product-price">Rs. 8,500</div>
 
-<p>4G GPS Tracker with ACC monitoring and engine immobilizer.</p>
+<a href="901.html" class="btn cart-btn">
+View Details
+</a>
+
+</div>
+</div>
+
+</div>
+
+<div class="swiper-slide">
+
+<div class="product-card">
+<img src="images/901L.jpg" alt="ST-901L">
+
+<div class="product-card-content">
+<h3>ST-901L GPS Tracker</h3>
+<p>4G waterproof GPS tracker with live tracking, ACC monitoring, and route playback.</p>
 
 <div class="product-price">Rs. 11,500</div>
 
-<a href="st-906.html" class="btn cart-btn">View Details</a>
+<a href="901L.html" class="btn cart-btn">
+View Details
+</a>
 
+</div>
 </div>
 
 </div>
+
+
+<div class="swiper-slide">
 
 <div class="product-card">
-
-<img src="images/903.jpg" alt="Mini GPS Tracker">
+<img src="images/906.jpg" alt="ST-906">
 
 <div class="product-card-content">
+<h3>ST-906 GPS Tracker</h3>
+<p>Compact GPS tracker with voice monitoring, live tracking,acc alerts, engine cutoff.</p>
 
-<h3>Mini GPS Tracker</h3>
+<div class="product-price">Rs. 11،000</div>
 
-<p>Compact rechargeable tracker for personal and vehicle tracking.</p>
+<a href="906.html" class="btn cart-btn">
+View Details
+</a>
 
-<div class="product-price">Rs. 6,500</div>
-
-<a href="mini-gps.html" class="btn cart-btn">View Details</a>
-
+</div>
 </div>
 
 </div>
+
+<div class="swiper-slide">
+
+<div class="product-card">
+<img src="images/907.jpg" alt="ST-907">
+
+<div class="product-card-content">
+<h3>ST-907 GPS Tracker</h3>
+<p>Compact GPS tracker with remote engine cut-off and real-time vehicle tracking.</p>
+
+<div class="product-price">Rs. 11,000</div>
+
+<a href="907.html" class="btn cart-btn">
+View Details
+</a>
+
+</div>
+</div>
+
+</div>
+
+<div class="swiper-slide">
+
+<div class="product-card">
+<img src="images/902.jpg" alt="ST-902">
+
+<div class="product-card-content">
+<h3>ST-902 OBD GPS Tracker</h3>
+<p>Plug-and-play OBD tracker with live tracking, trip history, and driving reports.</p>
+
+<div class="product-price">Rs. 10,500</div>
+
+<a href="902.html" class="btn cart-btn">
+View Details
+</a>
+
+</div>
+</div>
+
+</div>
+
+
+<div class="swiper-slide">
+
+<div class="product-card">
+<img src="images/903A.jpg" alt="ST-903A">
+
+<div class="product-card-content">
+<h3>ST-903A GPS Tracker</h3>
+<p>Latest portable GPS tracker with voice monitoring and new design .</p>
+
+<div class="product-price">Rs. 13,000</div>
+
+<a href="903A.html" class="btn cart-btn">
+View Details
+</a>
+
+</div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+<div class="swiper-slide">
+
+<div class="product-card">
+<img src="images/903.jpg" alt="ST-903">
+
+<div class="product-card-content">
+<h3>ST-903 GPS Tracker</h3>
+<p>Mini portable GPS tracker with voice monitoring and built-in backup battery.</p>
+
+<div class="product-price">Rs. 12,000</div>
+
+<a href="903.html" class="btn cart-btn">
+View Details
+</a>
+
+</div>
+</div>
+
+</div>
+
+<div class="swiper-slide">
+
+<div class="product-card">
+<img src="images/905l.jpg" alt="ST-905L">
+
+<div class="product-card-content">
+<h3>ST-905L GPS Tracker</h3>
+<p>4G magnetic GPS tracker with long battery life and wire-free installation.</p>
+
+<div class="product-price">Rs. 16,000</div>
+
+<a href="905L.html" class="btn cart-btn">
+View Details
+</a>
+
+</div>
+</div>
+
+</div>
+
+<div class="swiper-slide">
+
+<div class="product-card">
+<img src="images/915L.jpg" alt="ST-915L">
+
+<div class="product-card-content">
+<h3>ST-915L GPS Tracker</h3>
+<p>Premium 4G magnetic tracker with ultra-long battery and live GPS tracking.</p>
+
+<div class="product-price">Rs. 20,000</div>
+
+<a href="915L.html" class="btn cart-btn">
+View Details
+</a>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="swiper-button-prev"></div>
+
+<div class="swiper-button-next"></div>
+
+<div class="swiper-pagination"></div>
 
 </div>
 
@@ -624,14 +785,54 @@ target="_blank">
 </a>
 
 <!-- ================= JAVASCRIPT ================= -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+
+<script src="cart.js"></script>
 
 <script>
-
 function changeImage(src){
     document.getElementById("mainImage").src = src;
 }
+new Swiper(".relatedSwiper", {
+    loop: true,
+    speed: 800,
+
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+
+    slidesPerView: 1,
+spaceBetween: 15,
+
+breakpoints: {
+  768: {
+    slidesPerView: 3,
+    spaceBetween: 20,
+  },
+  992: {
+    slidesPerView: 3,
+    spaceBetween: 25,
+  },
+  1200: {
+    slidesPerView: 4,
+    spaceBetween: 30,
+  }
+}
+});
 
 </script>
-
 </body>
 </html>
