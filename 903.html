@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+
 <head>
-<meta charset="UTF-8"> 
+
+<meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title> SinoTrack ST-903A | Portable GPS Tracking Solution for Kids, Elderly & Special Care| MM Trackers</title>
-
+<title>SinoTrack ST-903 Portable GPS Tracker| MM Trackers</title>
 <link rel="stylesheet" href="ccc/style.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
 
 </head>
 
@@ -43,8 +50,12 @@
 
 <a href="contact.html">Contact</a>
 
-</nav>
+<a href="cart.html" class="cart-icon">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span id="cart-count">0</span>
+</a>
 
+</nav>
 </div>
 
 </header>
@@ -56,6 +67,7 @@
 <div class="product-section">
 
 <!-- ================= THUMBNAILS ================= -->
+
 <div class="gallery">
 
 <img src="images/903.jpg" onclick="changeImage(this.src)">
@@ -67,9 +79,7 @@
 <img src="images/903-3.jpg" onclick="changeImage(this.src)">
 
 <img src="images/903-4.jpg" onclick="changeImage(this.src)">
-
 <img src="images/903-5.jpg" onclick="changeImage(this.src)">
-
 <img src="images/901A-7.jpg" onclick="changeImage(this.src)">
 
 <img src="images/901A-8.jpg" onclick="changeImage(this.src)">
@@ -87,7 +97,7 @@
 id="mainImage"
 class="main-image"
 src="images/903.jpg"
-alt="SinoTrack ST-903">
+alt="SinoTrack ST-903A">
 
 </div>
 
@@ -95,59 +105,32 @@ alt="SinoTrack ST-903">
 
 <div class="product-info">
 
-<div class="badges">
-
-<span class="badge">✔ In Stock</span>
-
-<span class="badge">✔ Original Product</span>
-
-<span class="badge">✔ 1 Year Warranty</span>
-
-<span class="badge">✔ Fast Delivery</span>
-
-</div>
-
 <h1>
 
-SinoTrack ST-903 Portable Mini GPS Tracker for Pets, Kids, Old age and Disabled Persons
+SinoTrack ST-903A | Portable GPS Tracking Solution for Kids, Elderly & Special Care
+
 </h1>
 
-<div class="rating">
-
-<i class="fa-solid fa-star"></i>
-
-<i class="fa-solid fa-star"></i>
-
-<i class="fa-solid fa-star"></i>
-
-<i class="fa-solid fa-star"></i>
-
-<i class="fa-solid fa-star"></i>
-
-<span>(5.0)</span>
-
-
-</div>
 
 <div class="price">
 
-Rs. 12,000
+Rs. 14,000
 
 </div>
 
-<p class="short-description">
-
-SinoTrack ST-903 Portable GPS Tracker is a compact tracking device designed for kids, elderly people, and vehicles. It provides real-time GPS location tracking, route history, and location monitoring through a mobile app, helping you stay connected with your loved ones and keep track of what matters most.
-
-</p>
-
 <div class="buttons">
 
-<button class="btn cart-btn">
+<button class="btn cart-btn"
+onclick="addToCart({
+name:'SinoTrack ST-903',
+price:14,000,
+image:'images/903.jpg',
+link:'903.html'
+})">
 
 <i class="fa-solid fa-cart-shopping"></i>
-
 Add To Cart
+
 </button>
 
 <a href="https://wa.me/923159615557"
@@ -207,19 +190,33 @@ Buy on WhatsApp
 </div>
 
 </div>
+
 <div class="trust-item">
 
-<i class="fa-solid fa-lock"></i>
+<i class="fa-solid fa-award"></i>
 
 <div>
 
-<h4>Secure Shopping</h4>
+<h4>1 Year Replacement Warranty</h4>
+<p>Original Product with Replacement Warranty</p>
 
-<p>Trusted Seller</p>
+</div>
 
 </div>
 
+
+<div class="trust-item">
+
+    <img src="images/pta-logo.png" alt="PTA Approved" class="trust-icon">
+
+    <div>
+        <h4>PTA Approved</h4>
+        <p>Officially Approved Device</p>
+    </div>
+
 </div>
+
+
 
 </div>
 
@@ -236,9 +233,10 @@ Buy on WhatsApp
 <h2>Description</h2>
 
 <p>
-Stay connected and enjoy peace of mind with the SinoTrack ST-903 Portable GPS Tracker, a compact and convenient tracking solution designed for children, elderly people, and vehicles. Its portable design makes it suitable for everyday use, helping you monitor location and improve personal safety.
 
-With GPS tracking and mobile app support, you can check the tracker's location remotely and review route history, depending on network coverage and device settings. Whether you want to keep an eye on your child's whereabouts, check on an elderly family member, or monitor a vehicle, the SinoTrack ST-903 offers a practical tracking solution.
+SinoTrack ST-903A Portable GPS Tracker is a compact tracking device designed for kids, elderly people, and vehicles. It provides real-time GPS location tracking, route history, and location monitoring through a mobile app, helping you stay connected with your loved ones and keep track of what matters most.
+
+</p>
 
 </section>
 
@@ -250,8 +248,16 @@ With GPS tracking and mobile app support, you can check the tracker's location r
 
 <ul class="features">
 
-<ul>
-  <li><i class="fa-solid fa-location-dot"></i> Live Real-Time GPS Location Tracking</li>
+<li><i class="fa-solid fa-location-dot"></i> Live GPS Location Tracking</li>
+
+<li><i class="fa-solid fa-mobile-screen-button"></i> Android & iPhone App</li>
+
+<li><i class="fa-solid fa-globe"></i> Website Tracking Platform</li>
+
+<li><i class="fa-solid fa-satellite-dish"></i> GPS + GSM Positioning</li>
+
+<li><i class="fa-solid fa-clock-rotate-left"></i> Travel History Playback</li>
+
   <li><i class="fa-solid fa-microphone"></i> Remote Voice Monitoring</li>
   <li><i class="fa-solid fa-gauge-high"></i> Over-Speed Alerts</li>
   <li><i class="fa-solid fa-draw-polygon"></i> Geo-Fencing & Safe Zone Alerts</li>
@@ -267,7 +273,10 @@ With GPS tracking and mobile app support, you can check the tracker's location r
   <li><i class="fa-solid fa-droplet"></i> Waterproof Design</li>
   <li><i class="fa-solid fa-bag-shopping"></i> Easy to Carry in Pocket or Bag</li>
   <li><i class="fa-solid fa-plug"></i> No Vehicle Wiring Required</li>
+
+
 </ul>
+
 </section>
 
 <!-- ================= SPECIFICATIONS ================= -->
@@ -277,14 +286,6 @@ With GPS tracking and mobile app support, you can check the tracker's location r
 <h2>Technical Specifications</h2>
 
 <table class="spec-table">
-
-<tr>
-
-<td>Model</td>
-
-<td>SinoTrack ST-903</td>
-
-</tr>
 
 <tr>
 
@@ -301,7 +302,18 @@ With GPS tracking and mobile app support, you can check the tracker's location r
 <td>5–10 Meters</td>
 
 </tr>
+<tr>
 
+<td>Battery Backup time</td>
+<td>4-5 hrs in gprs mode and 24 hr in sleep mode</td>
+</tr>
+<tr>
+
+<td>Working Voltage</td>
+
+<td>9V – 90V DC</td>
+
+</tr>
 
 <tr>
 
@@ -323,15 +335,7 @@ With GPS tracking and mobile app support, you can check the tracker's location r
 
 <td>SIM Card</td>
 
-<td>Standard GSM SIM</td>
-
-</tr>
-
-<tr>
-
-<td>Backup Battery</td>
-
-<td>Built-in Rechargeable Battery</td>
+<td>Standard SIM Card of Any Network ( Ufone, Jazz, Zong as per Your Area)</td>
 
 </tr>
 
@@ -345,11 +349,24 @@ With GPS tracking and mobile app support, you can check the tracker's location r
 
 <tr>
 
-<td>Warranty</td>
+<td>App Name</td>
 
-<td>1 Year</td>
+<td>Sinotrackpro</td>
 
 </tr>
+<tr>
+
+<td>Website</td>
+
+<td>
+<a href="https://www.sinotrackpro.com" target="_blank">
+www.sinotrackpro.com
+</a>
+</td>
+</tr>
+
+
+
 
 </table>
 
@@ -359,41 +376,9 @@ With GPS tracking and mobile app support, you can check the tracker's location r
 
 <section class="section-card">
 
-<h2>Compatibility</h2>
+<h2>Compatible Vehicles</h2>
 
 <div class="vehicle-grid">
-
-<div class="vehicle-card">
-
-  <i class="fa-solid fa-child"></i>
-
-  <h3>Children</h3>
-
-</div>
-
-<div class="vehicle-card">
-
-  <i class="fa-solid fa-paw"></i>
-
-  <h3>Pets</h3>
-
-</div>
-
-<div class="vehicle-card">
-
-  <i class="fa-solid fa-wheelchair"></i>
-
-  <h3>Disabled Persons</h3>
-
-</div>
-
-<div class="vehicle-card">
-
-  <i class="fa-solid fa-person-cane"></i>
-
-  <h3>Elderly People</h3>
-
-</div>
 
 <div class="vehicle-card">
 
@@ -455,13 +440,11 @@ With GPS tracking and mobile app support, you can check the tracker's location r
 
 <ul class="package-list">
 
-<li><i class="fa-solid fa-box-open"></i> SinoTrack ST-903 GPS Tracker</li>
+<li><i class="fa-solid fa-box-open"></i> SinoTrack ST-901 GPS Tracker</li>
 
-<li><i class="fa-solid fa-bag-shopping"></i> Carrying Pouch</li>
+<li><i class="fa-solid fa-plug"></i> Wiring Harness</li>
 
-<li><i class="fa-solid fa-charging-station"></i> Charging Cable</li>
-
-<li><i class="fa-solid fa-id-card"></i> Neck Strap / Lanyard</li>
+<li><i class="fa-solid fa-microchip"></i> Engine Cut Relay</li>
 
 <li><i class="fa-solid fa-book"></i> User Manual</li>
 
@@ -477,11 +460,15 @@ With GPS tracking and mobile app support, you can check the tracker's location r
 
 <p>
 
+Professional installation is recommended for the best performance.
+First Insert the SIM as per directions.
+Connect the tracker directly to your vehicle battery and ACC wire.
+
 Insert a working GSM SIM card with SMS and internet package.
 
-Download the SinoTrack App, scan the QR code or enter the device ID to start live tracking.
+Download the SinoTrackpro App, scan the QR code or enter the device ID and default password to start live tracking.
 
-Complete installation support is available from MM Trackers.
+Installation service is available all over Pakistan.
 
 </p>
 
@@ -509,7 +496,7 @@ Complete installation support is available from MM Trackers.
 
 <h3>Can I stop my vehicle remotely?</h3>
 
-<p>Yes. The ST-903 is a portable device  , hence doesn't supports remote engine cut-off.</p>
+<p>Yes. The ST-901 supports remote engine cut-off when installed with the relay.</p>
 
 <br>
 
@@ -517,11 +504,20 @@ Complete installation support is available from MM Trackers.
 
 <p>No monthly fee for the tracker itself. Only your SIM card's internet/SMS charges apply.</p>
 
+<br>
+<h4>Do you provide tracking services?</h4>
+
+
+
+<p>No. We do not provide vehicle tracking or monitoring services. We supply the GPS tracking device along with technical support for setup and troubleshooting.
+
+The customer has complete ownership and control of the device, including access to live location, travel history, alerts, reports, and features such as remote engine cut-off (where supported). Only the customer can monitor and manage their vehicle through the mobile app or web platform.</p>
+
 </div>
 
 </section>
 
- <!-- ================= RELATED PRODUCTS ================= -->
+<!-- ================= RELATED PRODUCTS ================= -->
 <section class="related-products">
 
 <h2>Related Products</h2>
@@ -532,17 +528,16 @@ Complete installation support is available from MM Trackers.
 
 <div class="swiper-slide">
 
-
 <div class="product-card">
-<img src="images/901.jpg" alt="ST-901">
+<img src="images/901A.jpg" alt="ST-901A">
 
 <div class="product-card-content">
-<h3>ST-901 GPS Tracker</h3>
-<p>Waterproof GPS tracker with live tracking, ACC alerts, and remote engine cut-off.</p>
+<h3>ST-901A GPS Tracker</h3>
+<p>Top selling GPS tracker with live tracking, engine cutoff and ACC alerts.</p>
 
-<div class="product-price">Rs. 8,500</div>
+<div class="product-price">Rs. 7,500</div>
 
-<a href="901.html" class="btn cart-btn">
+<a href="901A.html" class="btn cart-btn">
 View Details
 </a>
 
@@ -550,7 +545,6 @@ View Details
 </div>
 
 </div>
-
 <div class="swiper-slide">
 
 <div class="product-card">
@@ -653,7 +647,6 @@ View Details
 
 </div>
 
-
 <div class="swiper-slide">
 
 <div class="product-card">
@@ -661,11 +654,11 @@ View Details
 
 <div class="product-card-content">
 <h3>ST-903A GPS Tracker</h3>
-<p>Latest portable GPS tracker with voice monitoring and new design .</p>
+<p> Latest Portable SinoTrack ST-903A GPS tracker for kids, elderly, pets and loved ones with accurate real-time tracking.</p>
 
 <div class="product-price">Rs. 12,000</div>
 
-<a href="903A.html" class="btn cart-btn">
+<a href="903.html" class="btn cart-btn">
 View Details
 </a>
 
@@ -675,11 +668,6 @@ View Details
 </div>
 
 
-
-
-
-
-
 <div class="swiper-slide">
 
 <div class="product-card">
@@ -687,7 +675,7 @@ View Details
 
 <div class="product-card-content">
 <h3>ST-903 GPS Tracker</h3>
-<p>Mini portable GPS tracker with voice monitoring and built-in backup battery.</p>
+<p>Lightweight SinoTrack ST-903 portable GPS tracker designed for kids, elderly, pets and personal tracking anytime.</p>
 
 <div class="product-price">Rs. 14,000</div>
 
@@ -699,6 +687,8 @@ View Details
 </div>
 
 </div>
+
+
 
 <div class="swiper-slide">
 
@@ -786,10 +776,6 @@ target="_blank">
 <!-- ================= JAVASCRIPT ================= -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-
-
-<script src="cart.js"></script>
-
 <script>
 function changeImage(src){
     document.getElementById("mainImage").src = src;
@@ -833,5 +819,7 @@ breakpoints: {
 });
 
 </script>
+<script src="cart.js"></script>
+
 </body>
 </html>
