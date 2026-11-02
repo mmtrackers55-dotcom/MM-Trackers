@@ -65,26 +65,33 @@ header{
     justify-content:space-between;
 }
 
+
+
 /* LOGO */
 
 .logo{
     display:flex;
     align-items:center;
-    justify-content:center;
-
-    background:#fff;
-    padding:7px 12px;
-    border-radius:10px;
-
     flex-shrink:0;
+    background:transparent;
+    padding:0;
 }
 
 .logo img{
     display:block;
-    height:55px;
+    height:68px;
     width:auto;
-    max-width:160px;
+    max-width:145px;
     object-fit:contain;
+}
+
+/* MOBILE LOGO */
+
+@media(max-width:768px){
+    .logo img{
+        height:62px;
+        max-width:130px;
+    }
 }
 
 /* NAVIGATION */
