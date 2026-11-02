@@ -242,29 +242,6 @@ FLOATING WHATSAPP
 }
 
 
-/*==============================
-TABLET
-==============================*/
-
-@media (max-width:768px){
-
-    .navbar{
-        flex-direction:column;
-        gap:14px;
-    }
-
-    nav{
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:18px;
-    }
-
-    .logo img{
-        height:36px;
-    }
-
-}
-
 
 /*==============================
 MOBILE
