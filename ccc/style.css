@@ -615,36 +615,59 @@ COMPATIBLE VEHICLES
 
 .vehicle-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:15px;
 }
 
 .vehicle-card{
-    padding:25px;
-
+    padding:18px 12px;
     text-align:center;
 
     background:#fff;
     border:1px solid #e5e5e5;
-    border-radius:14px;
+    border-radius:12px;
 
     transition:.25s;
 }
 
 .vehicle-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transform:translateY(-3px);
+    box-shadow:0 6px 16px rgba(0,0,0,.07);
 }
 
 .vehicle-card i{
-    margin-bottom:15px;
+    display:block;
+    margin-bottom:10px;
 
     color:#00a651;
-    font-size:42px;
+    font-size:30px;
+    line-height:1.2;
 }
 
 .vehicle-card h3{
-    font-size:18px;
+    font-size:16px;
+    font-weight:600;
+    line-height:1.4;
+}
+
+@media(max-width:480px){
+    .vehicle-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    .vehicle-card{
+        padding:15px 10px;
+    }
+
+    .vehicle-card i{
+        font-size:27px;
+        margin-bottom:8px;
+    }
+
+    .vehicle-card h3{
+        font-size:14px;
+    }
 }
 
 
@@ -3254,64 +3277,3 @@ MOBILE
 }
 
 
-/* =================================
-   MM TRACKERS - HEADER & LOGO FIX
-================================= */
-
-header {
-    background: #0b1f3a;
-}
-
-.navbar {
-    width: 94%;
-    max-width: 1300px;
-    min-height: 85px;
-    margin: auto;
-    padding: 10px 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.logo img {
-    display: block;
-    width: auto;
-    height: 65px;
-    max-width: 220px;
-    object-fit: contain;
-}
-
-/* Tablet and mobile */
-
-@media (max-width: 768px) {
-    .navbar {
-        min-height: 80px;
-        flex-direction: row;
-        justify-content: center;
-        padding: 8px 0;
-    }
-
-    .logo img {
-        height: 65px;
-        max-width: 220px;
-    }
-}
-
-/* Small mobile */
-
-@media (max-width: 480px) {
-    .navbar {
-        min-height: 75px;
-    }
-
-    .logo img {
-        height: 62px;
-    }
-}
