@@ -3325,7 +3325,7 @@ nav{
 
 
 /* =====================================
-   MM TRACKERS - FINAL HEADER OVERRIDE
+   MM TRACKERS - COMPACT RESPONSIVE HEADER
 ===================================== */
 
 header {
@@ -3337,36 +3337,35 @@ header {
 }
 
 .navbar {
-    width: 96% !important;
+    width: 96%;
     max-width: 1400px;
-    min-height: 88px;
+    min-height: 78px;
     margin: auto;
-    padding: 10px 0 !important;
-
-    display: flex !important;
-    flex-direction: row !important;
+    padding: 8px 0;
+    display: flex;
+    flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
-    gap: 20px !important;
+    gap: 18px;
 }
 
-/* HORIZONTAL LOGO */
+/* LOGO */
 
 .navbar .logo {
-    flex: 0 1 270px;
+    flex: 0 1 250px;
     min-width: 0;
-    padding: 0 !important;
+    padding: 0;
     margin: 0;
-    background: transparent !important;
-    border-radius: 0 !important;
+    background: transparent;
+    border-radius: 0;
 }
 
 .navbar .logo img {
     display: block;
     width: 100%;
-    max-width: 270px;
-    height: 68px !important;
+    max-width: 250px;
+    height: 62px;
     object-fit: contain;
     object-position: left center;
 }
@@ -3374,12 +3373,12 @@ header {
 /* NAVIGATION */
 
 .navbar nav {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-end;
-    gap: clamp(12px, 2vw, 28px) !important;
+    gap: 22px;
     min-width: 0;
 }
 
@@ -3399,16 +3398,16 @@ header {
     justify-content: center;
     flex-shrink: 0;
     color: #fff;
-    font-size: 26px;
-    margin-left: 5px;
+    font-size: 25px;
+    margin-left: 4px;
 }
 
 .navbar nav #cart-count {
     position: absolute;
-    top: -10px;
-    right: -12px;
-    min-width: 21px;
-    height: 21px;
+    top: -9px;
+    right: -11px;
+    min-width: 20px;
+    height: 20px;
     padding: 0 5px;
     display: flex;
     align-items: center;
@@ -3416,7 +3415,7 @@ header {
     border-radius: 50px;
     background: #ff4141;
     color: #fff;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
 }
 
@@ -3424,19 +3423,19 @@ header {
 
 @media (max-width: 900px) {
     .navbar {
-        gap: 12px !important;
+        gap: 12px;
     }
 
     .navbar .logo {
-        flex-basis: 200px;
+        flex-basis: 190px;
     }
 
     .navbar .logo img {
-        height: 55px !important;
+        height: 54px;
     }
 
     .navbar nav {
-        gap: 12px !important;
+        gap: 12px;
     }
 
     .navbar nav a {
@@ -3444,50 +3443,55 @@ header {
     }
 }
 
-/* MOBILE */
+/* MOBILE - KEEP EVERYTHING ON ONE ROW */
 
 @media (max-width: 600px) {
     .navbar {
-        width: 94% !important;
-        min-height: auto;
-        flex-wrap: wrap !important;
-        gap: 9px !important;
-        padding: 10px 0 !important;
+        width: 96%;
+        min-height: 62px;
+        padding: 7px 0;
+        flex-wrap: nowrap;
+        gap: 7px;
     }
 
     .navbar .logo {
-        flex: 0 1 145px;
-        max-width: 145px;
+        flex: 0 0 105px;
+        max-width: 105px;
     }
 
     .navbar .logo img {
-        height: 42px !important;
-        max-width: 145px;
+        width: 100%;
+        height: 42px;
+        max-width: 105px;
     }
 
     .navbar nav {
-        order: 2;
-        width: 100%;
-        flex: 0 0 100%;
+        flex: 1 1 auto;
+        width: auto;
+        min-width: 0;
+        flex-wrap: nowrap;
         justify-content: space-between;
-        gap: 3px !important;
-        padding-top: 9px;
-        border-top: 1px solid rgba(255,255,255,.15);
+        gap: 4px;
+        padding: 0;
+        border: none;
     }
 
     .navbar nav a {
-        font-size: 12px;
+        font-size: 11px;
+        font-weight: 600;
     }
 
     .navbar nav a.cart-icon {
-        font-size: 21px;
-        margin-left: 3px;
+        font-size: 19px;
+        margin-left: 2px;
     }
 
     .navbar nav #cart-count {
-        min-width: 18px;
-        height: 18px;
-        font-size: 10px;
+        min-width: 17px;
+        height: 17px;
+        font-size: 9px;
+        top: -8px;
+        right: -9px;
     }
 }
 
