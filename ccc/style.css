@@ -3293,3 +3293,32 @@ MOBILE
 }
 
 
+/* FIX MOBILE HEADER AND CART OVERFLOW */
+
+header{
+    width:100%;
+    box-sizing:border-box;
+}
+
+.navbar{
+    width:92%;
+    max-width:1300px;
+    box-sizing:border-box;
+    min-width:0;
+}
+
+nav{
+    min-width:0;
+    flex-wrap:wrap;
+}
+
+.logo{
+    flex-shrink:0;
+}
+
+.cart,
+.cart-icon{
+    flex-shrink:0;
+    position:relative;
+}
+
