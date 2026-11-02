@@ -65,10 +65,29 @@ header{
     justify-content:space-between;
 }
 
-.logo img{
-    height:42px;
-    width:auto;
+/* LOGO */
+
+.logo{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#fff;
+    padding:7px 12px;
+    border-radius:10px;
+
+    flex-shrink:0;
 }
+
+.logo img{
+    display:block;
+    height:55px;
+    width:auto;
+    max-width:160px;
+    object-fit:contain;
+}
+
+/* NAVIGATION */
 
 nav{
     display:flex;
@@ -87,6 +106,28 @@ nav a:hover{
     color:#00c86f;
 }
 
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .navbar{
+        padding:12px 0;
+    }
+
+    .logo{
+        padding:6px 9px;
+        border-radius:8px;
+    }
+
+    .logo img{
+        height:48px;
+        max-width:125px;
+    }
+
+    nav{
+        gap:16px;
+    }
+}
 
 /*==============================
 COMMON CONTAINER
