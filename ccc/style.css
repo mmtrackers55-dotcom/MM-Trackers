@@ -121,16 +121,7 @@ nav a:hover{
         padding:12px 0;
     }
 
-    .logo{
-        padding:6px 9px;
-        border-radius:8px;
-    }
-
-    .logo img{
-        height:48px;
-        max-width:125px;
-    }
-
+   
     nav{
         gap:16px;
     }
