@@ -1,26 +1,29 @@
 
+// ==========================================
+// MM TRACKERS CHECKOUT - SUPABASE INTEGRATION
+// ==========================================
 
-// Prevent returning to checkout using browser Back button
+const SHIPPING = 400;
+const COD_RATE = 0.04;
+
+const SUPABASE_URL = "https://lzfuqivdkcjxgclitrnk.supabase.co";
+const SUPABASE_KEY = "sb_publishable_dwwSB3mnKbLEgmasodNBkw_Z0-e4RM5";
+
+const checkoutForm = document.getElementById("checkoutForm");
+
+// ==========================================
+// PREVENT RETURNING TO CHECKOUT
+// ==========================================
+
 window.addEventListener("pageshow", function (event) {
     if (event.persisted) {
         window.location.replace("cart.html");
     }
 });
 
-// Rest of your checkout.js code starts here...
-let cart = getCart();
-
-// ...
-
-
 // ==========================================
-// MM TRACKERS CHECKOUT
-// PART 1 - LOAD CART & TOTALS
+// LOAD CART
 // ==========================================
-const SHIPPING = 450;
-const COD_RATE = 0.04;
-
-const checkoutForm = document.getElementById("checkoutForm");
 
 if (checkoutForm) {
 
@@ -36,68 +39,64 @@ if (checkoutForm) {
     const grandTotal = document.getElementById("grand-total");
     const bankDetails = document.getElementById("bank-details");
 
+    const formatMoney = value =>
+        Number(value || 0).toLocaleString("en-PK");
+
+    // ==========================================
+    // DISPLAY PRODUCTS
+    // ==========================================
+
     let subtotal = 0;
     let html = "";
 
-    // ===============================
-    // DISPLAY PRODUCTS
-    // ===============================
-
     cart.forEach(item => {
 
-        subtotal += item.price * item.qty;
+        const itemTotal = Number(item.price) * Number(item.qty);
+
+        subtotal += itemTotal;
 
         html += `
         <div class="checkout-item">
-
             <h3>${item.name}</h3>
 
-            <p>
-                Price:
-                <strong>Rs. ${item.price.toLocaleString()}</strong>
+            <p>Price:
+                <strong>Rs. ${formatMoney(item.price)}</strong>
             </p>
 
-            <p>
-                Quantity:
+            <p>Quantity:
                 <strong>${item.qty}</strong>
             </p>
 
-            <p>
-                Subtotal:
-                <strong>
-                Rs. ${(item.price * item.qty).toLocaleString()}
-                </strong>
+            <p>Subtotal:
+                <strong>Rs. ${formatMoney(itemTotal)}</strong>
             </p>
 
             <hr>
-
         </div>
         `;
-
     });
 
     checkoutItems.innerHTML = html;
+    productsTotal.innerHTML = "Rs. " + formatMoney(subtotal);
 
-    productsTotal.innerHTML =
-        "Rs. " + subtotal.toLocaleString();
-
-
-    // ===============================
-    // CALCULATE TOTAL
-    // ===============================
+    // ==========================================
+    // CALCULATE DISPLAY TOTAL
+    // ==========================================
 
     function calculateTotal() {
 
-        const payment =
-        document.querySelector('input[name="payment"]:checked').value;
+        const selectedPayment =
+            document.querySelector('input[name="payment"]:checked');
 
-        let shipping = SHIPPING;
+        if (!selectedPayment) return;
+
+        const payment = selectedPayment.value;
 
         let cod = 0;
 
         if (payment === "Cash on Delivery") {
 
-            cod = Math.round((subtotal + shipping) * COD_RATE);
+            cod = Math.round((subtotal + SHIPPING) * COD_RATE);
 
             bankDetails.style.display = "none";
 
@@ -107,98 +106,150 @@ if (checkoutForm) {
 
         }
 
-        codFee.innerHTML =
-            "Rs. " + cod.toLocaleString();
+        codFee.innerHTML = "Rs. " + formatMoney(cod);
 
         grandTotal.innerHTML =
-            "Rs. " +
-            (subtotal + shipping + cod).toLocaleString();
-
+            "Rs. " + formatMoney(subtotal + SHIPPING + cod);
     }
 
     calculateTotal();
 
     document
-    .querySelectorAll('input[name="payment"]')
-    .forEach(radio => {
-
-        radio.addEventListener(
-            "change",
-            calculateTotal
-        );
-
-    });
+        .querySelectorAll('input[name="payment"]')
+        .forEach(radio => {
+            radio.addEventListener("change", calculateTotal);
+        });
 
     updateCartCount();
 
-    // ===============================
+    // ==========================================
     // PLACE ORDER
-    // ===============================
+    // ==========================================
 
-    checkoutForm.addEventListener("submit", function(e){
+    checkoutForm.addEventListener("submit", async function (e) {
 
         e.preventDefault();
 
-        if(cart.length===0){
-
+        if (cart.length === 0) {
             alert("Your cart is empty.");
-
             return;
-
         }
 
-        const btn =
-        document.getElementById("placeOrderBtn");
+        // Validate product SKUs
+
+        for (const item of cart) {
+
+            if (!item.sku || !Number.isInteger(Number(item.qty)) || Number(item.qty) < 1) {
+
+                alert("A product is missing its SKU or has an invalid quantity. Please contact us.");
+
+                return;
+            }
+        }
+
+        const btn = document.getElementById("placeOrderBtn");
+
+        const name = document.getElementById("name").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const city = document.getElementById("city").value.trim();
+        const address = document.getElementById("address").value.trim();
+
+        const selectedPayment =
+            document.querySelector('input[name="payment"]:checked');
+
+        if (!selectedPayment) {
+            alert("Please select a payment method.");
+            return;
+        }
+
+        const payment = selectedPayment.value;
+
+        // Open a blank tab during the click to avoid popup blocking.
+
+        const win = window.open("about:blank", "_blank");
+
+        if (!win) {
+            alert("Please allow pop-ups for this website to continue.");
+            return;
+        }
 
         btn.disabled = true;
+        btn.innerHTML = "Saving Order...";
 
-        btn.innerHTML = "Please Wait...";
+        try {
 
-        const name =
-        document.getElementById("name").value.trim();
+            // ==========================================
+            // SEND ORDER TO SUPABASE
+            // ==========================================
 
-        const phone =
-        document.getElementById("phone").value.trim();
+            const orderPayload = {
 
-        const city =
-        document.getElementById("city").value.trim();
+                p_customer_name: name,
+                p_phone: phone,
+                p_city: city,
+                p_address: address,
+                p_payment_method: payment,
 
-        const address =
-        document.getElementById("address").value.trim();
+                p_items: cart.map(item => ({
+                    sku: item.sku,
+                    qty: Number(item.qty)
+                }))
 
-        const payment =
-        document.querySelector('input[name="payment"]:checked').value;
+            };
 
-        let shipping = SHIPPING;
+            const response = await fetch(
+                SUPABASE_URL + "/rest/v1/rpc/place_order",
+                {
+                    method: "POST",
 
-        let cod = 0;
+                    headers: {
+                        "Content-Type": "application/json",
+                        "apikey": SUPABASE_KEY,
+                        "Authorization": "Bearer " + SUPABASE_KEY
+                    },
 
-        if(payment==="Cash on Delivery"){
+                    body: JSON.stringify(orderPayload)
+                }
+            );
 
-            cod = Math.round((subtotal + shipping) * COD_RATE);
+            const responseData = await response.json();
 
-        }
+            if (!response.ok) {
 
-        const grand =
-        subtotal + shipping + cod;
+                throw new Error(
+                    responseData.message ||
+                    responseData.details ||
+                    responseData.hint ||
+                    "Supabase could not save the order."
+                );
+            }
 
-        // ===============================
-        // ORDER NUMBER
-        // ===============================
+            const order = Array.isArray(responseData)
+                ? responseData[0]
+                : responseData;
 
-        const orderNo =
-        "MMT-" + Date.now().toString().slice(-8);
+            if (!order || !order.order_number) {
+                throw new Error("Order was not confirmed by Supabase.");
+            }
 
-        localStorage.setItem(
-            "lastOrderNo",
-            orderNo
-        );
+            // ==========================================
+            // USE DATABASE ORDER DETAILS
+            // ==========================================
 
-        // ===============================
-        // WHATSAPP MESSAGE
-        // ===============================
+            const orderNo = order.order_number;
 
-        let message =
+            const savedSubtotal = Number(order.subtotal);
+            const shipping = Number(order.shipping_fee);
+            const cod = Number(order.cod_fee);
+            const grand = Number(order.grand_total);
+
+            localStorage.setItem("lastOrderNo", orderNo);
+
+            // ==========================================
+            // WHATSAPP MESSAGE
+            // ==========================================
+
+            let message =
 `🛒 *New Order - MM Trackers*
 
 🆔 *Order No:* ${orderNo}
@@ -216,39 +267,38 @@ if (checkoutForm) {
 
 `;
 
-        cart.forEach(item=>{
+            cart.forEach(item => {
 
-message +=
+                message +=
 `• ${item.name}
+SKU: ${item.sku}
 Qty: ${item.qty}
-Price: Rs. ${item.price.toLocaleString()}
-Subtotal: Rs. ${(item.price*item.qty).toLocaleString()}
 
 `;
 
-        });
+            });
 
-        message +=
+            message +=
 `━━━━━━━━━━━━━━━━━━
 
 Products Total:
-Rs. ${subtotal.toLocaleString()}
+Rs. ${formatMoney(savedSubtotal)}
 
 Shipping:
-Rs. ${shipping.toLocaleString()}
+Rs. ${formatMoney(shipping)}
 
 COD Fee:
-Rs. ${cod.toLocaleString()}
+Rs. ${formatMoney(cod)}
 
 ━━━━━━━━━━━━━━━━━━
 
 💰 *Grand Total:*
-Rs. ${grand.toLocaleString()}
+Rs. ${formatMoney(grand)}
 `;
 
-        if(payment==="Meezan Bank"){
+            if (payment === "Meezan Bank") {
 
-message += `
+                message += `
 
 🏦 *Meezan Bank*
 
@@ -261,95 +311,95 @@ Account Number:
 IBAN:
 PK89MEZN0007010102734800`;
 
-        }
+            }
 
-        if(payment==="EasyPaisa"){
+            if (payment === "EasyPaisa") {
 
-message += `
+                message += `
 
 📱 *EasyPaisa*
 
 0315 9615557`;
 
-        }
+            }
 
-        if(payment==="NayaPay"){
+            if (payment === "NayaPay") {
 
-message += `
+                message += `
 
 💙 *NayaPay / Raast*
 
 0315 9615557`;
 
-        }
+            }
 
-        // ===============================
-        // OPEN WHATSAPP
-        // ===============================
+            // ==========================================
+            // OPEN WHATSAPP AFTER DATABASE CONFIRMATION
+            // ==========================================
 
-        const whatsappURL =
-        "https://wa.me/923159615557?text=" +
-        encodeURIComponent(message);
+            const whatsappURL =
+                "https://wa.me/923159615557?text=" +
+                encodeURIComponent(message);
 
-        const win = window.open(
-            whatsappURL,
-            "_blank"
-        );
+            win.location.href = whatsappURL;
 
-        // If popup blocked
-        if(!win){
+            // ==========================================
+            // CLEAR CART AFTER SUCCESSFUL DATABASE SAVE
+            // ==========================================
 
-            alert("Please allow pop-ups for this website so WhatsApp can open.");
+            localStorage.removeItem("cart");
+
+            updateCartCount();
+
+            // ==========================================
+            // SUCCESS PAGE
+            // ==========================================
+
+            setTimeout(function () {
+                window.location.href = "success.html";
+            }, 1000);
+
+        } catch (error) {
+
+            console.error("Order Error:", error);
+
+            win.close();
+
+            alert(
+                "Your order could not be saved.\n\n" +
+                error.message +
+                "\n\nPlease try again or contact us on WhatsApp."
+            );
 
             btn.disabled = false;
             btn.innerHTML = "Place Order on WhatsApp";
 
-            return;
-
         }
-
-        // ===============================
-        // CLEAR CART
-        // ===============================
-
-        localStorage.removeItem("cart");
-
-        updateCartCount();
-
-        // ===============================
-        // SUCCESS PAGE
-        // ===============================
-
-        setTimeout(function(){
-
-            window.location.href="success.html";
-
-        },500);
 
     });
 
-    // ===============================
-    // COPY TEXT
-    // ===============================
+    // ==========================================
+    // COPY PAYMENT DETAILS
+    // ==========================================
 
-    function copyText(id){
+    window.copyText = function (id) {
 
-        const text =
-        document.getElementById(id).innerText;
+        const element = document.getElementById(id);
 
-        if(navigator.clipboard){
+        if (!element) return;
+
+        const text = element.innerText;
+
+        if (navigator.clipboard) {
 
             navigator.clipboard.writeText(text)
-            .then(function(){
+                .then(function () {
+                    alert("Copied Successfully");
+                });
 
-                alert("Copied Successfully");
+        } else {
 
-            });
-
-        }else{
-
-            const input =
-            document.createElement("textarea");
+            const input = document.createElement("textarea");
 
             input.value = text;
 
@@ -364,11 +414,6 @@ message += `
             alert("Copied Successfully");
 
         }
-
-    }
+    };
 
 }
-
-
-
-
