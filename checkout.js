@@ -1,83 +1,83 @@
 
 // ==========================================
-// MM TRACKERS CHECKOUT - SUPABASE INTEGRATION
+// MM TRACKERS - DIRECT WHATSAPP CHECKOUT
 // ==========================================
+
 const SHIPPING = 450;
 const COD_RATE = 0.04;
-
-const SUPABASE_URL = "https://lzfuqivdkcjxgclitrnk.supabase.co";
-const SUPABASE_KEY = "sb_publishable_dwwSB3mnKbLEgmasodNBkw_Z0-e4RM5";
+const WHATSAPP_NUMBER = "923159615557";
 
 const checkoutForm = document.getElementById("checkoutForm");
 
+const checkoutItems = document.getElementById("checkout-items");
+const productsTotal = document.getElementById("products-total");
+const codFee = document.getElementById("cod-fee");
+const grandTotal = document.getElementById("grand-total");
+const bankDetails = document.getElementById("bank-details");
+const placeOrderBtn = document.getElementById("placeOrderBtn");
+
+const formatMoney = value =>
+    Number(value || 0).toLocaleString("en-PK");
+
 // ==========================================
-// PREVENT RETURNING TO CHECKOUT
+// LOAD CART
 // ==========================================
 
-window.addEventListener("pageshow", function (event) {
-    if (event.persisted) {
-        window.location.replace("cart.html");
-    }
-});
-
-// ==========================================
-// INITIALIZE CHECKOUT
-// ==========================================
+let cart = getCart();
 
 if (checkoutForm) {
-
-    let cart = getCart();
 
     if (!cart.length) {
         window.location.replace("cart.html");
     } else {
 
-        const checkoutItems = document.getElementById("checkout-items");
-        const productsTotal = document.getElementById("products-total");
-        const codFee = document.getElementById("cod-fee");
-        const grandTotal = document.getElementById("grand-total");
-        const bankDetails = document.getElementById("bank-details");
-        const placeOrderBtn = document.getElementById("placeOrderBtn");
-
-        const formatMoney = value =>
-            Number(value || 0).toLocaleString("en-PK");
-
         // ==========================================
-        // DISPLAY CHECKOUT PRODUCTS
+        // DISPLAY PRODUCTS
         // ==========================================
 
-        let subtotal = 0;
-        let html = "";
+        function displayCheckout() {
 
-        cart.forEach(item => {
+            cart = getCart();
 
-            const itemTotal = Number(item.price) * Number(item.qty);
+            let subtotal = 0;
+            let html = "";
 
-            subtotal += itemTotal;
+            cart.forEach(item => {
 
-            html += `
-                <div class="checkout-item">
-                    <h3>${item.name}</h3>
+                const price = Number(item.price);
+                const qty = Number(item.qty);
+                const itemTotal = price * qty;
 
-                    <p>Price:
-                        <strong>Rs. ${formatMoney(item.price)}</strong>
-                    </p>
+                subtotal += itemTotal;
 
-                    <p>Quantity:
-                        <strong>${item.qty}</strong>
-                    </p>
+                html += `
+                    <div class="checkout-item">
+                        <h3>${item.name}</h3>
 
-                    <p>Subtotal:
-                        <strong>Rs. ${formatMoney(itemTotal)}</strong>
-                    </p>
+                        <p>Price:
+                            <strong>Rs. ${formatMoney(price)}</strong>
+                        </p>
 
-                    <hr>
-                </div>
-            `;
-        });
+                        <p>Quantity:
+                            <strong>${qty}</strong>
+                        </p>
 
-        checkoutItems.innerHTML = html;
-        productsTotal.innerHTML = "Rs. " + formatMoney(subtotal);
+                        <p>Subtotal:
+                            <strong>Rs. ${formatMoney(itemTotal)}</strong>
+                        </p>
+
+                        <hr>
+                    </div>
+                `;
+            });
+
+            checkoutItems.innerHTML = html;
+            productsTotal.innerHTML = "Rs. " + formatMoney(subtotal);
+
+            return subtotal;
+        }
+
+        let subtotal = displayCheckout();
 
         // ==========================================
         // CALCULATE TOTAL
@@ -95,10 +95,15 @@ if (checkoutForm) {
             let cod = 0;
 
             if (payment === "Cash on Delivery") {
+
                 cod = Math.round((subtotal + SHIPPING) * COD_RATE);
+
                 bankDetails.style.display = "none";
+
             } else {
+
                 bankDetails.style.display = "block";
+
             }
 
             codFee.innerHTML = "Rs. " + formatMoney(cod);
@@ -118,10 +123,10 @@ if (checkoutForm) {
         updateCartCount();
 
         // ==========================================
-        // PLACE ORDER
+        // PLACE ORDER DIRECTLY ON WHATSAPP
         // ==========================================
 
-        checkoutForm.addEventListener("submit", async function (e) {
+        checkoutForm.addEventListener("submit", function (e) {
 
             e.preventDefault();
 
@@ -134,31 +139,35 @@ if (checkoutForm) {
                 return;
             }
 
-            // Validate products
+            subtotal = 0;
 
             for (const item of cart) {
 
                 if (
                     !item.sku ||
                     !Number.isInteger(Number(item.qty)) ||
-                    Number(item.qty) < 1
+                    Number(item.qty) < 1 ||
+                    !Number.isFinite(Number(item.price)) ||
+                    Number(item.price) <= 0
                 ) {
-                    alert("A product has an invalid SKU or quantity. Please contact us.");
+                    alert("Invalid product information. Please contact MM Trackers.");
                     return;
                 }
 
-                if (!Number.isFinite(Number(item.price)) || Number(item.price) <= 0) {
-                    alert("A product has an invalid price. Please contact us.");
-                    return;
-                }
+                subtotal += Number(item.price) * Number(item.qty);
             }
 
-            // Customer details
+            const name =
+                document.getElementById("name").value.trim();
 
-            const name = document.getElementById("name").value.trim();
-            const phone = document.getElementById("phone").value.trim();
-            const city = document.getElementById("city").value.trim();
-            const address = document.getElementById("address").value.trim();
+            const phone =
+                document.getElementById("phone").value.trim();
+
+            const city =
+                document.getElementById("city").value.trim();
+
+            const address =
+                document.getElementById("address").value.trim();
 
             const selectedPayment =
                 document.querySelector('input[name="payment"]:checked');
@@ -175,92 +184,30 @@ if (checkoutForm) {
 
             const payment = selectedPayment.value;
 
-            // Open WhatsApp tab before asynchronous request
+            // ==========================================
+            // GENERATE ORDER NUMBER
+            // ==========================================
 
-            const whatsappWindow = window.open("about:blank", "_blank");
+            const orderNo =
+                "MMT-" + Date.now().toString().slice(-8);
 
-            placeOrderBtn.disabled = true;
-            placeOrderBtn.innerHTML = "Saving Order...";
+            // ==========================================
+            // CALCULATE FINAL AMOUNT
+            // ==========================================
 
-            try {
+            const cod =
+                payment === "Cash on Delivery"
+                    ? Math.round((subtotal + SHIPPING) * COD_RATE)
+                    : 0;
 
-                // ==========================================
-                // PREPARE ORDER
-                // ==========================================
+            const grand = subtotal + SHIPPING + cod;
 
-                const orderPayload = {
-                    p_customer_name: name,
-                    p_phone: phone,
-                    p_city: city,
-                    p_address: address,
-                    p_payment_method: payment,
-                    p_items: cart.map(item => ({
-                        sku: item.sku,
-                        qty: Number(item.qty)
-                    }))
-                };
+            // ==========================================
+            // BUILD WHATSAPP MESSAGE
+            // ==========================================
 
-                // ==========================================
-                // SAVE ORDER IN SUPABASE
-                // ==========================================
-
-                const response = await fetch(
-                    SUPABASE_URL + "/rest/v1/rpc/place_order",
-                    {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "apikey": SUPABASE_KEY,
-                            "Authorization": "Bearer " + SUPABASE_KEY
-                        },
-                        body: JSON.stringify(orderPayload)
-                    }
-                );
-
-                let responseData;
-
-                try {
-                    responseData = await response.json();
-                } catch (err) {
-                    throw new Error("Invalid response from Supabase.");
-                }
-
-                if (!response.ok) {
-                    throw new Error(
-                        responseData.message ||
-                        responseData.details ||
-                        responseData.hint ||
-                        JSON.stringify(responseData) ||
-                        "Supabase could not save the order."
-                    );
-                }
-
-                const order = Array.isArray(responseData)
-                    ? responseData[0]
-                    : responseData;
-
-                if (!order || !order.order_number) {
-                    throw new Error("Supabase did not confirm the order.");
-                }
-
-                // ==========================================
-                // DATABASE ORDER DETAILS
-                // ==========================================
-
-                const orderNo = order.order_number;
-                const savedSubtotal = Number(order.subtotal);
-                const shipping = Number(order.shipping_fee);
-                const cod = Number(order.cod_fee);
-                const grand = Number(order.grand_total);
-
-                localStorage.setItem("lastOrderNo", orderNo);
-
-                // ==========================================
-                // PREPARE WHATSAPP MESSAGE
-                // ==========================================
-
-                let message =
-`🛒 *New Order - MM Trackers*
+            let message =
+`🛒 *NEW ORDER - MM TRACKERS*
 
 🆔 *Order No:* ${orderNo}
 
@@ -273,41 +220,46 @@ if (checkoutForm) {
 
 ━━━━━━━━━━━━━━━━━━
 
-📦 *Products:*
+📦 *PRODUCTS*
 
 `;
 
-                cart.forEach(item => {
-                    message +=
-`• ${item.name}
-SKU: ${item.sku}
-Qty: ${item.qty}
-
-`;
-                });
+            cart.forEach(item => {
 
                 message +=
+`• ${item.name}
+SKU: ${item.sku}
+Price: Rs. ${formatMoney(item.price)}
+Quantity: ${item.qty}
+Subtotal: Rs. ${formatMoney(Number(item.price) * Number(item.qty))}
+
+`;
+
+            });
+
+            message +=
 `━━━━━━━━━━━━━━━━━━
 
 Products Total:
-Rs. ${formatMoney(savedSubtotal)}
+Rs. ${formatMoney(subtotal)}
 
 Shipping:
-Rs. ${formatMoney(shipping)}
+Rs. ${formatMoney(SHIPPING)}
 
 COD Fee:
 Rs. ${formatMoney(cod)}
 
 ━━━━━━━━━━━━━━━━━━
 
-💰 *Grand Total:*
+💰 *GRAND TOTAL:*
 Rs. ${formatMoney(grand)}
 `;
 
-                if (payment === "Meezan Bank") {
-                    message +=
+            if (payment === "Meezan Bank") {
+
+                message +=
 `
-🏦 *Meezan Bank*
+🏦 *MEEZAN BANK*
 
 Account Title:
 MM Trackers
@@ -316,76 +268,62 @@ Account Number:
 07010102734800
 
 IBAN:
-PK89MEZN0007010102734800`;
-                }
+PK89MEZN0007010102734800
+`;
+            }
 
-                if (payment === "EasyPaisa") {
-                    message +=
+            if (payment === "EasyPaisa") {
+
+                message +=
 `
-📱 *EasyPaisa*
+📱 *EASYPAISA*
 
-0315 9615557`;
-                }
+0315 9615557
+`;
+            }
 
-                if (payment === "NayaPay") {
-                    message +=
+            if (payment === "NayaPay") {
+
+                message +=
 `
-💙 *NayaPay / Raast*
+💙 *NAYAPAY / RAAST*
 
-0315 9615557`;
-                }
+0315 9615557
+`;
+            }
 
-                // ==========================================
-                // OPEN WHATSAPP
-                // ==========================================
+            // ==========================================
+            // OPEN WHATSAPP DIRECTLY
+            // ==========================================
 
-                const whatsappURL =
-                    "https://wa.me/923159615557?text=" +
-                    encodeURIComponent(message);
+            const whatsappURL =
+                "https://wa.me/" +
+                WHATSAPP_NUMBER +
+                "?text=" +
+                encodeURIComponent(message);
 
-                // ==========================================
-                // CLEAR CART AFTER CONFIRMED ORDER
-                // ==========================================
+            localStorage.setItem("lastOrderNo", orderNo);
 
-                localStorage.removeItem("cart");
-                updateCartCount();
+            // Open WhatsApp directly; no Supabase request.
 
-                // ==========================================
-                // SUCCESS
-                // ==========================================
+            const whatsappWindow =
+                window.open(whatsappURL, "_blank");
 
-                alert("Order placed successfully! Your order number is " + orderNo);
+            // Clear cart only when handing off to WhatsApp.
 
-                if (whatsappWindow && !whatsappWindow.closed) {
-                    whatsappWindow.location.href = whatsappURL;
+            localStorage.removeItem("cart");
+            updateCartCount();
 
-                    window.location.href = "success.html";
-                } else {
-                    window.location.href = whatsappURL;
-                }
+            if (whatsappWindow) {
 
-           
-} catch (error) {
+                window.location.href = "success.html";
 
-    console.error("Order Error:", error);
+            } else {
 
-    const errorMessage =
-        "ORDER FAILED\n\n" + error.message;
+                // If pop-up is blocked, open WhatsApp
+                // in the current tab instead.
 
-    if (whatsappWindow && !whatsappWindow.closed) {
-        whatsappWindow.document.body.innerHTML = "";
-        whatsappWindow.document.body.style.cssText =
-            "font-family:Arial;padding:25px;color:#b00020;font-size:18px;";
-        whatsappWindow.document.body.innerText = errorMessage;
-    }
-
-    alert(errorMessage);
-
-    placeOrderBtn.disabled = false;
-    placeOrderBtn.innerHTML = "Place Order on WhatsApp";
-}
-                placeOrderBtn.disabled = false;
-                placeOrderBtn.innerHTML = "Place Order on WhatsApp";
+                window.location.href = whatsappURL;
             }
 
         });
@@ -409,7 +347,9 @@ PK89MEZN0007010102734800`;
                     .catch(() => fallbackCopy(text));
 
             } else {
+
                 fallbackCopy(text);
+
             }
         };
 
@@ -418,7 +358,9 @@ PK89MEZN0007010102734800`;
             const input = document.createElement("textarea");
 
             input.value = text;
+
             document.body.appendChild(input);
+
             input.select();
 
             document.execCommand("copy");
