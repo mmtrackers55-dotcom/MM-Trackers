@@ -130,6 +130,8 @@ if (checkoutForm) {
 
         e.preventDefault();
 
+alert("Checkout button is working");
+
         if (cart.length === 0) {
             alert("Your cart is empty.");
             return;
