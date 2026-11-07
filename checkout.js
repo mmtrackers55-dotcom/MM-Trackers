@@ -214,8 +214,19 @@ alert("Checkout button is working");
                 }
             );
 
-            const responseData = await response.json();
+           let responseData;
 
+try {
+    responseData = await response.json();
+} catch (err) {
+    alert("Supabase response could not be read: " + err.message);
+    throw err;
+}
+
+alert(
+    "HTTP Status: " + response.status +
+    "\nSupabase Response: " + JSON.stringify(responseData)
+);
 const responseData = await response.json();
 
 console.log("Supabase response:", response.status, responseData);
