@@ -2,7 +2,6 @@
 // ==========================================
 // MM TRACKERS CHECKOUT - SUPABASE INTEGRATION
 // ==========================================
-
 const SHIPPING = 450;
 const COD_RATE = 0.04;
 
