@@ -3,161 +3,604 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MM Trackers Admin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MM Trackers | Admin Dashboard</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 *{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f2f4f7;
-  color:#222;
+body{margin:0;font-family:Arial,sans-serif;background:#f3f5f7;color:#202a35}
+header{background:#123b2b;color:white;padding:17px 22px;display:flex;justify-content:space-between;align-items:center}
+header h2{margin:0;font-size:20px}
+main{max-width:1250px;margin:auto;padding:20px}
+button{border:0;border-radius:6px;padding:10px 14px;cursor:pointer;font-weight:600}
+.primary{background:#087b43;color:white}
+.secondary{background:#e7edf0;color:#263b32}
+.logout{background:white;color:#123b2b}
+.danger{background:#ffe5e5;color:#a00}
+input,textarea,select{width:100%;padding:11px;border:1px solid #ccd2d8;border-radius:6px;margin:6px 0 13px;font:inherit}
+textarea{min-height:80px;resize:vertical}
+label{font-size:13px;font-weight:bold}
+#login{max-width:420px;margin:75px auto;background:white;padding:28px;border-radius:12px;box-shadow:0 3px 15px #0001}
+#app{display:none}
+.hidden{display:none!important}
+#loginMessage,#message{padding:10px;margin-top:12px;border-radius:6px;overflow-wrap:anywhere}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
+.tabs button{background:#e3e9e6;color:#234}
+.tabs button.active{background:#123b2b;color:white}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}
+.card,.panel{background:white;padding:18px;border-radius:10px;box-shadow:0 2px 9px #0000000a;margin-bottom:16px}
+.card small{color:#667}
+.card strong{display:block;font-size:25px;margin-top:8px}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:650px}
+th,td{padding:11px 9px;border-bottom:1px solid #e5e8eb;text-align:left;font-size:13px;vertical-align:middle}
+th{background:#f5f7f6}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.checkline{display:flex;align-items:center;gap:8px;margin:10px 0}
+.checkline input{width:auto;margin:0}
+.actions{display:flex;gap:7px;flex-wrap:wrap}
+.actions button{padding:8px 10px}
+.muted{color:#687780;font-size:13px}
+.status{font-weight:bold}
+.details{background:#f6f8f7;padding:14px;border-radius:7px;margin:8px 0}
+.details p{margin:7px 0;font-size:14px}
+.product-state{font-weight:bold}
+.small-button{padding:7px 9px;font-size:12px}
+@media(max-width:700px){
+ main{padding:12px}
+ .cards{grid-template-columns:1fr 1fr}
+ .form-grid{grid-template-columns:1fr}
+ header{padding:14px}
 }
-.container{
-  width:92%;
-  max-width:420px;
-  margin:90px auto;
-  background:white;
-  padding:30px;
-  border-radius:12px;
-  box-shadow:0 4px 20px #0001;
-}
-h2{text-align:center;margin-top:0}
-input,button{
-  width:100%;
-  padding:13px;
-  margin-top:14px;
-  border-radius:6px;
-  font-size:16px;
-}
-input{border:1px solid #ccc}
-button{
-  border:0;
-  background:#087b43;
-  color:white;
-  cursor:pointer;
-  font-weight:bold;
-}
-button:disabled{opacity:.6}
-#message{
-  margin-top:15px;
-  text-align:center;
-  font-size:14px;
-  overflow-wrap:anywhere;
-}
-#dashboard{display:none}
 </style>
 </head>
 <body>
 
-<div class="container" id="login">
-  <h2>MM Trackers Admin</h2>
-  <p style="text-align:center">Secure Administrator Login</p>
-
-  <form id="loginForm">
-    <input type="email" id="email"
-      placeholder="Admin Email" required>
-    <input type="password" id="password"
-      placeholder="Password" required>
-    <button type="submit" id="loginBtn">Login</button>
-  </form>
-
-  <div id="message"></div>
+<!-- LOGIN -->
+<div id="login">
+<h2 style="text-align:center">MM Trackers Admin</h2>
+<p style="text-align:center">Administrator Login</p>
+<form id="loginForm">
+<label>Email</label>
+<input id="email" type="email" required autocomplete="username">
+<label>Password</label>
+<input id="password" type="password" required autocomplete="current-password">
+<button class="primary" id="loginBtn" style="width:100%">Login</button>
+</form>
+<div id="loginMessage"></div>
 </div>
 
-<div class="container" id="dashboard">
-  <h2>Admin Access Verified</h2>
-  <p>You are successfully logged in as an MM Trackers administrator.</p>
-  <p id="adminEmail"></p>
-  <button id="logoutBtn">Logout</button>
+<!-- ADMIN APP -->
+<div id="app">
+<header>
+<h2>MM Trackers Admin</h2>
+<button class="logout" id="logoutBtn">Logout</button>
+</header>
+
+<main>
+<div id="message" class="hidden"></div>
+
+<div class="tabs">
+<button class="active" data-tab="dashboard">Dashboard</button>
+<button data-tab="products">Products</button>
+<button data-tab="orders">Orders</button>
+</div>
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="tab-content">
+<h2>Dashboard Overview</h2>
+<div class="cards">
+<div class="card"><small>Total Products</small><strong id="totalProducts">—</strong></div>
+<div class="card"><small>Total Orders</small><strong id="totalOrders">—</strong></div>
+<div class="card"><small>Pending Orders</small><strong id="pendingOrders">—</strong></div>
+<div class="card"><small>Sales (excluding cancelled)</small><strong id="totalSales">—</strong></div>
+</div>
+
+<div class="panel">
+<h3>Recent Orders</h3>
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Order</th><th>Customer</th><th>Date</th><th>Total</th><th>Status</th></tr>
+</thead>
+<tbody id="recentOrders"></tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" class="tab-content hidden">
+<div class="panel">
+<h3 id="productFormTitle">Add New Product</h3>
+<form id="productForm">
+<input type="hidden" id="productId">
+
+<div class="form-grid">
+<div>
+<label>SKU</label>
+<input id="sku" required placeholder="e.g. ST-901A">
+</div>
+<div>
+<label>Product Name</label>
+<input id="productName" required>
+</div>
+<div>
+<label>Price (PKR)</label>
+<input id="price" type="number" min="0" step="0.01" required>
+</div>
+<div>
+<label>Product Slug</label>
+<input id="slug" required placeholder="st-901a">
+</div>
+</div>
+
+<label>Description</label>
+<textarea id="description"></textarea>
+
+<label>Image URL</label>
+<input id="imageUrl" type="url" placeholder="https://...">
+
+<label class="checkline">
+<input type="checkbox" id="isActive">
+Active — available for customer orders
+</label>
+
+<div class="actions">
+<button class="primary" type="submit" id="saveProductBtn">Save Product</button>
+<button class="secondary" type="button" id="cancelEditBtn">Clear Form</button>
+</div>
+</form>
+</div>
+
+<div class="panel">
+<h3>Product Catalogue</h3>
+<p class="muted">Only active products with a price above zero can be ordered through checkout.</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>SKU</th><th>Product</th><th>Price</th><th>Status</th><th>Action</th></tr>
+</thead>
+<tbody id="productsTable"></tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- ORDERS -->
+<section id="orders" class="tab-content hidden">
+<div class="panel">
+<h3>Customer Orders</h3>
+<p class="muted">Select View to see the customer's information and purchased products.</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Order No.</th><th>Date</th><th>Customer</th><th>Phone</th><th>Total</th><th>Status</th><th>Details</th>
+</tr>
+</thead>
+<tbody id="ordersTable"></tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
 </div>
 
 <script>
-const SUPABASE_URL =
-  "https://lzfuqivdkcjxgclitrnk.supabase.co";
+const SUPABASE_URL = "https://lzfuqivdkcjxgclitrnk.supabase.co";
+const SUPABASE_KEY = "sb_publishable_dwwSB3mnKbLEgmasodNBkw_Z0-e4RM5";
 
-const SUPABASE_KEY =
-  "sb_publishable_dwwSB3mnKbLEgmasodNBkw_Z0-e4RM5";
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-const db = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
-);
-const loginBox = document.getElementById("login");
-const dashboard = document.getElementById("dashboard");
-const message = document.getElementById("message");
+let products = [];
+let orders = [];
+let currentDetailsOrder = null;
+
+const $ = id => document.getElementById(id);
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#39;"
+  }[c]));
+}
+
+function money(value) {
+  return "Rs. " + Number(value || 0).toLocaleString("en-PK", {
+    minimumFractionDigits:2,
+    maximumFractionDigits:2
+  });
+}
+
+function notify(text, error=false) {
+  $("message").textContent = text;
+  $("message").style.background = error ? "#ffe8e8" : "#e4f5e9";
+  $("message").style.color = error ? "#a00" : "#145b32";
+  $("message").classList.remove("hidden");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function formatDate(value) {
+  if(!value) return "—";
+  const d = new Date(value);
+  return isNaN(d) ? "—" : d.toLocaleString();
+}
+
+function showLogin(text="") {
+  $("app").style.display = "none";
+  $("login").style.display = "block";
+  $("loginMessage").textContent = text;
+}
 
 async function verifyAdmin() {
-  const { data: { session }, error } =
-    await db.auth.getSession();
+  const {data:{session},error} = await db.auth.getSession();
 
-  if (error || !session) {
+  if(error || !session) {
     showLogin();
     return;
   }
 
-  const { data, error: adminError } =
-    await db.rpc("is_mm_admin");
+  const {data,error:adminError} = await db.rpc("is_mm_admin");
 
-  if (adminError || data !== true) {
+  if(adminError || data !== true) {
     await db.auth.signOut();
-    showLogin();
-    message.textContent =
-      "Access denied. Administrator account required.";
+    showLogin("Access denied. Administrator account required.");
     return;
   }
 
-  loginBox.style.display = "none";
-  dashboard.style.display = "block";
-  document.getElementById("adminEmail").textContent =
-    session.user.email;
+  $("login").style.display = "none";
+  $("app").style.display = "block";
+  await loadAll();
 }
 
-function showLogin() {
-  loginBox.style.display = "block";
-  dashboard.style.display = "none";
-}
+async function loadAll() {
+  try {
+    const [p,o] = await Promise.all([
+      db.from("products")
+        .select("id,sku,name,slug,description,price,is_active,image_url")
+        .order("sku"),
+      db.from("orders")
+        .select("id,order_number,customer_name,phone,email,city,address,payment_method,status,total,subtotal,shipping_fee,cod_fee,notes,created_at")
+        .order("created_at",{ascending:false})
+        .limit(200)
+    ]);
 
-document.getElementById("loginForm")
-.addEventListener("submit", async function(e) {
-  e.preventDefault();
+    if(p.error) throw p.error;
+    if(o.error) throw o.error;
 
-  const btn = document.getElementById("loginBtn");
-  btn.disabled = true;
-  btn.textContent = "Checking...";
-  message.textContent = "";
+    products = p.data || [];
+    orders = o.data || [];
 
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
+    renderDashboard();
+    renderProducts();
+    renderOrders();
 
-  const { error } = await db.auth.signInWithPassword({
-    email,
-    password
-  });
-
-  if (error) {
-    message.textContent = error.message;
-    btn.disabled = false;
-    btn.textContent = "Login";
-    return;
+  } catch(error) {
+    notify("Could not load dashboard: " + error.message,true);
   }
+}
 
-  await verifyAdmin();
+/* DASHBOARD */
 
-  btn.disabled = false;
-  btn.textContent = "Login";
+function renderDashboard() {
+  $("totalProducts").textContent = products.length;
+  $("totalOrders").textContent = orders.length;
+  $("pendingOrders").textContent =
+    orders.filter(o => o.status === "Pending").length;
+
+  const sales = orders
+    .filter(o => o.status !== "Cancelled")
+    .reduce((sum,o) => sum + Number(o.total || 0),0);
+
+  $("totalSales").textContent = money(sales);
+
+  $("recentOrders").innerHTML = orders.slice(0,8).map(o => `
+    <tr>
+      <td>#${escapeHTML(o.order_number)}</td>
+      <td>${escapeHTML(o.customer_name)}</td>
+      <td>${escapeHTML(formatDate(o.created_at))}</td>
+      <td>${money(o.total)}</td>
+      <td>${escapeHTML(o.status)}</td>
+    </tr>
+  `).join("") || '<tr><td colspan="5">No orders yet.</td></tr>';
+}
+
+/* PRODUCT MANAGEMENT */
+
+function renderProducts() {
+  $("productsTable").innerHTML = products.map(p => `
+    <tr>
+      <td>${escapeHTML(p.sku)}</td>
+      <td>${escapeHTML(p.name)}</td>
+      <td>${money(p.price)}</td>
+      <td class="product-state">
+        ${p.is_active ? "Active" : "Inactive"}
+      </td>
+      <td>
+        <button class="secondary small-button"
+          data-edit-product="${escapeHTML(p.id)}">Edit</button>
+      </td>
+    </tr>
+  `).join("") || '<tr><td colspan="5">No products found.</td></tr>';
+}
+
+function clearProductForm() {
+  $("productForm").reset();
+  $("productId").value = "";
+  $("productFormTitle").textContent = "Add New Product";
+  $("saveProductBtn").textContent = "Save Product";
+}
+
+$("cancelEditBtn").addEventListener("click",clearProductForm);
+
+$("productsTable").addEventListener("click",e => {
+  const button = e.target.closest("[data-edit-product]");
+  if(!button) return;
+
+  const p = products.find(x => x.id === button.dataset.editProduct);
+  if(!p) return;
+
+  $("productId").value = p.id;
+  $("sku").value = p.sku || "";
+  $("productName").value = p.name || "";
+  $("price").value = p.price ?? 0;
+  $("slug").value = p.slug || "";
+  $("description").value = p.description || "";
+  $("imageUrl").value = p.image_url || "";
+  $("isActive").checked = p.is_active === true;
+
+  $("productFormTitle").textContent = "Edit Product: " + p.sku;
+  $("saveProductBtn").textContent = "Update Product";
+
+  $("productForm").scrollIntoView({behavior:"smooth"});
 });
 
-document.getElementById("logoutBtn")
-.addEventListener("click", async function() {
+$("productForm").addEventListener("submit",async e => {
+  e.preventDefault();
+
+  const button = $("saveProductBtn");
+  button.disabled = true;
+  button.textContent = "Saving...";
+
+  try {
+    const id = $("productId").value;
+    const sku = $("sku").value.trim();
+    const name = $("productName").value.trim();
+    const price = Number($("price").value);
+    const slug = $("slug").value.trim() ||
+      sku.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+
+    if(!sku || !name || !slug || !Number.isFinite(price) || price < 0) {
+      throw new Error("Please enter valid product information and price.");
+    }
+
+    const payload = {
+      sku,
+      name,
+      price,
+      slug,
+      description: $("description").value.trim() || null,
+      image_url: $("imageUrl").value.trim() || null,
+      is_active: $("isActive").checked
+    };
+
+    let result;
+
+    if(id) {
+      result = await db.from("products")
+        .update(payload)
+        .eq("id",id);
+    } else {
+      result = await db.from("products")
+        .insert(payload);
+    }
+
+    if(result.error) throw result.error;
+
+    clearProductForm();
+    await loadAll();
+    notify(id ? "Product updated successfully." : "Product added successfully.");
+
+  } catch(error) {
+    notify("Product could not be saved: " + error.message,true);
+  } finally {
+    button.disabled = false;
+    button.textContent = $("productId").value ? "Update Product" : "Save Product";
+  }
+});
+
+/* ORDER MANAGEMENT */
+
+function renderOrders() {
+  $("ordersTable").innerHTML = orders.map(o => `
+    <tr>
+      <td>#${escapeHTML(o.order_number)}</td>
+      <td>${escapeHTML(formatDate(o.created_at))}</td>
+      <td>${escapeHTML(o.customer_name)}</td>
+      <td>${escapeHTML(o.phone)}</td>
+      <td>${money(o.total)}</td>
+      <td>
+        <select data-status="${escapeHTML(o.id)}">
+          ${statusOptions(o.status)}
+        </select>
+      </td>
+      <td>
+        <button class="secondary small-button"
+          data-view-order="${escapeHTML(o.id)}">View</button>
+        <button class="primary small-button"
+          data-save-status="${escapeHTML(o.id)}">Save</button>
+      </td>
+    </tr>
+    <tr id="details-${escapeHTML(o.id)}" class="hidden">
+      <td colspan="7"><div class="details" id="details-content-${escapeHTML(o.id)}"></div></td>
+    </tr>
+  `).join("") || '<tr><td colspan="7">No orders found.</td></tr>';
+}
+
+function statusOptions(current) {
+  const statuses = ["Pending","Processing","Shipped","Delivered","Cancelled"];
+  if(current && !statuses.includes(current)) statuses.unshift(current);
+
+  return statuses.map(s => `
+    <option value="${escapeHTML(s)}" ${s === current ? "selected" : ""}>
+      ${escapeHTML(s)}
+    </option>
+  `).join("");
+}
+
+$("ordersTable").addEventListener("click",async e => {
+  const viewButton = e.target.closest("[data-view-order]");
+  const saveButton = e.target.closest("[data-save-status]");
+
+  if(viewButton) {
+    await showOrderDetails(viewButton.dataset.viewOrder);
+  }
+
+  if(saveButton) {
+    await saveOrderStatus(saveButton.dataset.saveStatus);
+  }
+});
+
+async function showOrderDetails(orderId) {
+  const order = orders.find(o => o.id === orderId);
+  if(!order) return;
+
+  const row = $("details-" + orderId);
+  if(!row) return;
+
+  if(currentDetailsOrder === orderId && !row.classList.contains("hidden")) {
+    row.classList.add("hidden");
+    currentDetailsOrder = null;
+    return;
+  }
+
+  row.classList.remove("hidden");
+  currentDetailsOrder = orderId;
+
+  const target = $("details-content-" + orderId);
+  target.textContent = "Loading order items...";
+
+  try {
+    const {data:items,error} = await db.from("order_items")
+      .select("product_name,sku,quantity,unit_price,line_total")
+      .eq("order_id",orderId);
+
+    if(error) throw error;
+
+    const itemRows = (items || []).map(item => `
+      <tr>
+        <td>${escapeHTML(item.product_name)}</td>
+        <td>${escapeHTML(item.sku || "—")}</td>
+        <td>${escapeHTML(item.quantity)}</td>
+        <td>${money(item.unit_price)}</td>
+        <td>${money(item.line_total)}</td>
+      </tr>
+    `).join("");
+
+    target.innerHTML = `
+      <h3>Order #${escapeHTML(order.order_number)}</h3>
+      <p><b>Customer:</b> ${escapeHTML(order.customer_name)}</p>
+      <p><b>Phone:</b> ${escapeHTML(order.phone)}</p>
+      <p><b>Email:</b> ${escapeHTML(order.email || "Not provided")}</p>
+      <p><b>City:</b> ${escapeHTML(order.city)}</p>
+      <p><b>Address:</b> ${escapeHTML(order.address)}</p>
+      <p><b>Payment:</b> ${escapeHTML(order.payment_method)}</p>
+      <p><b>Order date:</b> ${escapeHTML(formatDate(order.created_at))}</p>
+      <p><b>Notes:</b> ${escapeHTML(order.notes || "None")}</p>
+
+      <h4>Purchased Products</h4>
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Product</th><th>SKU</th><th>Qty</th><th>Unit Price</th><th>Total</th></tr>
+        </thead>
+        <tbody>${itemRows || '<tr><td colspan="5">No items found.</td></tr>'}</tbody>
+      </table>
+      </div>
+
+      <p><b>Subtotal:</b> ${money(order.subtotal)}</p>
+      <p><b>Shipping:</b> ${money(order.shipping_fee)}</p>
+      <p><b>COD Fee:</b> ${money(order.cod_fee)}</p>
+      <p><b>Grand Total:</b> <strong>${money(order.total)}</strong></p>
+    `;
+
+  } catch(error) {
+    target.textContent = "Could not load order details: " + error.message;
+  }
+}
+
+async function saveOrderStatus(orderId) {
+  const select = document.querySelector(`[data-status="${orderId}"]`);
+  if(!select) return;
+
+  const newStatus = select.value;
+
+  try {
+    const {error} = await db.from("orders")
+      .update({status:newStatus})
+      .eq("id",orderId);
+
+    if(error) throw error;
+
+    await loadAll();
+    notify("Order status updated successfully.");
+
+  } catch(error) {
+    notify("Could not update order status: " + error.message,true);
+  }
+}
+
+/* NAVIGATION */
+
+document.querySelectorAll("[data-tab]").forEach(button => {
+  button.addEventListener("click",() => {
+    document.querySelectorAll("[data-tab]").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".tab-content").forEach(s => s.classList.add("hidden"));
+
+    button.classList.add("active");
+    $(button.dataset.tab).classList.remove("hidden");
+    $("message").classList.add("hidden");
+  });
+});
+
+/* LOGIN */
+
+$("loginForm").addEventListener("submit",async e => {
+  e.preventDefault();
+
+  const button = $("loginBtn");
+  button.disabled = true;
+  button.textContent = "Checking...";
+  $("loginMessage").textContent = "";
+
+  try {
+    const {error} = await db.auth.signInWithPassword({
+      email:$("email").value.trim(),
+      password:$("password").value
+    });
+
+    if(error) throw error;
+
+    await verifyAdmin();
+
+  } catch(error) {
+    $("loginMessage").textContent = error.message;
+  } finally {
+    button.disabled = false;
+    button.textContent = "Login";
+  }
+});
+
+$("logoutBtn").addEventListener("click",async () => {
   await db.auth.signOut();
-  showLogin();
-  message.textContent = "You have logged out.";
+  showLogin("You have logged out.");
 });
 
 verifyAdmin();
 </script>
-
 </body>
 </html>
