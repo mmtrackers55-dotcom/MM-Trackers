@@ -198,7 +198,7 @@ alert("Checkout button is working");
                 }))
 
             };
-
+alert("Sending order to Supabase now...");
             const response = await fetch(
                 SUPABASE_URL + "/rest/v1/rpc/place_order",
                 {
