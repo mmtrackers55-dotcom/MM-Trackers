@@ -364,20 +364,26 @@ PK89MEZN0007010102734800`;
                     window.location.href = whatsappURL;
                 }
 
-            } catch (error) {
+           
+} catch (error) {
 
-                console.error("Order Error:", error);
+    console.error("Order Error:", error);
 
-                if (whatsappWindow && !whatsappWindow.closed) {
-                    whatsappWindow.close();
-                }
+    const errorMessage =
+        "ORDER FAILED\n\n" + error.message;
 
-                alert(
-                    "Your order could not be saved.\n\n" +
-                    error.message +
-                    "\n\nPlease try again or contact MM Trackers."
-                );
+    if (whatsappWindow && !whatsappWindow.closed) {
+        whatsappWindow.document.body.innerHTML = "";
+        whatsappWindow.document.body.style.cssText =
+            "font-family:Arial;padding:25px;color:#b00020;font-size:18px;";
+        whatsappWindow.document.body.innerText = errorMessage;
+    }
 
+    alert(errorMessage);
+
+    placeOrderBtn.disabled = false;
+    placeOrderBtn.innerHTML = "Place Order on WhatsApp";
+}
                 placeOrderBtn.disabled = false;
                 placeOrderBtn.innerHTML = "Place Order on WhatsApp";
             }
