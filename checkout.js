@@ -216,6 +216,21 @@ alert("Checkout button is working");
 
             const responseData = await response.json();
 
+const responseData = await response.json();
+
+console.log("Supabase response:", response.status, responseData);
+alert(JSON.stringify(responseData));
+
+if (!response.ok) {
+
+    throw new Error(
+        responseData.message ||
+        responseData.details ||
+        responseData.hint ||
+        "Supabase could not save the order."
+    );
+}
+
             if (!response.ok) {
 
                 throw new Error(
