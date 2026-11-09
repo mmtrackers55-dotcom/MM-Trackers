@@ -1,0 +1,620 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Compare GPS Trackers | MM Trackers Pakistan</title>
+<meta name="description" content="Compare all 13 SinoTrack GPS tracker models at MM Trackers Pakistan. Find the right tracker for your car, bike, fleet, family or valuable assets.">
+
+<link rel="stylesheet" href="ccc/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* COMPARISON PAGE */
+
+.compare-hero {
+    background: linear-gradient(120deg, #0b1f3a, #123d5b);
+    color: #fff;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.compare-hero h1 {
+    font-size: 32px;
+    margin: 0 0 12px;
+}
+
+.compare-hero p {
+    max-width: 750px;
+    margin: auto;
+    color: #e0eaf2;
+    font-size: 14px;
+}
+
+.compare-container {
+    max-width: 1250px;
+    margin: 40px auto;
+    padding: 0 18px;
+}
+
+.compare-heading {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.compare-heading h2 {
+    color: #0b1f3a;
+    font-size: 25px;
+}
+
+.compare-heading p {
+    color: #666;
+    font-size: 13px;
+}
+
+.common-features {
+    background: #f1faf5;
+    border-left: 5px solid #00a651;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.common-features h3 {
+    color: #0b1f3a;
+    margin: 0 0 12px;
+}
+
+.common-features ul {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.common-features li {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.table-scroll {
+    overflow-x: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.compare-table {
+    width: 100%;
+    min-width: 1050px;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.compare-table th {
+    background: #0b1f3a;
+    color: white;
+    padding: 15px 12px;
+    text-align: left;
+}
+
+.compare-table td {
+    padding: 13px 12px;
+    border-bottom: 1px solid #e5e5e5;
+    vertical-align: top;
+}
+
+.compare-table tbody tr:nth-child(even) {
+    background: #f7f9fb;
+}
+
+.compare-table tbody tr:hover {
+    background: #eef8f2;
+}
+
+.compare-table td:first-child {
+    font-weight: 700;
+    color: #0b1f3a;
+    white-space: nowrap;
+}
+
+.compare-table a {
+    color: #00a651;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.compare-table a:hover {
+    text-decoration: underline;
+}
+
+.tag {
+    display: inline-block;
+    background: #e4f7ec;
+    color: #078344;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-size: 10px;
+    margin-top: 4px;
+}
+
+.mobile-models {
+    display: none;
+}
+
+.model-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 14px;
+    background: white;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+}
+
+.model-card h3 {
+    color: #0b1f3a;
+    margin: 0 0 5px;
+    font-size: 18px;
+}
+
+.model-card h3 a {
+    color: #00a651;
+    text-decoration: none;
+}
+
+.model-card .model-type {
+    color: #00a651;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.model-card p {
+    font-size: 12px;
+    margin: 7px 0;
+    line-height: 1.6;
+}
+
+.model-card strong {
+    color: #0b1f3a;
+}
+
+.view-link {
+    display: inline-block;
+    color: #00a651;
+    font-weight: 600;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.compare-note {
+    background: #f4f6f9;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 12px;
+    color: #555;
+    margin-top: 25px;
+}
+
+.compare-cta {
+    text-align: center;
+    background: #f3f6f9;
+    border-radius: 12px;
+    padding: 30px 15px;
+    margin: 35px 0;
+}
+
+.compare-cta h2 {
+    color: #0b1f3a;
+    margin-top: 0;
+}
+
+.compare-cta p {
+    font-size: 13px;
+    color: #666;
+}
+
+.compare-cta a {
+    display: inline-block;
+    background: #00a651;
+    color: white;
+    padding: 11px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width: 768px) {
+    .compare-hero {
+        padding: 38px 15px;
+    }
+
+    .compare-hero h1 {
+        font-size: 25px;
+    }
+
+    .compare-container {
+        margin: 25px auto;
+        padding: 0 12px;
+    }
+
+    .compare-heading h2 {
+        font-size: 21px;
+    }
+
+    .common-features ul {
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+    }
+
+    .table-scroll {
+        display: none;
+    }
+
+    .mobile-models {
+        display: block;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="navbar">
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/mmlog.png" alt="MM Trackers">
+            </a>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="compare.html">Compare Trackers</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+
+            <a href="cart.html" class="cart-icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count">0</span>
+            </a>
+        </nav>
+
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="compare-hero">
+    <h1>Compare SinoTrack GPS Trackers</h1>
+    <p>
+        Find the right GPS tracker for your vehicle, motorcycle,
+        fleet, family members or valuable assets.
+        Compare features, installation types and battery backup.
+    </p>
+</section>
+
+<main class="compare-container">
+
+    <div class="compare-heading">
+        <h2>All 13 Models Compared</h2>
+        <p>Choose the tracker that best matches your requirements.</p>
+    </div>
+
+    <!-- COMMON FEATURES -->
+    <section class="common-features">
+
+        <h3>Common Tracking Features in All Models</h3>
+
+        <ul>
+            <li>Live Location Tracking</li>
+            <li>Route History / Playback</li>
+            <li>Overspeed Alerts</li>
+            <li>Geo-fence Alerts</li>
+            <li>Shake Alarm</li>
+        </ul>
+
+    </section>
+
+    <!-- DESKTOP COMPARISON TABLE -->
+    <div class="table-scroll">
+
+        <table class="compare-table">
+
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Tracker Type</th>
+                    <th>Installation</th>
+                    <th>Special Features / Difference</th>
+                    <th>Battery / Backup</th>
+                    <th>Water Resistance</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td><a href="901.html">ST-901</a></td>
+                    <td>Wired Vehicle Tracker</td>
+                    <td>Hardwired</td>
+                    <td>Same main tracking features as ST-901A; waterproof construction and longer backup.</td>
+                    <td>4–5 hours GPRS; up to 24 hours sleep</td>
+                    <td>IP67</td>
+                </tr>
+
+                <tr>
+                    <td><a href="901A.html">ST-901A</a></td>
+                    <td>Wired Vehicle Tracker</td>
+                    <td>Hardwired</td>
+                    <td>Same main tracking features as ST-901; different waterproof rating and backup time.</td>
+                    <td>30 minutes GPRS; 7–8 hours sleep</td>
+                    <td>IP65</td>
+                </tr>
+
+                <tr>
+                    <td><a href="901L.html">ST-901L</a></td>
+                    <td>4G Wired Tracker</td>
+                    <td>Hardwired</td>
+                    <td>4G connectivity and 5-second refresh.</td>
+                    <td>4–5 hours GPRS; up to 24 hours sleep</td>
+                    <td>IP67</td>
+                </tr>
+
+                <tr>
+                    <td><a href="902.html">ST-902</a></td>
+                    <td>OBD GPS Tracker</td>
+                    <td>Plug into OBD-II port</td>
+                    <td>Plug-and-play installation for compatible vehicles.</td>
+                    <td>30 minutes GPRS; 7–8 hours sleep</td>
+                    <td>IP65</td>
+                </tr>
+
+                <tr>
+                    <td><a href="903.html">ST-903</a></td>
+                    <td>Portable Personal Tracker</td>
+                    <td>Portable; no vehicle wiring</td>
+                    <td>No ON/OFF button. Automatically turns on when SIM is inserted.</td>
+                    <td>See product specifications</td>
+                    <td>Waterproof design</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <a href="903A.html">ST-903A</a><br>
+                        <span class="tag">Latest Version</span>
+                    </td>
+                    <td>Portable Personal Tracker</td>
+                    <td>Portable; no vehicle wiring</td>
+                    <td>Slimmer design with a manual ON/OFF button. Latest version of ST-903.</td>
+                    <td>See product specifications</td>
+                    <td>Waterproof design</td>
+                </tr>
+
+                <tr>
+                    <td><a href="904.html">ST-904</a></td>
+                    <td>Mini Portable Tracker</td>
+                    <td>Portable</td>
+                    <td>Two-way communication and SOS button.</td>
+                    <td>Work: 1 day<br>Move: 2–3 days<br>Standby: up to 7 days</td>
+                    <td>See product specifications</td>
+                </tr>
+
+                <tr>
+                    <td>ST-905</td>
+                    <td>Magnetic 4G Tracker</td>
+                    <td>Built-in magnet; no wiring</td>
+                    <td>4G LTE, 5-second updates, GPS + LBS, shock/vibration and low-battery alerts.</td>
+                    <td>5,000mAh standard; optional 10,000mAh</td>
+                    <td>Waterproof and dustproof</td>
+                </tr>
+
+                <tr>
+                    <td>ST-905L</td>
+                    <td>Magnetic GPS Tracker</td>
+                    <td>Portable magnetic installation</td>
+                    <td>Long battery backup for extended tracking.</td>
+                    <td>
+                        5,000mAh<br>
+                        Work: 5 days<br>
+                        Move: 10–15 days<br>
+                        Standby: 25–30 days
+                    </td>
+                    <td>See model specifications</td>
+                </tr>
+
+                <tr>
+                    <td><a href="906.html">ST-906</a></td>
+                    <td>Wired Vehicle Tracker</td>
+                    <td>Hardwired</td>
+                    <td>Voice monitoring and vehicle tracking features.</td>
+                    <td>See product specifications</td>
+                    <td>See product specifications</td>
+                </tr>
+
+                <tr>
+                    <td><a href="906L.html">ST-906L</a></td>
+                    <td>4G Vehicle Tracker</td>
+                    <td>Hardwired</td>
+                    <td>4G, 5-second refresh, voice monitoring and fuel/mileage monitoring.</td>
+                    <td>See product specifications</td>
+                    <td>See product specifications</td>
+                </tr>
+
+                <tr>
+                    <td><a href="907.html">ST-907</a></td>
+                    <td>Relay GPS Tracker</td>
+                    <td>Wired relay installation</td>
+                    <td>Remote engine cut-off through built-in relay.</td>
+                    <td>See product specifications</td>
+                    <td>See product specifications</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        ST-915L<br>
+                        <span class="tag">10,000mAh</span>
+                    </td>
+                    <td>Magnetic GPS Tracker</td>
+                    <td>Portable magnetic installation</td>
+                    <td>Longer battery capacity and backup than ST-905L.</td>
+                    <td>
+                        10,000mAh<br>
+                        Work: 10 days<br>
+                        Move: 20–30 days<br>
+                        Standby: 50–60 days
+                    </td>
+                    <td>See model specifications</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+    <!-- MOBILE MODEL CARDS -->
+    <section class="mobile-models">
+
+        <article class="model-card">
+            <h3><a href="901.html">ST-901</a></h3>
+            <div class="model-type">Wired Vehicle Tracker</div>
+            <p><strong>Difference:</strong> Same main features as ST-901A, but waterproof IP67 and longer backup.</p>
+            <p><strong>Backup:</strong> 4–5 hours GPRS; up to 24 hours sleep.</p>
+            <p><strong>Installation:</strong> Hardwired.</p>
+            <a class="view-link" href="901.html">View Product →</a>
+        </article>
+
+        <article class="model-card">
+            <h3><a href="901A.html">ST-901A</a></h3>
+            <div class="model-type">Wired Vehicle Tracker</div>
+            <p><strong>Difference:</strong> Same main features as ST-901, but IP65 waterproof rating and shorter backup.</p>
+            <p><strong>Backup:</strong> 30 minutes GPRS; 7–8 hours sleep.</p>
+            <p><strong>Installation:</strong> Hardwired.</p>
+            <a class="view-link" href="901A.html">View Product →</a>
+        </article>
+
+        <article class="model-card">
+            <h3><a href="901L.html">ST-901L</a></h3>
+            <div class="model-type">4G Wired Tracker</div>
+            <p><strong>Features:</strong> 4G connectivity and 5-second refresh.</p>
+            <p><strong>Backup:</strong> 4–5 hours GPRS; up to 24 hours sleep.</p>
+            <p><strong>Installation:</strong> Hardwired.</p>
+            <a class="view-link" href="901L.html">View Product →</a>
+        </article>
+
+        <article class="model-card">
+            <h3><a href="902.html">ST-902</a></h3>
+            <div class="model-type">OBD GPS Tracker</div>
+            <p><strong>Features:</strong> Plug-and-play installation through a compatible vehicle's OBD-II port.</p>
+            <p><strong>Backup:</strong> 30 minutes GPRS; 7–8 hours sleep.</p>
+            <a class="view-link" href="902.html">View Product →</a>
+        </article>
+
+        <article class="model-card">
+            <h3><a href="903.html">ST-903</a></h3>
+            <div class="model-type">Portable Personal Tracker</div>
+            <p><strong>Power:</strong> No ON/OFF button. Automatically turns on when SIM is inserted.</p>
+            <p><strong>Installation:</strong> Portable; no vehicle wiring.</p>
+            <a class="view-link" href="903.html">View Product →</a>
+        </article>
+
+        <article class="model-card">
+            <h3><a href="903A.html">ST-903A</a></h3>
+            <div class="model-type">Latest Version · Slimmer Design</div>
+            <p><strong>Power:</strong> Manual ON/OFF button.</p>
+            <p><strong>Difference:</strong> Slimmer and more compact than ST-903.</p>
+            <a class="view-link" href="903A.html">View Product →</a>
+        </article>
+
+        <article class="model-card">
+            <h3><a href="904.html">ST-904</a></h3>
+            <div class="model-type">Mini Portable Tracker</div>
+            <p><strong>Features:</strong> Two-way communication and SOS button.</p>
+            <p><strong>Battery:</strong> 1 day work; 2–3 days move; up to 7 days standby.</p>
+            <a class="view-link" href="904.html">View Product →</a>
+        </article>
+
+        <article class="model-card">
+            <h3>ST-905</h3>
+            <div class="model-type">Magnetic 4G Tracker</div>
+            <p><strong>Features:</strong> 4G LTE, 5-second updates, GPS + LBS, magnetic installation and alerts.</p>
+            <p><strong>Battery:</strong> 5,000mAh standard; optional 10,000mAh.</p>
+        </article>
+
+        <article class="model-card">
+            <h3>ST-905L</h3>
+            <div class="model-type">Magnetic GPS Tracker</div>
+            <p><strong>Battery:</strong> 5,000mAh.</p>
+            <p><strong>Work mode:</strong> 5 days.</p>
+            <p><strong>Move mode:</strong> 10–15 days.</p>
+            <p><strong>Standby:</strong> 25–30 days.</p>
+        </article>
+
+        <article class="model-card">
+            <h3><a href="906.html">ST-906</a></h3>
+            <div class="model-type">Wired Vehicle Tracker</div>
+            <p><strong>Special feature:</strong> Voice monitoring.</p>
+            <a class="view-link" href="906.html">View Product →</a>
+        </article>
+
+        <article class="model-card">
+            <h3><a href="906L.html">ST-906L</a></h3>
+            <div class="model-type">4G Vehicle Tracker</div>
+            <p><strong>Features:</strong> 4G, 5-second refresh, voice monitoring and fuel/mileage monitoring.</p>
+            <a class="view-link" href="906L.html">View Product →</a>
+        </article>
+
+        <article class="model-card">
+            <h3><a href="907.html">ST-907</a></h3>
+            <div class="model-type">Relay GPS Tracker</div>
+            <p><strong>Special feature:</strong> Remote engine cut-off through built-in relay.</p>
+            <a class="view-link" href="907.html">View Product →</a>
+        </article>
+
+        <article class="model-card">
+            <h3>ST-915L</h3>
+            <div class="model-type">Magnetic GPS Tracker · 10,000mAh</div>
+            <p><strong>Work mode:</strong> 10 days.</p>
+            <p><strong>Move mode:</strong> 20–30 days.</p>
+            <p><strong>Standby:</strong> 50–60 days.</p>
+        </article>
+
+    </section>
+
+    <div class="compare-note">
+        <strong>Note:</strong> Battery backup depends on tracking frequency,
+        network coverage, signal strength and device settings.
+        Actual backup may vary. Common tracking features are listed
+        separately above to avoid repeating them for every model.
+    </div>
+
+    <!-- WHATSAPP CONTACT -->
+    <section class="compare-cta">
+        <h2>Not Sure Which Tracker to Choose?</h2>
+        <p>Contact MM Trackers for guidance on selecting the right SinoTrack GPS tracker.</p>
+
+        <a href="https://wa.me/923159615557" target="_blank" rel="noopener">
+            Ask on WhatsApp
+        </a>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <p>© MM Trackers | Authorized SinoTrack GPS Tracker Dealer in Pakistan</p>
+    <p>
+        <a href="products.html">All Products</a> |
+        <a href="contact.html">Contact Us</a>
+    </p>
+</footer>
+
+</body>
+</html>
